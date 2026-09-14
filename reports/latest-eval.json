@@ -1,0 +1,260 @@
+{
+  "generated_at": "2026-09-14T17:08:24.062036+00:00",
+  "configuration": {
+    "strategy": "fixed-v1",
+    "fixture": "synthetic-fixtures-v1",
+    "tool_budget": 20
+  },
+  "summary": {
+    "dev": {
+      "passed": 16,
+      "total": 16
+    },
+    "holdout": {
+      "passed": 8,
+      "total": 8
+    }
+  },
+  "results": [
+    {
+      "id": "dev-01",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 13
+    },
+    {
+      "id": "dev-02",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 13
+    },
+    {
+      "id": "dev-03",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 13
+    },
+    {
+      "id": "dev-04",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 12
+    },
+    {
+      "id": "dev-05",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 13
+    },
+    {
+      "id": "dev-06",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 12
+    },
+    {
+      "id": "dev-07",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 1,
+      "tool_calls": 13
+    },
+    {
+      "id": "dev-08",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 2,
+      "tool_calls": 13
+    },
+    {
+      "id": "dev-09",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 2,
+      "tool_calls": 10
+    },
+    {
+      "id": "dev-10",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 2,
+      "tool_calls": 18
+    },
+    {
+      "id": "dev-11",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 13
+    },
+    {
+      "id": "dev-12",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 12
+    },
+    {
+      "id": "dev-13",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 13
+    },
+    {
+      "id": "dev-17",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "conditional",
+      "stops": 3,
+      "tool_calls": 11
+    },
+    {
+      "id": "dev-18",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 12
+    },
+    {
+      "id": "dev-19",
+      "split": "dev",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 12
+    },
+    {
+      "id": "holdout-01",
+      "split": "holdout",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 12
+    },
+    {
+      "id": "holdout-02",
+      "split": "holdout",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 2,
+      "tool_calls": 10
+    },
+    {
+      "id": "holdout-03",
+      "split": "holdout",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 1,
+      "tool_calls": 7
+    },
+    {
+      "id": "holdout-04",
+      "split": "holdout",
+      "passed": true,
+      "errors": [],
+      "run_status": "search_exhausted",
+      "itinerary_status": null,
+      "stops": 0,
+      "tool_calls": 15
+    },
+    {
+      "id": "holdout-05",
+      "split": "holdout",
+      "passed": true,
+      "errors": [],
+      "run_status": "search_exhausted",
+      "itinerary_status": null,
+      "stops": 0,
+      "tool_calls": 9
+    },
+    {
+      "id": "holdout-06",
+      "split": "holdout",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 2,
+      "tool_calls": 8
+    },
+    {
+      "id": "holdout-09",
+      "split": "holdout",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 2,
+      "tool_calls": 8
+    },
+    {
+      "id": "holdout-10",
+      "split": "holdout",
+      "passed": true,
+      "errors": [],
+      "run_status": "completed",
+      "itinerary_status": "verified",
+      "stops": 3,
+      "tool_calls": 12
+    }
+  ]
+}

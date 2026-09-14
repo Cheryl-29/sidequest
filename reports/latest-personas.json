@@ -1,0 +1,6665 @@
+{
+  "generated_at": "2026-09-14T16:26:14.599025+00:00",
+  "kind": "开发运行（非冻结实验）",
+  "model": "RuleModel（确定性规则，不是 LLM）",
+  "repeat": 1,
+  "groups": [
+    "fixed",
+    "no_memory",
+    "last_feedback",
+    "flat_profile",
+    "typed_no_context",
+    "typed_context"
+  ],
+  "places_index_sha256": "0ad05cacbe05a21340343f9461b849fceb1aa7070482811d6ad28794b141a0d3",
+  "active_dimensions": [
+    "D1",
+    "D2"
+  ],
+  "max_rounds": 5,
+  "personas": [
+    "p01-d1-outdoor",
+    "p02-d2-near",
+    "p04-d1-outdoor-x-d2-near",
+    "p06-gallery-not-museum",
+    "p07-lunch-sit-weekend-walk",
+    "p10-drift-to-outdoor",
+    "p11-accepts-every-proposal"
+  ],
+  "blocked": {},
+  "excluded_holdout": [
+    "p03-d2-far",
+    "p05-d1-x-d2",
+    "p08-lunch-only-walk",
+    "p09-says-walk-wants-sit",
+    "p12-nothing-fits"
+  ],
+  "summary": {
+    "fixed": {
+      "accept@1": {
+        "n": 25,
+        "d": 44,
+        "rate": 0.568
+      },
+      "accept@3": {
+        "n": 29,
+        "d": 44,
+        "rate": 0.659
+      },
+      "accept@5": {
+        "n": 29,
+        "d": 44,
+        "rate": 0.659
+      },
+      "mean_rounds_when_accepted": 1.21,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "1": {
+          "n": 4,
+          "d": 7,
+          "rate": 0.571
+        },
+        "2": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "3": {
+          "n": 4,
+          "d": 7,
+          "rate": 0.571
+        },
+        "4": {
+          "n": 3,
+          "d": 7,
+          "rate": 0.429
+        },
+        "5": {
+          "n": 4,
+          "d": 7,
+          "rate": 0.571
+        },
+        "6": {
+          "n": 0,
+          "d": 1,
+          "rate": 0.0
+        },
+        "7": {
+          "n": 0,
+          "d": 1,
+          "rate": 0.0
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 16,
+        "d": 30,
+        "rate": 0.533
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 0,
+        "d": 44,
+        "rate": 0.0
+      },
+      "proposal_precision": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "memory_recall": {
+        "n": 0,
+        "d": 11,
+        "rate": 0.0
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    "no_memory": {
+      "accept@1": {
+        "n": 23,
+        "d": 44,
+        "rate": 0.523
+      },
+      "accept@3": {
+        "n": 44,
+        "d": 44,
+        "rate": 1.0
+      },
+      "accept@5": {
+        "n": 44,
+        "d": 44,
+        "rate": 1.0
+      },
+      "mean_rounds_when_accepted": 1.48,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "1": {
+          "n": 2,
+          "d": 7,
+          "rate": 0.286
+        },
+        "2": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "3": {
+          "n": 3,
+          "d": 7,
+          "rate": 0.429
+        },
+        "4": {
+          "n": 4,
+          "d": 7,
+          "rate": 0.571
+        },
+        "5": {
+          "n": 3,
+          "d": 7,
+          "rate": 0.429
+        },
+        "6": {
+          "n": 0,
+          "d": 1,
+          "rate": 0.0
+        },
+        "7": {
+          "n": 1,
+          "d": 1,
+          "rate": 1.0
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 16,
+        "d": 30,
+        "rate": 0.533
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 0,
+        "d": 44,
+        "rate": 0.0
+      },
+      "proposal_precision": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "memory_recall": {
+        "n": 0,
+        "d": 11,
+        "rate": 0.0
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 226,
+      "tokens": 0
+    },
+    "last_feedback": {
+      "accept@1": {
+        "n": 23,
+        "d": 44,
+        "rate": 0.523
+      },
+      "accept@3": {
+        "n": 44,
+        "d": 44,
+        "rate": 1.0
+      },
+      "accept@5": {
+        "n": 44,
+        "d": 44,
+        "rate": 1.0
+      },
+      "mean_rounds_when_accepted": 1.48,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "1": {
+          "n": 2,
+          "d": 7,
+          "rate": 0.286
+        },
+        "2": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "3": {
+          "n": 3,
+          "d": 7,
+          "rate": 0.429
+        },
+        "4": {
+          "n": 4,
+          "d": 7,
+          "rate": 0.571
+        },
+        "5": {
+          "n": 3,
+          "d": 7,
+          "rate": 0.429
+        },
+        "6": {
+          "n": 0,
+          "d": 1,
+          "rate": 0.0
+        },
+        "7": {
+          "n": 1,
+          "d": 1,
+          "rate": 1.0
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 16,
+        "d": 30,
+        "rate": 0.533
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 0,
+        "d": 44,
+        "rate": 0.0
+      },
+      "proposal_precision": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "memory_recall": {
+        "n": 0,
+        "d": 11,
+        "rate": 0.0
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 226,
+      "tokens": 0
+    },
+    "flat_profile": {
+      "accept@1": {
+        "n": 26,
+        "d": 44,
+        "rate": 0.591
+      },
+      "accept@3": {
+        "n": 44,
+        "d": 44,
+        "rate": 1.0
+      },
+      "accept@5": {
+        "n": 44,
+        "d": 44,
+        "rate": 1.0
+      },
+      "mean_rounds_when_accepted": 1.41,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "1": {
+          "n": 2,
+          "d": 7,
+          "rate": 0.286
+        },
+        "2": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "3": {
+          "n": 3,
+          "d": 7,
+          "rate": 0.429
+        },
+        "4": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "5": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "6": {
+          "n": 0,
+          "d": 1,
+          "rate": 0.0
+        },
+        "7": {
+          "n": 1,
+          "d": 1,
+          "rate": 1.0
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 19,
+        "d": 30,
+        "rate": 0.633
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 9,
+        "d": 44,
+        "rate": 0.205
+      },
+      "proposal_precision": {
+        "n": 5,
+        "d": 8,
+        "rate": 0.625
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 1,
+        "rate": 0.0
+      },
+      "memory_recall": {
+        "n": 5,
+        "d": 11,
+        "rate": 0.455
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 219,
+      "tokens": 0
+    },
+    "typed_no_context": {
+      "accept@1": {
+        "n": 26,
+        "d": 44,
+        "rate": 0.591
+      },
+      "accept@3": {
+        "n": 44,
+        "d": 44,
+        "rate": 1.0
+      },
+      "accept@5": {
+        "n": 44,
+        "d": 44,
+        "rate": 1.0
+      },
+      "mean_rounds_when_accepted": 1.41,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "1": {
+          "n": 2,
+          "d": 7,
+          "rate": 0.286
+        },
+        "2": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "3": {
+          "n": 3,
+          "d": 7,
+          "rate": 0.429
+        },
+        "4": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "5": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "6": {
+          "n": 0,
+          "d": 1,
+          "rate": 0.0
+        },
+        "7": {
+          "n": 1,
+          "d": 1,
+          "rate": 1.0
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 19,
+        "d": 30,
+        "rate": 0.633
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 9,
+        "d": 44,
+        "rate": 0.205
+      },
+      "proposal_precision": {
+        "n": 5,
+        "d": 8,
+        "rate": 0.625
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 1,
+        "rate": 0.0
+      },
+      "memory_recall": {
+        "n": 5,
+        "d": 11,
+        "rate": 0.455
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 219,
+      "tokens": 0
+    },
+    "typed_context": {
+      "accept@1": {
+        "n": 28,
+        "d": 44,
+        "rate": 0.636
+      },
+      "accept@3": {
+        "n": 44,
+        "d": 44,
+        "rate": 1.0
+      },
+      "accept@5": {
+        "n": 44,
+        "d": 44,
+        "rate": 1.0
+      },
+      "mean_rounds_when_accepted": 1.36,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "1": {
+          "n": 2,
+          "d": 7,
+          "rate": 0.286
+        },
+        "2": {
+          "n": 5,
+          "d": 7,
+          "rate": 0.714
+        },
+        "3": {
+          "n": 3,
+          "d": 7,
+          "rate": 0.429
+        },
+        "4": {
+          "n": 6,
+          "d": 7,
+          "rate": 0.857
+        },
+        "5": {
+          "n": 6,
+          "d": 7,
+          "rate": 0.857
+        },
+        "6": {
+          "n": 0,
+          "d": 1,
+          "rate": 0.0
+        },
+        "7": {
+          "n": 1,
+          "d": 1,
+          "rate": 1.0
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 21,
+        "d": 30,
+        "rate": 0.7
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 2,
+        "rate": 0.0
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 8,
+        "d": 44,
+        "rate": 0.182
+      },
+      "proposal_precision": {
+        "n": 6,
+        "d": 6,
+        "rate": 1.0
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 1,
+        "rate": 0.0
+      },
+      "memory_recall": {
+        "n": 6,
+        "d": 11,
+        "rate": 0.545
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 214,
+      "tokens": 0
+    }
+  },
+  "runs": [
+    {
+      "persona": "p01-d1-outdoor",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe 70",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Surry Hills Library",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe 70",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Surry Hills Library",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p01-d1-outdoor",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Olsen",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 31,
+      "tokens": 0
+    },
+    {
+      "persona": "p01-d1-outdoor",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Olsen",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 31,
+      "tokens": 0
+    },
+    {
+      "persona": "p01-d1-outdoor",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "46206e3ac71147edbe2581d8889a546a"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "46206e3ac71147edbe2581d8889a546a"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "46206e3ac71147edbe2581d8889a546a"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 28,
+      "tokens": 0
+    },
+    {
+      "persona": "p01-d1-outdoor",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "ca2c4b389f244650800be8a7fb4e18ff"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "ca2c4b389f244650800be8a7fb4e18ff"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "ca2c4b389f244650800be8a7fb4e18ff"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 28,
+      "tokens": 0
+    },
+    {
+      "persona": "p01-d1-outdoor",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "337851a553324d088e189dfd1bd6a8dc"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "337851a553324d088e189dfd1bd6a8dc"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "337851a553324d088e189dfd1bd6a8dc"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 28,
+      "tokens": 0
+    },
+    {
+      "persona": "p02-d2-near",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p02-d2-near",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": "too_far",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Michael Reid",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 27,
+      "tokens": 0
+    },
+    {
+      "persona": "p02-d2-near",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": "too_far",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Michael Reid",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 27,
+      "tokens": 0
+    },
+    {
+      "persona": "p02-d2-near",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": "too_far",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Michael Reid",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "5fcc488f0dde46e49bcb2fe1d12fd0ad"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "5fcc488f0dde46e49bcb2fe1d12fd0ad"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 27,
+      "tokens": 0
+    },
+    {
+      "persona": "p02-d2-near",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": "too_far",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Michael Reid",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "32283d7a086944e18487e4166e136679"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "32283d7a086944e18487e4166e136679"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 27,
+      "tokens": 0
+    },
+    {
+      "persona": "p02-d2-near",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": "too_far",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Michael Reid",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 27,
+      "tokens": 0
+    },
+    {
+      "persona": "p04-d1-outdoor-x-d2-near",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe 70",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Surry Hills Library",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe 70",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Surry Hills Library",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe 70",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Surry Hills Library",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p04-d1-outdoor-x-d2-near",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 0
+    },
+    {
+      "persona": "p04-d1-outdoor-x-d2-near",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 0
+    },
+    {
+      "persona": "p04-d1-outdoor-x-d2-near",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "cbcb17c1ed5b4197bf9730d317c49aac"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "cbcb17c1ed5b4197bf9730d317c49aac"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        }
+      ],
+      "active_items": 2,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 2,
+      "model_calls": 28,
+      "tokens": 0
+    },
+    {
+      "persona": "p04-d1-outdoor-x-d2-near",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "e1355e58e8f341cebb38ba8338e16b49"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "e1355e58e8f341cebb38ba8338e16b49"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        }
+      ],
+      "active_items": 2,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 2,
+      "model_calls": 28,
+      "tokens": 0
+    },
+    {
+      "persona": "p04-d1-outdoor-x-d2-near",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cahill Expressway Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "6e09dc635f774c879743334dbf3c421c"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 1,
+      "model_calls": 28,
+      "tokens": 0
+    },
+    {
+      "persona": "p06-gallery-not-museum",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 3,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p06-gallery-not-museum",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sketch co Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Bourke Street Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 3,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 0
+    },
+    {
+      "persona": "p06-gallery-not-museum",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sketch co Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Bourke Street Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 3,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 0
+    },
+    {
+      "persona": "p06-gallery-not-museum",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sketch co Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Bourke Street Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 3,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 0
+    },
+    {
+      "persona": "p06-gallery-not-museum",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sketch co Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Bourke Street Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 3,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 0
+    },
+    {
+      "persona": "p06-gallery-not-museum",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sketch co Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Bourke Street Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 3,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 0
+    },
+    {
+      "persona": "p07-lunch-sit-weekend-walk",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p07-lunch-sit-weekend-walk",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Passage",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Jubilee Park Community Kitchen Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "venla",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Forest Lodge Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 39,
+      "tokens": 0
+    },
+    {
+      "persona": "p07-lunch-sit-weekend-walk",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Passage",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Jubilee Park Community Kitchen Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "venla",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Forest Lodge Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 39,
+      "tokens": 0
+    },
+    {
+      "persona": "p07-lunch-sit-weekend-walk",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Passage",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Jubilee Park Community Kitchen Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "venla",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Forest Lodge Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 39,
+      "tokens": 0
+    },
+    {
+      "persona": "p07-lunch-sit-weekend-walk",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Passage",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Jubilee Park Community Kitchen Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "venla",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Forest Lodge Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 39,
+      "tokens": 0
+    },
+    {
+      "persona": "p07-lunch-sit-weekend-walk",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Passage",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Jubilee Park Community Kitchen Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Monument Lookout",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "9ac499a000364fd8a95ff5c2e67e160f"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Forest Lodge Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "f6a5ee0794154e9bbc92a5a835ac0b43"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 2,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 2,
+      "model_calls": 34,
+      "tokens": 0
+    },
+    {
+      "persona": "p10-drift-to-outdoor",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe 70",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Surry Hills Library",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe 70",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Surry Hills Library",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 6,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 7,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe 70",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Surry Hills Library",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p10-drift-to-outdoor",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 6,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Passage",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 7,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 38,
+      "tokens": 0
+    },
+    {
+      "persona": "p10-drift-to-outdoor",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 6,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Passage",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 7,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 38,
+      "tokens": 0
+    },
+    {
+      "persona": "p10-drift-to-outdoor",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 6,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Passage",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 7,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 38,
+      "tokens": 0
+    },
+    {
+      "persona": "p10-drift-to-outdoor",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 6,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Passage",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 7,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 38,
+      "tokens": 0
+    },
+    {
+      "persona": "p10-drift-to-outdoor",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 6,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Passage",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 7,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "De' Gosbaster",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 38,
+      "tokens": 0
+    },
+    {
+      "persona": "p11-accepts-every-proposal",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe The Bethel",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe The Bethel",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p11-accepts-every-proposal",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "venla",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Title",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 31,
+      "tokens": 0
+    },
+    {
+      "persona": "p11-accepts-every-proposal",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "venla",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Title",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Roslyn Oxley9 Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 31,
+      "tokens": 0
+    },
+    {
+      "persona": "p11-accepts-every-proposal",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "venla",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Title",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Humanist House",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "9f222e0517394675b5472e4ca8fabf4a"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sketch co Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "9f222e0517394675b5472e4ca8fabf4a"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 29,
+      "tokens": 0
+    },
+    {
+      "persona": "p11-accepts-every-proposal",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "venla",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Title",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Humanist House",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "f1dc4ae6f99f4c0a95b927748cd4a5f9"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sketch co Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "f1dc4ae6f99f4c0a95b927748cd4a5f9"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 29,
+      "tokens": 0
+    },
+    {
+      "persona": "p11-accepts-every-proposal",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Blackwattle Bay Lookout",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "venla",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Title",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "China Heights",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Humanist House",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "f6540cccc8114ba9993f6c4c1b2a33ee"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sketch co Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "f6540cccc8114ba9993f6c4c1b2a33ee"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 29,
+      "tokens": 0
+    }
+  ]
+}

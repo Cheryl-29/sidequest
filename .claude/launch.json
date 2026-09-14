@@ -1,0 +1,1 @@
+{"version":"0.0.1","configurations":[{"name":"sidequest","runtimeExecutable":"bash","runtimeArgs":["-c","PYTHONPATH=backend exec .venv/bin/uvicorn sidequest.api:app --port ${PORT:-8010}"],"port":8010,"autoPort":true}]}

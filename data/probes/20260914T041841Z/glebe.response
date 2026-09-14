@@ -1,0 +1,1218 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-14T04:18:19Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 2779050417,
+  "lat": -33.8879082,
+  "lon": 151.1763260,
+  "tags": {
+    "addr:postcode": "2050",
+    "addr:street": "Pidcock Street",
+    "addr:suburb": "Camperdown",
+    "fee": "no",
+    "name": "Chrissie Cotter Gallery",
+    "opening_hours": "Th-Su 11:00-16:00",
+    "operator": "Marrickville Council",
+    "phone": "+61 2 9335 2280",
+    "tourism": "gallery",
+    "website": "https://www.innerwest.nsw.gov.au/live/living-arts/creative-spaces/chrissie-cotter-gallery",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12597670802,
+  "lat": -33.8817508,
+  "lon": 151.1888905,
+  "tags": {
+    "addr:housenumber": "112",
+    "addr:street": "Glebe Point Road",
+    "check_date": "2025-02-18",
+    "name": "The Shop Gallery",
+    "opening_hours:signed": "no",
+    "phone": "+61 438 550 835",
+    "tourism": "gallery",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13545087566,
+  "lat": -33.8886947,
+  "lon": 151.1919009,
+  "tags": {
+    "check_date": "2026-02-12",
+    "name": "Tin Sheds Gallery",
+    "opening_hours": "Mo,Sa-Su off; Tu-Fr 10:00-16:00",
+    "tourism": "gallery",
+    "website": "https://sydney.edu.au/tin-sheds"
+  }
+},
+{
+  "type": "way",
+  "id": 16785291,
+  "center": {
+    "lat": -33.8781773,
+    "lon": 151.1921622
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Millard Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 46208180,
+  "center": {
+    "lat": -33.8901070,
+    "lon": 151.1936138
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 46379795,
+  "center": {
+    "lat": -33.8869023,
+    "lon": 151.1902503
+  },
+  "tags": {
+    "highway": "footway",
+    "landuse": "grass",
+    "leisure": "park",
+    "name": "Law Lawns"
+  }
+},
+{
+  "type": "way",
+  "id": 46380943,
+  "center": {
+    "lat": -33.8870187,
+    "lon": 151.1885242
+  },
+  "tags": {
+    "leisure": "park",
+    "source": "nearmap"
+  }
+},
+{
+  "type": "way",
+  "id": 50539525,
+  "center": {
+    "lat": -33.8796819,
+    "lon": 151.1826317
+  },
+  "tags": {
+    "addr:housenumber": "55A",
+    "addr:postcode": "2037",
+    "addr:street": "Hereford Street",
+    "addr:suburb": "Glebe",
+    "leisure": "park",
+    "name": "Arthur (Paddy) Gray Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 145267770,
+  "center": {
+    "lat": -33.8793594,
+    "lon": 151.1925533
+  },
+  "tags": {
+    "addr:housenumber": "22",
+    "addr:street": "Wentworth Street",
+    "leisure": "park",
+    "source": "Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 145267773,
+  "center": {
+    "lat": -33.8750064,
+    "lon": 151.1921196
+  },
+  "tags": {
+    "check_date": "2023-11-15",
+    "leisure": "park",
+    "source": "Bing",
+    "source:sport": "NSW LPI Imagery",
+    "source:sport:date": "2016-04"
+  }
+},
+{
+  "type": "way",
+  "id": 148331274,
+  "center": {
+    "lat": -33.8832639,
+    "lon": 151.1922528
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Minogue Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 164694996,
+  "center": {
+    "lat": -33.8803814,
+    "lon": 151.1866291
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Dr HJ Foley Rest Park",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194"
+  }
+},
+{
+  "type": "way",
+  "id": 164695182,
+  "center": {
+    "lat": -33.8811733,
+    "lon": 151.1812880
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Ross Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 169219244,
+  "center": {
+    "lat": -33.8889979,
+    "lon": 151.1913250
+  },
+  "tags": {
+    "addr:housename": "Verge Gallery",
+    "building": "public",
+    "building:levels": "1",
+    "check_date": "2026-02-12",
+    "fee": "no",
+    "name": "Verge Gallery",
+    "opening_hours": "Mo-We,Fr 10:00-17:00; Th 10:00-19:00; Sa \"by appointment\"; Su off",
+    "operator": "The University of Sydney",
+    "roof:shape": "skillion",
+    "source": "knowledge",
+    "tourism": "gallery",
+    "website": "https://www.verge-gallery.net/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 172734774,
+  "center": {
+    "lat": -33.8891631,
+    "lon": 151.1763729
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Camperdown Park",
+    "source:boundary": "LPI Base Map June 2018",
+    "website": "https://www.innerwest.nsw.gov.au/camperdown-parks/camperdown-park",
+    "wikidata": "Q21927961"
+  }
+},
+{
+  "type": "way",
+  "id": 173153410,
+  "center": {
+    "lat": -33.8725115,
+    "lon": 151.1844701
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Blackwattle Bay Park",
+    "operator": "City of Sydney Council",
+    "operator:type": "public",
+    "operator:wikidata": "Q56477532",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/blackwattle-bay-park"
+  }
+},
+{
+  "type": "way",
+  "id": 196960992,
+  "center": {
+    "lat": -33.8783372,
+    "lon": 151.1845733
+  },
+  "tags": {
+    "barrier": "fence",
+    "leisure": "park",
+    "name": "Kirsova 3 Playground",
+    "name:etymology": "Hélène Kirsova",
+    "name:etymology:wikidata": "Q4958915",
+    "name:etymology:wikipedia": "en:Hélène Kirsova",
+    "website": "https://www.cityofsydney.nsw.gov.au/playgrounds/kirsova-3-playground"
+  }
+},
+{
+  "type": "way",
+  "id": 196961072,
+  "center": {
+    "lat": -33.8777196,
+    "lon": 151.1874396
+  },
+  "tags": {
+    "check_date": "2025-02-09",
+    "leisure": "park",
+    "name": "Sarah Peninton Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 197726461,
+  "center": {
+    "lat": -33.8764503,
+    "lon": 151.1863080
+  },
+  "tags": {
+    "check_date": "2026-03-11",
+    "leisure": "park",
+    "name": "Ernest Pederson Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 197990967,
+  "center": {
+    "lat": -33.8801644,
+    "lon": 151.1758461
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Smith, Hogan & Spindler Parks",
+    "note": "3 parks from South->North: Smith (to old Tramway Bridge), Hogan (to Aqueduct), Spindler. Commonly they are bundled together or used interchangibly/incorrectly, even on official documents/maps. Best to use a single joint name for the area",
+    "source": "Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 205131028,
+  "center": {
+    "lat": -33.8879771,
+    "lon": 151.1889726
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Lawn",
+    "operator": "The University of Sydney"
+  }
+},
+{
+  "type": "way",
+  "id": 208642595,
+  "center": {
+    "lat": -33.8872809,
+    "lon": 151.1897809
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 208642642,
+  "center": {
+    "lat": -33.8873335,
+    "lon": 151.1896954
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 208642645,
+  "center": {
+    "lat": -33.8868222,
+    "lon": 151.1896752
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 208642653,
+  "center": {
+    "lat": -33.8869007,
+    "lon": 151.1896741
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 233704540,
+  "center": {
+    "lat": -33.8859085,
+    "lon": 151.1887853
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "The Quadrangle"
+  }
+},
+{
+  "type": "way",
+  "id": 269107853,
+  "center": {
+    "lat": -33.8837019,
+    "lon": 151.1868761
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 269107854,
+  "center": {
+    "lat": -33.8840749,
+    "lon": 151.1867585
+  },
+  "tags": {
+    "check_date": "2023-11-13",
+    "leisure": "park",
+    "name": "Seamer Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 273252070,
+  "center": {
+    "lat": -33.8800794,
+    "lon": 151.1844132
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "St James Park"
+  }
+},
+{
+  "type": "way",
+  "id": 273252073,
+  "center": {
+    "lat": -33.8804855,
+    "lon": 151.1837542
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "John Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 293693675,
+  "center": {
+    "lat": -33.8699455,
+    "lon": 151.1904242
+  },
+  "tags": {
+    "leisure": "park",
+    "source": "survey",
+    "source:location": "extrapolation"
+  }
+},
+{
+  "type": "way",
+  "id": 294801699,
+  "center": {
+    "lat": -33.8714670,
+    "lon": 151.1934835
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Paradise Reserve",
+    "source": "survey",
+    "source:location": "AGRI"
+  }
+},
+{
+  "type": "way",
+  "id": 299943556,
+  "center": {
+    "lat": -33.8836766,
+    "lon": 151.1881634
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 398327628,
+  "center": {
+    "lat": -33.8773736,
+    "lon": 151.1894379
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Cardigan and Darghan Street Reserve",
+    "source": "survey"
+  }
+},
+{
+  "type": "way",
+  "id": 460473789,
+  "center": {
+    "lat": -33.8849472,
+    "lon": 151.1817900
+  },
+  "tags": {
+    "addr:housenumber": "181",
+    "addr:postcode": "2037",
+    "addr:state": "NSW",
+    "addr:street": "Arundel Street",
+    "addr:suburb": "Forest Lodge",
+    "dog": "leashed",
+    "email": "council@cityofsydney.nsw.gov.au",
+    "leisure": "park",
+    "name": "Arundel Street Reserve",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "phone": "+61 2 9265 9333",
+    "website": "https://www.cityofsydney.nsw.gov.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 538399834,
+  "center": {
+    "lat": -33.8823842,
+    "lon": 151.1922595
+  },
+  "tags": {
+    "dog": "leashed",
+    "leisure": "park",
+    "name": "Robyn Kemmis Reserve",
+    "old_name": "Franklyn Street Park"
+  }
+},
+{
+  "type": "way",
+  "id": 610166678,
+  "center": {
+    "lat": -33.8845668,
+    "lon": 151.1809084
+  },
+  "tags": {
+    "addr:housenumber": "2-10",
+    "addr:postcode": "2050",
+    "addr:state": "NSW",
+    "addr:street": "Larkin Street",
+    "addr:suburb": "Camperdown",
+    "check_date": "2023-11-15",
+    "dog": "leashed",
+    "leisure": "park",
+    "name": "Larkin Street Park",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "source": "local knowledge;http://www.cityofsydney.nsw.gov.au/__data/assets/pdf_file/0004/138748/Appendix-D5-Site-Nos-400-498,-644-and-647.pdf"
+  }
+},
+{
+  "type": "way",
+  "id": 678330323,
+  "center": {
+    "lat": -33.8780702,
+    "lon": 151.1788550
+  },
+  "tags": {
+    "check_date": "2023-11-15",
+    "leisure": "park",
+    "name": "Harold Park"
+  }
+},
+{
+  "type": "way",
+  "id": 740583660,
+  "center": {
+    "lat": -33.8871470,
+    "lon": 151.1897783
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 740583661,
+  "center": {
+    "lat": -33.8872640,
+    "lon": 151.1896963
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 783977176,
+  "center": {
+    "lat": -33.8786908,
+    "lon": 151.1766266
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "AV Henry Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 816363283,
+  "center": {
+    "lat": -33.8715651,
+    "lon": 151.1802083
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Pope Paul VI Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 816392152,
+  "center": {
+    "lat": -33.8806986,
+    "lon": 151.1762710
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Canal Reserve",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/canal-reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 817425268,
+  "center": {
+    "lat": -33.8803646,
+    "lon": 151.1770164
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Minogue Crescent Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 817428310,
+  "center": {
+    "lat": -33.8807706,
+    "lon": 151.1762581
+  },
+  "tags": {
+    "addr:housenumber": "11-13",
+    "addr:street": "Minogue Crescent",
+    "check_date": "2023-11-15",
+    "dog": "yes",
+    "leisure": "park",
+    "name": "John Victor McMahon Reserve",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/jv-mcmahon-reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 817428312,
+  "center": {
+    "lat": -33.8832995,
+    "lon": 151.1751777
+  },
+  "tags": {
+    "alt_name": "Badu Reserve",
+    "leisure": "park",
+    "name": "Badu Park",
+    "website": "https://www.innerwest.nsw.gov.au/explore/parks-sport-and-recreation/parks-and-playgrounds/parks-by-suburb/annandale-parks/badu-reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 817954557,
+  "center": {
+    "lat": -33.8830732,
+    "lon": 151.1778114
+  },
+  "tags": {
+    "alt_name": "Caldwell Park",
+    "description": "On the border of Forest Lodge and Camperdown Orphan School Creek features a restored natural creek and a children's playground.",
+    "leisure": "park",
+    "name": "Orphan School Creek",
+    "operator": "City of Sydney Council",
+    "operator:phone:AU": "1300 651 301",
+    "operator:type": "public",
+    "operator:website": "https://www.sydney.nsw.gov.au",
+    "operator:wikidata": "Q56477532",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/orphan-school-creek"
+  }
+},
+{
+  "type": "way",
+  "id": 829268384,
+  "center": {
+    "lat": -33.8797337,
+    "lon": 151.1859128
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Jean Cawley Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 829919495,
+  "center": {
+    "lat": -33.8802547,
+    "lon": 151.1786125
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Lewis Hoad Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 830108528,
+  "center": {
+    "lat": -33.8774857,
+    "lon": 151.1868883
+  },
+  "tags": {
+    "check_date": "2025-02-09",
+    "leisure": "park",
+    "name": "Palmerston Steps Open Space"
+  }
+},
+{
+  "type": "way",
+  "id": 830145455,
+  "center": {
+    "lat": -33.8777293,
+    "lon": 151.1849807
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 830532195,
+  "center": {
+    "lat": -33.8748462,
+    "lon": 151.1886121
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Glebe Foreshore"
+  }
+},
+{
+  "type": "way",
+  "id": 830601547,
+  "center": {
+    "lat": -33.8761301,
+    "lon": 151.1867239
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Alice Lee Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 830620136,
+  "center": {
+    "lat": -33.8767595,
+    "lon": 151.1865588
+  },
+  "tags": {
+    "check_date": "2026-03-11",
+    "leisure": "park",
+    "name": "William Carlton Gardens"
+  }
+},
+{
+  "type": "way",
+  "id": 830714137,
+  "center": {
+    "lat": -33.8732646,
+    "lon": 151.1828423
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Stewart Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 866164404,
+  "center": {
+    "lat": -33.8870983,
+    "lon": 151.1903159
+  },
+  "tags": {
+    "landuse": "grass",
+    "leisure": "park",
+    "name": "Law Lawns"
+  }
+},
+{
+  "type": "way",
+  "id": 866164405,
+  "center": {
+    "lat": -33.8871139,
+    "lon": 151.1901558
+  },
+  "tags": {
+    "landuse": "grass",
+    "leisure": "park",
+    "name": "Law Lawns"
+  }
+},
+{
+  "type": "way",
+  "id": 866164406,
+  "center": {
+    "lat": -33.8871707,
+    "lon": 151.1903773
+  },
+  "tags": {
+    "landuse": "grass",
+    "leisure": "park",
+    "name": "Law Lawns"
+  }
+},
+{
+  "type": "way",
+  "id": 866164407,
+  "center": {
+    "lat": -33.8872592,
+    "lon": 151.1902053
+  },
+  "tags": {
+    "landuse": "grass",
+    "leisure": "park",
+    "name": "Law Lawns"
+  }
+},
+{
+  "type": "way",
+  "id": 866164408,
+  "center": {
+    "lat": -33.8872816,
+    "lon": 151.1903105
+  },
+  "tags": {
+    "landuse": "grass",
+    "leisure": "park",
+    "name": "Law Lawns"
+  }
+},
+{
+  "type": "way",
+  "id": 866164409,
+  "center": {
+    "lat": -33.8872379,
+    "lon": 151.1904103
+  },
+  "tags": {
+    "landuse": "grass",
+    "leisure": "park",
+    "name": "Law Lawns"
+  }
+},
+{
+  "type": "way",
+  "id": 866164411,
+  "center": {
+    "lat": -33.8869254,
+    "lon": 151.1900764
+  },
+  "tags": {
+    "landuse": "grass",
+    "leisure": "park",
+    "name": "Law Lawns"
+  }
+},
+{
+  "type": "way",
+  "id": 866164412,
+  "center": {
+    "lat": -33.8888766,
+    "lon": 151.1901211
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 938290228,
+  "center": {
+    "lat": -33.8859650,
+    "lon": 151.1789275
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Lyons Road Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 942468101,
+  "center": {
+    "lat": -33.8841609,
+    "lon": 151.1772233
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 942468102,
+  "center": {
+    "lat": -33.8840996,
+    "lon": 151.1765716
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 983435296,
+  "center": {
+    "lat": -33.8877219,
+    "lon": 151.1898497
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 983435297,
+  "center": {
+    "lat": -33.8878124,
+    "lon": 151.1898159
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 983435298,
+  "center": {
+    "lat": -33.8879397,
+    "lon": 151.1898314
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 991854038,
+  "center": {
+    "lat": -33.8796841,
+    "lon": 151.1751342
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1008974197,
+  "center": {
+    "lat": -33.8839270,
+    "lon": 151.1746157
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1036184769,
+  "center": {
+    "lat": -33.8884745,
+    "lon": 151.1897541
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1036487539,
+  "center": {
+    "lat": -33.8890193,
+    "lon": 151.1932733
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1036487540,
+  "center": {
+    "lat": -33.8891669,
+    "lon": 151.1933282
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1036487541,
+  "center": {
+    "lat": -33.8890492,
+    "lon": 151.1935740
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1075634584,
+  "center": {
+    "lat": -33.8901314,
+    "lon": 151.1909367
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1079380690,
+  "center": {
+    "lat": -33.8852705,
+    "lon": 151.1904745
+  },
+  "tags": {
+    "addr:street": "University Place",
+    "air_conditioning": "yes",
+    "building": "museum",
+    "building:levels": "3",
+    "contact:facebook": "ccwm.sydney",
+    "contact:instagram": "ccwm_sydney",
+    "email": "ccwm.info@sydney.edu.au",
+    "fee": "no",
+    "internet_access": "wlan",
+    "museum": "art;science;history",
+    "name": "Chau Chak Wing Museum",
+    "opening_hours": "Mo-Fr 10:00-17:00; Sa-Su 12:00-16:00; PH off",
+    "operator": "University of Sydney",
+    "operator:type": "university",
+    "phone": "+61 2 9351 2812",
+    "toilets": "yes",
+    "tourism": "museum",
+    "website": "https://www.sydney.edu.au/museum/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1079900957,
+  "center": {
+    "lat": -33.8859714,
+    "lon": 151.1837272
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1204079400,
+  "center": {
+    "lat": -33.8869889,
+    "lon": 151.1902690
+  },
+  "tags": {
+    "landuse": "grass",
+    "leisure": "park",
+    "name": "Law Lawns"
+  }
+},
+{
+  "type": "way",
+  "id": 1223089325,
+  "center": {
+    "lat": -33.8896996,
+    "lon": 151.1946274
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Shepherd Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 1369804698,
+  "center": {
+    "lat": -33.8855086,
+    "lon": 151.1786082
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Daranggara Park",
+    "source:name": "https://meetings.cityofsydney.nsw.gov.au/ieDecisionDetails.aspx?AIId=18944"
+  }
+},
+{
+  "type": "relation",
+  "id": 2347918,
+  "center": {
+    "lat": -33.8866062,
+    "lon": 151.1927426
+  },
+  "tags": {
+    "check_date": "2024-10-13",
+    "description": "Dogs allowed off leash from 6pm to 8am, but prohibited from pool, pond, barbecue areas and playgrounds.",
+    "dog": "leashed",
+    "dog:conditional": "unleashed @ 18:00-08:00",
+    "leisure": "park",
+    "name": "Victoria Park",
+    "type": "multipolygon",
+    "website": "https://www.cityofsydney.nsw.gov.au/explore/facilities/parks/major-parks/victoria-park",
+    "wikidata": "Q7926927",
+    "wikipedia": "en:Victoria Park, Sydney"
+  }
+},
+{
+  "type": "relation",
+  "id": 2959623,
+  "center": {
+    "lat": -33.8756040,
+    "lon": 151.1760670
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Federal Park",
+    "type": "multipolygon",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/federal-park",
+    "wikidata": "Q21928481"
+  }
+},
+{
+  "type": "relation",
+  "id": 2959631,
+  "center": {
+    "lat": -33.8728304,
+    "lon": 151.1775745
+  },
+  "tags": {
+    "check_date": "2024-03-28",
+    "description": "Dogs allowed off leash west of canal",
+    "dog": "leashed",
+    "leisure": "park",
+    "name": "Bicentennial Park",
+    "type": "multipolygon",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/bicentennial-park"
+  }
+},
+{
+  "type": "relation",
+  "id": 2959632,
+  "center": {
+    "lat": -33.8741161,
+    "lon": 151.1786776
+  },
+  "tags": {
+    "check_date": "2024-04-25",
+    "leisure": "park",
+    "name": "Jubilee Park",
+    "type": "multipolygon",
+    "wikidata": "Q21929952"
+  }
+},
+{
+  "type": "relation",
+  "id": 6260181,
+  "center": {
+    "lat": -33.8896639,
+    "lon": 151.1886216
+  },
+  "tags": {
+    "leisure": "park",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 7120940,
+  "center": {
+    "lat": -33.8768220,
+    "lon": 151.1928782
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Wentworth Park",
+    "type": "multipolygon",
+    "website": "https://www.wentworthparksport.com.au/",
+    "wikidata": "Q768500",
+    "wikipedia": "en:Wentworth Park"
+  }
+},
+{
+  "type": "relation",
+  "id": 10790939,
+  "center": {
+    "lat": -33.8899935,
+    "lon": 151.1919687
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Gadigal Green",
+    "operator": "University of Sydney",
+    "surface": "grass",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 10791056,
+  "center": {
+    "lat": -33.8858199,
+    "lon": 151.1897101
+  },
+  "tags": {
+    "landuse": "grass",
+    "leisure": "park",
+    "name": "The Front Lawn",
+    "operator": "University of Sydney",
+    "type": "multipolygon"
+  }
+}
+
+  ]
+}

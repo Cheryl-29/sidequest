@@ -1,0 +1,924 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-14T04:18:19Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 1852659123,
+  "lat": -33.8886738,
+  "lon": 151.2145871,
+  "tags": {
+    "fee": "no",
+    "name": "Brett Whiteley Studio",
+    "opening_hours": "Th-Su 10:00-16:00",
+    "operator": "Art Gallery of NSW",
+    "toilets": "yes",
+    "tourism": "gallery",
+    "website": "https://www.artgallery.nsw.gov.au/visit/brett-whiteley-studio/",
+    "wikidata": "Q102188173"
+  }
+},
+{
+  "type": "node",
+  "id": 5367109429,
+  "lat": -33.8831583,
+  "lon": 151.2145817,
+  "tags": {
+    "name": "Blank Space",
+    "tourism": "gallery"
+  }
+},
+{
+  "type": "node",
+  "id": 7871001731,
+  "lat": -33.8928414,
+  "lon": 151.2053177,
+  "tags": {
+    "check_date": "2025-03",
+    "check_date:opening_hours": "2025-03",
+    "description": "Mid Century Australian Art, Furniture, Ceramics. Open Weekends or by appointment.",
+    "name": "Redfern Art Gallery",
+    "opening_hours": "Sa-Su 10:30-16:00",
+    "phone": "+61 478 473 041",
+    "tourism": "gallery",
+    "website": "https://www.redfernartgallery.com.au/"
+  }
+},
+{
+  "type": "node",
+  "id": 10895520174,
+  "lat": -33.8986593,
+  "lon": 151.2071416,
+  "tags": {
+    "name": "APA Gallery",
+    "tourism": "gallery",
+    "website": "https://aboriginalpacificart.com"
+  }
+},
+{
+  "type": "node",
+  "id": 10981819784,
+  "lat": -33.8806176,
+  "lon": 151.2109939,
+  "tags": {
+    "name": "Ames Yavuz",
+    "tourism": "gallery",
+    "website": "https://amesyavuz.com"
+  }
+},
+{
+  "type": "node",
+  "id": 10981819787,
+  "lat": -33.8848847,
+  "lon": 151.2142310,
+  "tags": {
+    "name": "Sketch co Gallery",
+    "tourism": "gallery"
+  }
+},
+{
+  "type": "node",
+  "id": 11831839070,
+  "lat": -33.8836122,
+  "lon": 151.2204888,
+  "tags": {
+    "contact:instagram": "unswgalleries",
+    "email": "unswgalleries@unsw.edu.au",
+    "fee": "no",
+    "name": "UNSW Galleries",
+    "opening_hours": "Mo-Fr 10:00-17:00; Sa-Su 12:00-17:00; PH off",
+    "operator": "UNSW Art & Design",
+    "phone": "+61 2 8936 0888",
+    "tourism": "gallery",
+    "website": "https://www.artdesign.unsw.edu.au/unsw-galleries",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12982188829,
+  "lat": -33.8978119,
+  "lon": 151.2103737,
+  "tags": {
+    "name": "Studio Gallery",
+    "tourism": "gallery"
+  }
+},
+{
+  "type": "node",
+  "id": 13115653363,
+  "lat": -33.8821494,
+  "lon": 151.2162762,
+  "tags": {
+    "check_date": "2025-09",
+    "name": "Christopher Vine",
+    "tourism": "gallery"
+  }
+},
+{
+  "type": "node",
+  "id": 13725026703,
+  "lat": -33.8875801,
+  "lon": 151.2075230,
+  "tags": {
+    "addr:housenumber": "50",
+    "tourism": "gallery"
+  }
+},
+{
+  "type": "node",
+  "id": 14047898308,
+  "lat": -33.8811630,
+  "lon": 151.2091692,
+  "tags": {
+    "check_date": "2026-09",
+    "name": "Gallery Oz",
+    "tourism": "gallery"
+  }
+},
+{
+  "type": "node",
+  "id": 14047910271,
+  "lat": -33.8809871,
+  "lon": 151.2089446,
+  "tags": {
+    "addr:housenumber": "236",
+    "name": "Pete Versus Toby",
+    "tourism": "gallery"
+  }
+},
+{
+  "type": "way",
+  "id": 4334335,
+  "center": {
+    "lat": -33.8877218,
+    "lon": 151.2047331
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Prince Alfred Park",
+    "start_date": "1865",
+    "wikidata": "Q21935177",
+    "wikipedia": "en:Prince Alfred Park"
+  }
+},
+{
+  "type": "way",
+  "id": 4334336,
+  "center": {
+    "lat": -33.8829786,
+    "lon": 151.2126769
+  },
+  "tags": {
+    "check_date": "2025-05-02",
+    "dog": "unleashed",
+    "leisure": "park",
+    "name": "Frog Hollow Reserve",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/frog-hollow-reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 4334353,
+  "center": {
+    "lat": -33.8812912,
+    "lon": 151.2074096
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Belmore Park",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/belmore-park",
+    "wikidata": "Q219057",
+    "wikipedia": "en:Belmore Park"
+  }
+},
+{
+  "type": "way",
+  "id": 4334556,
+  "center": {
+    "lat": -33.8945739,
+    "lon": 151.2060479
+  },
+  "tags": {
+    "bicycle": "yes",
+    "description": "Dogs allowed off leash 4.30pm to 9.30am",
+    "dog": "leashed",
+    "leisure": "park",
+    "name": "Redfern Park",
+    "source": "survey",
+    "website": "https://www.cityofsydney.nsw.gov.au/dog-parks-in-sydney",
+    "wikidata": "Q21935132"
+  }
+},
+{
+  "type": "way",
+  "id": 12281514,
+  "center": {
+    "lat": -33.8894354,
+    "lon": 151.2187751
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Moore Park",
+    "operator": "Greater Sydney Parklands",
+    "operator:wikidata": "Q135059646",
+    "website": "https://www.centennialparklands.com.au/visit/our-parks/moore-park"
+  }
+},
+{
+  "type": "way",
+  "id": 16748361,
+  "center": {
+    "lat": -33.8829193,
+    "lon": 151.2050347
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 93544955,
+  "center": {
+    "lat": -33.8923468,
+    "lon": 151.2150405
+  },
+  "tags": {
+    "addr:housenumber": "36",
+    "addr:street": "Little Cleveland Street",
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 112568378,
+  "center": {
+    "lat": -33.8986801,
+    "lon": 151.2125949
+  },
+  "tags": {
+    "check_date": "2023-11-10",
+    "leisure": "park",
+    "name": "Crystal Park"
+  }
+},
+{
+  "type": "way",
+  "id": 114256545,
+  "center": {
+    "lat": -33.8989476,
+    "lon": 151.2146916
+  },
+  "tags": {
+    "addr:housenumber": "811",
+    "addr:street": "South Dowling Street",
+    "leisure": "park",
+    "name": "Corning Park",
+    "opening_hours": "24/7",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 116160602,
+  "center": {
+    "lat": -33.8960711,
+    "lon": 151.2144581
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Edmund Resch Reserve",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/edmund-resch-reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 154526035,
+  "center": {
+    "lat": -33.8886574,
+    "lon": 151.2116802
+  },
+  "tags": {
+    "dog": "unleashed",
+    "fee": "no",
+    "leisure": "park",
+    "name": "Ward Park",
+    "official_name": "Eddie Ward Park",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/eddie-ward-park",
+    "wikidata": "Q21928391"
+  }
+},
+{
+  "type": "way",
+  "id": 175000747,
+  "center": {
+    "lat": -33.8988020,
+    "lon": 151.2135256
+  },
+  "tags": {
+    "check_date": "2023-11-10",
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Crown Park",
+    "source": "physical inspection",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/crown-park",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 183759911,
+  "center": {
+    "lat": -33.8989112,
+    "lon": 151.2061802
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Tobruk Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 183759913,
+  "center": {
+    "lat": -33.8997836,
+    "lon": 151.2051816
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Waterloo Park",
+    "old_name": "Mount Carmel Park",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/waterloo-park-oval"
+  }
+},
+{
+  "type": "way",
+  "id": 247764399,
+  "center": {
+    "lat": -33.8931113,
+    "lon": 151.2148136
+  },
+  "tags": {
+    "check_date": "2023-11-10",
+    "leisure": "park",
+    "name": "Chelsea Street Park"
+  }
+},
+{
+  "type": "way",
+  "id": 264270918,
+  "center": {
+    "lat": -33.8806388,
+    "lon": 151.2125482
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "James Hilder Reserve",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/james-hilder-reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 270579434,
+  "center": {
+    "lat": -33.8930737,
+    "lon": 151.2117278
+  },
+  "tags": {
+    "access": "yes",
+    "fee": "no",
+    "leisure": "park",
+    "name": "Marriott Street Reserve",
+    "source": "survey"
+  }
+},
+{
+  "type": "way",
+  "id": 270790549,
+  "center": {
+    "lat": -33.8810430,
+    "lon": 151.2207968
+  },
+  "tags": {
+    "check_date": "2023-11-08",
+    "leisure": "park",
+    "name": "Barcom Avenue Park"
+  }
+},
+{
+  "type": "way",
+  "id": 299789243,
+  "center": {
+    "lat": -33.8856866,
+    "lon": 151.2141950
+  },
+  "tags": {
+    "check_date": "2024-08-10",
+    "leisure": "park",
+    "name": "Shannon Reserve",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "source": "local_knowledge",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/shannon-reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 331769890,
+  "center": {
+    "lat": -33.8943678,
+    "lon": 151.2188492
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 331769891,
+  "center": {
+    "lat": -33.8912036,
+    "lon": 151.2215976
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 414889383,
+  "center": {
+    "lat": -33.8951738,
+    "lon": 151.2074367
+  },
+  "tags": {
+    "access": "no",
+    "barrier": "fence",
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 414889400,
+  "center": {
+    "lat": -33.8967170,
+    "lon": 151.2120382
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 496104272,
+  "center": {
+    "lat": -33.8998926,
+    "lon": 151.2073839
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Kensington Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 503148264,
+  "center": {
+    "lat": -33.8824286,
+    "lon": 151.2254688
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Royal Hospital for Women Park",
+    "opening_hours": "24/7",
+    "operator": "Woollahra Municipal Council",
+    "operator:type": "government",
+    "operator:wikidata": "Q56477516",
+    "website": "https://www.woollahra.nsw.gov.au/recreation/parks,_reserves_and_playgrounds/list_of_parks_and_playgrounds/parks_and_playgrounds/royal_hospital_for_women_park",
+    "wikidata": "Q21934796"
+  }
+},
+{
+  "type": "way",
+  "id": 523721810,
+  "center": {
+    "lat": -33.8903718,
+    "lon": 151.2069062
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Great Buckingham Street Reserve",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "way",
+  "id": 554399640,
+  "center": {
+    "lat": -33.9000763,
+    "lon": 151.2083924
+  },
+  "tags": {
+    "addr:housenumber": "222",
+    "addr:postcode": "2017",
+    "addr:state": "NSW",
+    "addr:street": "Young Street",
+    "addr:suburb": "Waterloo",
+    "building": "yes",
+    "name": "Artbank Sydney",
+    "operator": "Australian Government Office for the Arts",
+    "phone": "+61 2 9697 6000",
+    "tourism": "gallery",
+    "website": "https://www.artbank.gov.au/",
+    "wikidata": "Q706318",
+    "wikipedia": "en:Artbank"
+  }
+},
+{
+  "type": "way",
+  "id": 556211507,
+  "center": {
+    "lat": -33.8811053,
+    "lon": 151.2114925
+  },
+  "tags": {
+    "check_date": "2025-08-16",
+    "leisure": "park",
+    "name": "Reservoir Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 556227931,
+  "center": {
+    "lat": -33.8795614,
+    "lon": 151.2119917
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Harmony Park",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/harmony-park",
+    "wikidata": "Q21930909",
+    "wikipedia": "ceb:Harmony Park (parke sa Ostralya, State of New South Wales)"
+  }
+},
+{
+  "type": "way",
+  "id": 587595473,
+  "center": {
+    "lat": -33.8897185,
+    "lon": 151.2143200
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Edgely Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 599073428,
+  "center": {
+    "lat": -33.8865930,
+    "lon": 151.2158109
+  },
+  "tags": {
+    "attribution:name": "neilphillips",
+    "leisure": "park",
+    "name": "Fred Miller Park",
+    "source": "survey",
+    "source:boundary": "LPI Base Map June 2018"
+  }
+},
+{
+  "type": "way",
+  "id": 702177269,
+  "center": {
+    "lat": -33.8898927,
+    "lon": 151.2160667
+  },
+  "tags": {
+    "dog": "leashed",
+    "leisure": "park",
+    "name": "Wimbo Park",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/wimbo-park"
+  }
+},
+{
+  "type": "way",
+  "id": 708159309,
+  "center": {
+    "lat": -33.8875062,
+    "lon": 151.2132347
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Tudor Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 708159310,
+  "center": {
+    "lat": -33.8874861,
+    "lon": 151.2134021
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Tudor Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 777617336,
+  "center": {
+    "lat": -33.8937229,
+    "lon": 151.2108152
+  },
+  "tags": {
+    "addr:housenumber": "1A",
+    "addr:postcode": "2016",
+    "addr:state": "NSW",
+    "addr:street": "Young Lane",
+    "addr:suburb": "Redfern",
+    "leisure": "park",
+    "name": "Hansom Cab Place"
+  }
+},
+{
+  "type": "way",
+  "id": 808966801,
+  "center": {
+    "lat": -33.8832435,
+    "lon": 151.2079696
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 890529386,
+  "center": {
+    "lat": -33.8990958,
+    "lon": 151.2079241
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Henry James Deacon Reserve",
+    "website": "https://www.sydneyaldermen.com.au/alderman/james-henry-deacon/"
+  }
+},
+{
+  "type": "way",
+  "id": 902619029,
+  "center": {
+    "lat": -33.9000644,
+    "lon": 151.2133991
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Gadigal Avenue Reserve",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 906761242,
+  "center": {
+    "lat": -33.8996492,
+    "lon": 151.2148989
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Watchful Harry Square",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 961026346,
+  "center": {
+    "lat": -33.8867304,
+    "lon": 151.2119774
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Cooper Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 965317710,
+  "center": {
+    "lat": -33.8870263,
+    "lon": 151.2117554
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Adelaide Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 989348479,
+  "center": {
+    "lat": -33.8944870,
+    "lon": 151.2159779
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1089403645,
+  "center": {
+    "lat": -33.8818971,
+    "lon": 151.2214432
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Comber Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 1092590811,
+  "center": {
+    "lat": -33.8805180,
+    "lon": 151.2217988
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Lacrozia Playground",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "website": "https://www.cityofsydney.nsw.gov.au/playgrounds/lacrozia-playground"
+  }
+},
+{
+  "type": "way",
+  "id": 1117763116,
+  "center": {
+    "lat": -33.8824001,
+    "lon": 151.2192620
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Rose Terrace Park"
+  }
+},
+{
+  "type": "way",
+  "id": 1127630677,
+  "center": {
+    "lat": -33.8992064,
+    "lon": 151.2134454
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Gadigal Avenue Reserve",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "source": "Bing",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1221863196,
+  "center": {
+    "lat": -33.8834332,
+    "lon": 151.2204690
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Napier Street Open Space"
+  }
+},
+{
+  "type": "way",
+  "id": 1225862414,
+  "center": {
+    "lat": -33.8909692,
+    "lon": 151.2205712
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1260485942,
+  "center": {
+    "lat": -33.8824557,
+    "lon": 151.2215564
+  },
+  "tags": {
+    "building": "industrial",
+    "name": "Comber Street Studios",
+    "tourism": "gallery",
+    "website": "http://www.comberstreetstudios.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 1260485945,
+  "center": {
+    "lat": -33.8813709,
+    "lon": 151.2216758
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1260485950,
+  "center": {
+    "lat": -33.8814451,
+    "lon": 151.2248079
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Saint Cloche Gallery",
+    "opening_hours": "We-Sa 10:00-17:00; Su 11:00-16:00",
+    "tourism": "gallery",
+    "website": "https://saintcloche.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 1409953610,
+  "center": {
+    "lat": -33.8859394,
+    "lon": 151.2184254
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Drivers Triangle",
+    "source": "https://archives.cityofsydney.nsw.gov.au/nodes/view/1968856",
+    "source:start_date": "https://archives.cityofsydney.nsw.gov.au/nodes/view/1968856",
+    "start_date": "1881",
+    "website": "https://archives.cityofsydney.nsw.gov.au/nodes/view/1968856"
+  }
+},
+{
+  "type": "way",
+  "id": 1435794867,
+  "center": {
+    "lat": -33.8930912,
+    "lon": 151.2163426
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Chelsea Street Streetscape",
+    "source:name": "sign",
+    "surface": "brick"
+  }
+},
+{
+  "type": "way",
+  "id": 1452746270,
+  "center": {
+    "lat": -33.8850868,
+    "lon": 151.2153973
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Foveaux Street Reserve"
+  }
+}
+
+  ]
+}

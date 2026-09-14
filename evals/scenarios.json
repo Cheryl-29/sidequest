@@ -1,0 +1,27 @@
+[
+  {"id":"dev-01","split":"dev","request":{},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}},
+  {"id":"dev-02","split":"dev","request":{"preference":"艺术 安静"},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}},
+  {"id":"dev-03","split":"dev","request":{"preference":"自然 散步"},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}},
+  {"id":"dev-04","split":"dev","request":{"preference":"文化 阅读"},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}},
+  {"id":"dev-05","split":"dev","request":{"origin_id":"central"},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}},
+  {"id":"dev-06","split":"dev","request":{"origin_id":"circular"},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}},
+  {"id":"dev-07","split":"dev","request":{"deadline":"2026-09-14T11:00:00+10:00"},"expect":{"run":["completed"],"min_stops":1,"max_stops":1,"itinerary":["verified"]}},
+  {"id":"dev-08","split":"dev","request":{"deadline":"2026-09-14T12:00:00+10:00","max_stops":2},"expect":{"run":["completed"],"min_stops":1,"max_stops":2,"itinerary":["verified"]}},
+  {"id":"dev-09","split":"dev","request":{"max_stops":2},"expect":{"run":["completed"],"min_stops":2,"max_stops":2,"itinerary":["verified"]}},
+  {"id":"dev-10","split":"dev","request":{"max_walk_minutes":30},"expect":{"run":["completed","search_exhausted"],"max_stops":3}},
+  {"id":"dev-11","split":"dev","request":{"budget_aud":0,"excluded_ids":["market","screening"]},"expect":{"run":["completed"],"min_stops":1,"itinerary":["verified"]}},
+  {"id":"dev-12","split":"dev","request":{"locked_ids":["gallery"]},"expect":{"run":["completed"],"required":["gallery"],"itinerary":["verified"]}},
+  {"id":"dev-13","split":"dev","request":{"excluded_ids":["gallery"]},"expect":{"run":["completed"],"forbidden":["gallery"],"itinerary":["verified"]}},
+  {"id":"dev-17","split":"dev","request":{"locked_ids":["market"],"budget_aud":50},"expect":{"run":["completed"],"required":["market"],"itinerary":["conditional"]}},
+  {"id":"dev-18","split":"dev","request":{"locked_ids":["gallery"],"excluded_ids":["park"]},"expect":{"run":["completed"],"required":["gallery"],"forbidden":["park"]}},
+  {"id":"dev-19","split":"dev","request":{"locked_ids":["library"],"stay_minutes":{"library":120}},"expect":{"run":["completed"],"required":["library"]}},
+
+  {"id":"holdout-01","split":"holdout","request":{"preference":"海港 风景","origin_id":"circular"},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}},
+  {"id":"holdout-02","split":"holdout","request":{"preference":"博物馆 探索","origin_id":"central","max_stops":2},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}},
+  {"id":"holdout-03","split":"holdout","request":{"deadline":"2026-09-14T11:15:00+10:00"},"expect":{"run":["completed"],"min_stops":1,"max_stops":1,"itinerary":["verified"]}},
+  {"id":"holdout-04","split":"holdout","request":{"max_walk_minutes":0},"expect":{"run":["search_exhausted"],"no_itinerary":true}},
+  {"id":"holdout-05","split":"holdout","request":{"budget_aud":5,"locked_ids":["screening"]},"expect":{"run":["search_exhausted"],"no_itinerary":true}},
+  {"id":"holdout-06","split":"holdout","request":{"excluded_ids":["gallery","park","museum"],"max_stops":2},"expect":{"run":["completed"],"forbidden":["gallery","park","museum"],"min_stops":1}},
+  {"id":"holdout-09","split":"holdout","request":{"locked_ids":["garden"],"stay_minutes":{"garden":90},"max_stops":2},"expect":{"run":["completed"],"required":["garden"],"max_stops":2}},
+  {"id":"holdout-10","split":"holdout","request":{"preference":"电影 活动","deadline":"2026-09-14T17:00:00+10:00"},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}}
+]

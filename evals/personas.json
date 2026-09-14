@@ -1,0 +1,252 @@
+{
+ "note": "Synthetic personas for plan v2.3 §8.3. Not user data. Hidden from the agent: the harness only passes typed feedback, accepts and proposal answers. D3 was retired as a global preference; personas use D1, D2, category and context-specific tastes.",
+ "personas": [
+  {
+   "id": "p01-d1-outdoor",
+   "layer": "单维度敏感",
+   "requires": [
+    "D1"
+   ],
+   "opener": "空出来一会儿",
+   "dims": {
+    "D1": 0
+   },
+   "patterns": [
+    "lunch",
+    "weekend",
+    "after_work"
+   ]
+  },
+  {
+   "id": "p02-d2-near",
+   "layer": "单维度敏感",
+   "requires": [
+    "D2"
+   ],
+   "opener": "空出来一会儿",
+   "dims": {
+    "D2": 0
+   },
+   "patterns": [
+    "lunch",
+    "weekend",
+    "after_work"
+   ]
+  },
+  {
+   "id": "p03-d2-far",
+   "layer": "单维度敏感",
+   "holdout": true,
+   "requires": [
+    "D2"
+   ],
+   "opener": "空出来一会儿",
+   "dims": {
+    "D2": 1
+   },
+   "patterns": [
+    "lunch",
+    "weekend",
+    "after_work"
+   ]
+  },
+  {
+   "id": "p04-d1-outdoor-x-d2-near",
+   "layer": "双维度冲突",
+   "requires": [
+    "D1",
+    "D2"
+   ],
+   "opener": "空出来一会儿",
+   "dims": {
+    "D1": 0,
+    "D2": 0
+   },
+   "patterns": [
+    "lunch",
+    "after_work"
+   ]
+  },
+  {
+   "id": "p05-d1-x-d2",
+   "layer": "双维度冲突",
+   "holdout": true,
+   "requires": [
+    "D1",
+    "D2"
+   ],
+   "opener": "空出来一会儿",
+   "dims": {
+    "D1": 1,
+    "D2": 1
+   },
+   "patterns": [
+    "lunch",
+    "weekend"
+   ]
+  },
+  {
+   "id": "p06-gallery-not-museum",
+   "layer": "类别好恶",
+   "opener": "空出来一会儿",
+   "dislikes": [
+    "museum",
+    "park"
+   ],
+   "likes": [
+    "gallery"
+   ],
+   "patterns": [
+    "lunch",
+    "weekend",
+    "after_work"
+   ]
+  },
+  {
+   "id": "p07-lunch-sit-weekend-walk",
+   "layer": "情境条件",
+   "requires": [
+    "D1"
+   ],
+   "opener": "空出来一会儿",
+   "context_dims": {
+    "lunch": {
+     "D1": 1
+    },
+    "weekend_day": {
+     "D1": 0
+    }
+   },
+   "patterns": [
+    "lunch",
+    "weekend"
+   ]
+  },
+  {
+   "id": "p08-lunch-only-walk",
+   "layer": "情境条件",
+   "holdout": true,
+   "requires": [
+    "D1"
+   ],
+   "opener": "空出来一会儿",
+   "context_dims": {
+    "lunch": {
+     "D1": 0
+    }
+   },
+   "patterns": [
+    "lunch",
+    "weekend"
+   ]
+  },
+  {
+   "id": "p09-says-walk-wants-sit",
+   "layer": "表述与真实偏好不一致",
+   "holdout": true,
+   "requires": [
+    "D1"
+   ],
+   "opener": "想出去走走",
+   "dims": {
+    "D1": 1
+   },
+   "patterns": [
+    "lunch",
+    "after_work"
+   ]
+  },
+  {
+   "id": "p10-drift-to-outdoor",
+   "layer": "口味漂移",
+   "requires": [
+    "D1"
+   ],
+   "opener": "空出来一会儿",
+   "dims": {
+    "D1": 1
+   },
+   "drift": {
+    "at_session": 3,
+    "dims": {
+     "D1": 0
+    }
+   },
+   "sessions": 8,
+   "patterns": [
+    "lunch",
+    "after_work"
+   ]
+  },
+  {
+   "id": "p11-accepts-every-proposal",
+   "layer": "全部同意",
+   "requires": [
+    "D1"
+   ],
+   "opener": "空出来一会儿",
+   "dims": {
+    "D1": 1
+   },
+   "accept_all_proposals": true,
+   "patterns": [
+    "lunch",
+    "weekend",
+    "after_work"
+   ]
+  },
+  {
+   "id": "p12-nothing-fits",
+   "layer": "无解或需澄清",
+   "holdout": true,
+   "opener": "空出来一会儿",
+   "dislikes": [
+    "museum",
+    "gallery",
+    "arts_centre",
+    "library",
+    "viewpoint",
+    "beach",
+    "nature_reserve",
+    "garden",
+    "park",
+    "supermarket",
+    "convenience",
+    "bakery",
+    "bubble_tea",
+    "ice_cream",
+    "cafe",
+    "books",
+    "second_hand",
+    "florist"
+   ],
+   "patterns": [
+    "lunch",
+    "weekend"
+   ]
+  }
+ ],
+ "patterns": {
+  "lunch": {
+   "weekday": 0,
+   "start": "12:00",
+   "minutes": 90,
+   "lat": -33.8731,
+   "lon": 151.2065
+  },
+  "weekend": {
+   "weekday": 5,
+   "start": "10:00",
+   "minutes": 180,
+   "lat": -33.8792,
+   "lon": 151.185
+  },
+  "after_work": {
+   "weekday": 1,
+   "start": "17:30",
+   "minutes": 120,
+   "lat": -33.8861,
+   "lon": 151.2111
+  }
+ }
+}

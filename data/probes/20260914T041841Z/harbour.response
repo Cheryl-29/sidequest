@@ -1,0 +1,755 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-14T04:17:20Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 20959057,
+  "lat": -33.8620845,
+  "lon": 151.2122831,
+  "tags": {
+    "check_date": "2026-05-25",
+    "fee": "no",
+    "museum": "local",
+    "name": "Justice & Police Museum",
+    "opening_hours": "Sa-Su 10:00-17:00",
+    "operator": "Museums of History New South Wales",
+    "toilets": "yes",
+    "tourism": "museum",
+    "website": "https://mhnsw.au/visit-us/justice-and-police-museum/",
+    "wheelchair": "limited",
+    "wikidata": "Q42915912",
+    "wikipedia": "en:Justice and Police Museum"
+  }
+},
+{
+  "type": "node",
+  "id": 743322923,
+  "lat": -33.8588995,
+  "lon": 151.2086515,
+  "tags": {
+    "name": "The Rocks Discovery Museum",
+    "name:en": "The Rocks Discovery Museum",
+    "opening_hours": "Mo-Su 10:00-17:00",
+    "tourism": "museum",
+    "website": "https://rocksdiscoverymuseum.com/",
+    "wikidata": "Q135263995"
+  }
+},
+{
+  "type": "node",
+  "id": 1117739786,
+  "lat": -33.8600915,
+  "lon": 151.2074289,
+  "tags": {
+    "fee": "no",
+    "museum": "local",
+    "name": "Susannah Place Museum",
+    "opening_hours": "Th-Sa 10:00-17:00",
+    "operator": "Museums of History New South Wales",
+    "toilets": "no",
+    "tourism": "museum",
+    "website": "https://mhnsw.au/visit-us/susannah-place/",
+    "wheelchair": "no",
+    "wikidata": "Q7648734"
+  }
+},
+{
+  "type": "node",
+  "id": 1648068684,
+  "lat": -33.8613698,
+  "lon": 151.2043368,
+  "tags": {
+    "fee": "yes",
+    "name": "S.H. Ervin Gallery",
+    "source": "survey",
+    "tourism": "gallery",
+    "website": "https://www.shervingallery.com.au/",
+    "wikidata": "Q16938268"
+  }
+},
+{
+  "type": "node",
+  "id": 5350634018,
+  "lat": -33.8592834,
+  "lon": 151.2083174,
+  "tags": {
+    "name": "Cannon House Gallery",
+    "opening_hours": "Mo-Su 10:00-18:00",
+    "tourism": "gallery",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 7123753985,
+  "lat": -33.8643176,
+  "lon": 151.2089738,
+  "tags": {
+    "fee": "no",
+    "name": "Opal Museum",
+    "opening_hours": "Mo-Fr 10:30-17:30; Sa,Su 10:30-17:00",
+    "tourism": "museum",
+    "website": "https://www.nationalopal.com/opal-showrooms-museums/our-museums.html"
+  }
+},
+{
+  "type": "node",
+  "id": 10943710510,
+  "lat": -33.8578898,
+  "lon": 151.2094487,
+  "tags": {
+    "addr:housenumber": "1-3",
+    "addr:street": "Hickson Road",
+    "name": "Ken Done Gallery",
+    "tourism": "gallery",
+    "website": "https://www.kendone.com.au/visit",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13970488918,
+  "lat": -33.8545903,
+  "lon": 151.2094667,
+  "tags": {
+    "fee": "yes",
+    "museum": "local_history",
+    "name": "BridgeMuseum",
+    "start_date": "2026-05",
+    "toilets": "yes",
+    "toilets:access": "customers",
+    "tourism": "museum",
+    "website": "https://www.bridgemuseum.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 4354661,
+  "center": {
+    "lat": -33.8631778,
+    "lon": 151.2100208
+  },
+  "tags": {
+    "check_date": "2025-08-13",
+    "leisure": "park",
+    "name": "Macquarie Place Park",
+    "opening_hours": "24/7",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/macquarie-place-park",
+    "wikidata": "Q6725001"
+  }
+},
+{
+  "type": "way",
+  "id": 4354665,
+  "center": {
+    "lat": -33.8637908,
+    "lon": 151.2059021
+  },
+  "tags": {
+    "check_date": "2025-08-13",
+    "leisure": "park",
+    "name": "Lang Park",
+    "name:etymology": "John Dunmore Lang",
+    "name:etymology:wikidata": "Q3181392",
+    "opening_hours": "24/7",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/lang-park"
+  }
+},
+{
+  "type": "way",
+  "id": 4354692,
+  "center": {
+    "lat": -33.8608092,
+    "lon": 151.2091326
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "First Fleet Park",
+    "name:etymology": "First Fleet",
+    "name:etymology:wikidata": "Q1419429",
+    "name:ko": "퍼스트 플릿 공원",
+    "website": "https://www.therocks.com/venues/first-fleet-park",
+    "wikidata": "Q21928467"
+  }
+},
+{
+  "type": "way",
+  "id": 16599528,
+  "center": {
+    "lat": -33.8599212,
+    "lon": 151.2090686
+  },
+  "tags": {
+    "building": "yes",
+    "building:architecture": "art_deco",
+    "building:levels": "5",
+    "fee": "yes",
+    "name": "Museum of Contemporary Art",
+    "name:ko": "시드니 현대미술관",
+    "name:zh": "澳洲當代藝術博物館",
+    "opening_hours": "Fr-We 10:00-17:00; Th 10:00-21:00",
+    "source": "NSW LPI Imagery",
+    "source:date": "2016-01",
+    "tourism": "gallery",
+    "website": "https://www.mca.com.au/",
+    "wheelchair": "yes",
+    "wikidata": "Q690242",
+    "wikimedia_commons": "File:Museum of Contemporary Art Australia, Sydney, 2023.jpg",
+    "wikipedia": "en:Museum of Contemporary Art Australia"
+  }
+},
+{
+  "type": "way",
+  "id": 23287160,
+  "center": {
+    "lat": -33.8509840,
+    "lon": 151.2195784
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Lady Gowrie Lookout",
+    "source": "survey"
+  }
+},
+{
+  "type": "way",
+  "id": 55218510,
+  "center": {
+    "lat": -33.8597244,
+    "lon": 151.2049607
+  },
+  "tags": {
+    "alt_name": "Observatory Park",
+    "dog": "unleashed",
+    "leisure": "park",
+    "name": "Observatory Hill Park",
+    "name:en": "Observatory Hill Park",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "source": "nearmap",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/observatory-park",
+    "wikidata": "Q21973063"
+  }
+},
+{
+  "type": "way",
+  "id": 55218511,
+  "center": {
+    "lat": -33.8595564,
+    "lon": 151.2045683
+  },
+  "tags": {
+    "building": "yes",
+    "building:levels": "2",
+    "fee": "yes",
+    "man_made": "observatory",
+    "museum": "local;science",
+    "name": "Sydney Observatory",
+    "observatory:type": "astronomical",
+    "reservation": "required",
+    "source:geometry": "nearmap",
+    "tourism": "museum",
+    "website": "https://powerhouse.com.au/visit/sydney-observatory",
+    "wheelchair": "limited",
+    "wikidata": "Q7660067",
+    "wikipedia": "en:Sydney Observatory"
+  }
+},
+{
+  "type": "way",
+  "id": 62259737,
+  "center": {
+    "lat": -33.8496189,
+    "lon": 151.2033916
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Blues Point Reserve",
+    "source": "local_knowledge"
+  }
+},
+{
+  "type": "way",
+  "id": 151982836,
+  "center": {
+    "lat": -33.8572931,
+    "lon": 151.2056828
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "The Paddock",
+    "source": "survey",
+    "source:name": "LPI Base Map July 2018"
+  }
+},
+{
+  "type": "way",
+  "id": 151982837,
+  "center": {
+    "lat": -33.8583258,
+    "lon": 151.2037636
+  },
+  "tags": {
+    "leisure": "park",
+    "source": "survey"
+  }
+},
+{
+  "type": "way",
+  "id": 151982839,
+  "center": {
+    "lat": -33.8583857,
+    "lon": 151.2046352
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Argyle Place Park",
+    "source": "survey"
+  }
+},
+{
+  "type": "way",
+  "id": 151996603,
+  "center": {
+    "lat": -33.8561636,
+    "lon": 151.2068039
+  },
+  "tags": {
+    "check_date": "2025-10-08",
+    "leisure": "park",
+    "name": "Pottinger Park",
+    "operator": "City of Sydney",
+    "source": "survey"
+  }
+},
+{
+  "type": "way",
+  "id": 152424430,
+  "center": {
+    "lat": -33.8581557,
+    "lon": 151.2021621
+  },
+  "tags": {
+    "dog": "yes",
+    "leisure": "park",
+    "name": "Munn Reserve",
+    "source": "survey",
+    "source:geometry": "LPI Base Map Feb 2016",
+    "source:name": "survey",
+    "start_date": "1981-09-21",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/munn-reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 152424432,
+  "center": {
+    "lat": -33.8567886,
+    "lon": 151.2018677
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Clyne Reserve",
+    "source": "survey",
+    "source:geometry": "LPI Base Map Feb 2016",
+    "wikidata": "Q21962751"
+  }
+},
+{
+  "type": "way",
+  "id": 152424880,
+  "center": {
+    "lat": -33.8586777,
+    "lon": 151.2052633
+  },
+  "tags": {
+    "check_date": "2023-06-06",
+    "leisure": "park",
+    "name": "Watson Road Reserve",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194"
+  }
+},
+{
+  "type": "way",
+  "id": 193989909,
+  "center": {
+    "lat": -33.8554680,
+    "lon": 151.2102921
+  },
+  "tags": {
+    "check_date": "2026-03-22",
+    "leisure": "park",
+    "name": "Hickson Road Reserve",
+    "name:ko": "힉슨 로드 보호지역",
+    "source": "Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 282194920,
+  "center": {
+    "lat": -33.8552507,
+    "lon": 151.2088538
+  },
+  "tags": {
+    "communication:amateur_radio:pota": "AU-10402",
+    "leisure": "park",
+    "name": "Dawes Point Reserve",
+    "name:ko": "도스 포인트 공원",
+    "source": "NSW LPI Base Map",
+    "source:date": "2016-01"
+  }
+},
+{
+  "type": "way",
+  "id": 396635733,
+  "center": {
+    "lat": -33.8582610,
+    "lon": 151.2026912
+  },
+  "tags": {
+    "leisure": "park",
+    "source": "survey"
+  }
+},
+{
+  "type": "way",
+  "id": 409035048,
+  "center": {
+    "lat": -33.8637531,
+    "lon": 151.2114804
+  },
+  "tags": {
+    "addr:street": "Bridge Street",
+    "building": "commercial",
+    "building:levels": "2",
+    "fee": "no",
+    "museum": "local",
+    "name": "Museum of Sydney",
+    "opening_hours": "Mo-Su 10:00-17:00",
+    "operator": "Museums of History New South Wales",
+    "source:geometry": "LPI Imagery",
+    "toilets": "yes",
+    "tourism": "museum",
+    "website": "https://mhnsw.au/visit-us/museum-of-sydney/",
+    "wheelchair": "yes",
+    "wikidata": "Q910232",
+    "wikipedia": "en:Museum of Sydney"
+  }
+},
+{
+  "type": "way",
+  "id": 461623006,
+  "center": {
+    "lat": -33.8623841,
+    "lon": 151.2102704
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Jessie Street Gardens",
+    "source:name": "LPI Base Map May 2018"
+  }
+},
+{
+  "type": "way",
+  "id": 537322593,
+  "center": {
+    "lat": -33.8579395,
+    "lon": 151.2064262
+  },
+  "tags": {
+    "addr:postcode": "2000",
+    "addr:state": "NSW",
+    "addr:street": "Trinity Avenue",
+    "addr:suburb": "Dawes Point",
+    "leisure": "park",
+    "name": "Trinity Avenue Playground"
+  }
+},
+{
+  "type": "way",
+  "id": 543220765,
+  "center": {
+    "lat": -33.8624434,
+    "lon": 151.2132815
+  },
+  "tags": {
+    "check_date": "2025-09-26",
+    "landcover": "grass",
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 544411442,
+  "center": {
+    "lat": -33.8590952,
+    "lon": 151.2091974
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Barney & Bligh Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 597981886,
+  "center": {
+    "lat": -33.8583018,
+    "lon": 151.2080072
+  },
+  "tags": {
+    "check_date": "2025-10-08",
+    "leisure": "park",
+    "name": "Foundation Park",
+    "source": "LPI Base Map June 2018",
+    "tourism": "attraction"
+  }
+},
+{
+  "type": "way",
+  "id": 1026912885,
+  "center": {
+    "lat": -33.8626029,
+    "lon": 151.2021655
+  },
+  "tags": {
+    "dog": "leashed",
+    "dog:conditional": "unleashed @ (06:00-10:00; 16:00-19:30)",
+    "leisure": "park",
+    "name": "Hickson Park",
+    "start_date": "2020-12-08",
+    "website": "https://www.barangaroo.com/past-present-future/barangaroo-south/hickson-park"
+  }
+},
+{
+  "type": "way",
+  "id": 1193701052,
+  "center": {
+    "lat": -33.8604585,
+    "lon": 151.2008588
+  },
+  "tags": {
+    "access": "no",
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1223396433,
+  "center": {
+    "lat": -33.8514699,
+    "lon": 151.2170612
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Beulah Street Reserve"
+  }
+},
+{
+  "type": "way",
+  "id": 1230017667,
+  "center": {
+    "lat": -33.8582840,
+    "lon": 151.2072341
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "King George V Memorial Park"
+  }
+},
+{
+  "type": "way",
+  "id": 1240351997,
+  "center": {
+    "lat": -33.8603703,
+    "lon": 151.2070839
+  },
+  "tags": {
+    "building": "yes",
+    "name": "The Big Dig Education Centre",
+    "tourism": "museum",
+    "website": "https://thebigdig.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 1252283967,
+  "center": {
+    "lat": -33.8586267,
+    "lon": 151.2041343
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Nita McCrae Park",
+    "operator": "City of Sydney",
+    "operator:type": "government",
+    "operator:wikidata": "Q1094194",
+    "website": "https://www.cityofsydney.nsw.gov.au/parks/nita-mccrae-park"
+  }
+},
+{
+  "type": "way",
+  "id": 1299698503,
+  "center": {
+    "lat": -33.8632033,
+    "lon": 151.2032199
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1308133778,
+  "center": {
+    "lat": -33.8612152,
+    "lon": 151.2029786
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1436357223,
+  "center": {
+    "lat": -33.8557742,
+    "lon": 151.2074783
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Parbury Lane Park",
+    "operator": "City of Sydney"
+  }
+},
+{
+  "type": "way",
+  "id": 1504758458,
+  "center": {
+    "lat": -33.8577329,
+    "lon": 151.2090743
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Bushell Place"
+  }
+},
+{
+  "type": "relation",
+  "id": 2068542,
+  "center": {
+    "lat": -33.8473238,
+    "lon": 151.2121978
+  },
+  "tags": {
+    "alcohol": "no",
+    "check_date": "2026-05-02",
+    "leisure": "park",
+    "name": "Bradfield Park",
+    "type": "multipolygon",
+    "website": "https://www.northsydney.nsw.gov.au/directory-record/1385/bradfield-park"
+  }
+},
+{
+  "type": "relation",
+  "id": 2068543,
+  "center": {
+    "lat": -33.8500260,
+    "lon": 151.2148892
+  },
+  "tags": {
+    "check_date": "2026-06-11",
+    "leisure": "park",
+    "name": "Captain Henry Waterhouse Reserve",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 2068544,
+  "center": {
+    "lat": -33.8501497,
+    "lon": 151.2156771
+  },
+  "tags": {
+    "alcohol": "no",
+    "leisure": "park",
+    "name": "Dr Mary Booth Lookout",
+    "source": "survey",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 3744333,
+  "center": {
+    "lat": -33.8600928,
+    "lon": 151.2141697
+  },
+  "tags": {
+    "alt_name": "Tarpeian Precinct Lawn",
+    "check_date": "2025-02-21",
+    "leisure": "park",
+    "name": "Domain Tarpeian Precinct",
+    "source": "sign",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 3744998,
+  "center": {
+    "lat": -33.8637401,
+    "lon": 151.2203961
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Domain Yurong Precinct",
+    "operator": "Botanic Gardens of Sydney",
+    "operator:wikidata": "Q41758525",
+    "source": "sign",
+    "type": "multipolygon",
+    "website": "https://www.botanicgardens.org.au/facility/the-domain-sydney-yurong/"
+  }
+},
+{
+  "type": "relation",
+  "id": 17039613,
+  "center": {
+    "lat": -33.8584814,
+    "lon": 151.2013238
+  },
+  "tags": {
+    "alcohol": "yes",
+    "leisure": "park",
+    "name": "Barangaroo Reserve",
+    "name:etymology": "Barangaroo",
+    "name:etymology:wikidata": "Q807254",
+    "operator": "Placemaking NSW",
+    "operator:wikidata": "Q136439527",
+    "source:alcohol": "https://www.barangaroo.com/venue-hire/picnics#:~:text=Alcohol%20is%20allowed%20in%20the,native%20trees%20throughout%20the%20Reserve.",
+    "start_date": "2015",
+    "type": "multipolygon",
+    "website": "https://www.barangaroo.com/precincts/barangaroo-reserve",
+    "wikidata": "Q30435452"
+  }
+}
+
+  ]
+}

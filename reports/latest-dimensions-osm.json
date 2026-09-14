@@ -1,0 +1,88 @@
+{
+  "pool_size": 397,
+  "pool": "data/places/sydney.sqlite",
+  "thresholds": {
+    "min_coverage": 0.8,
+    "min_minority": 0.2,
+    "max_agreement": 0.8,
+    "far_km": 1.5,
+    "d3_tiers": [
+      0.35,
+      0.65
+    ]
+  },
+  "dimensions": {
+    "D1": {
+      "name": "form",
+      "poles": "室内静态 ↔ 户外走动",
+      "status": "active",
+      "blocker": "",
+      "coverage": 1.0,
+      "minority": 0.295,
+      "known": 397,
+      "applicable": 397,
+      "agreement": {
+        "D2": {
+          "rate": 0.519,
+          "overlap": 397
+        }
+      }
+    },
+    "D2": {
+      "name": "travel",
+      "poles": "少折腾 ↔ 愿意走远",
+      "status": "active",
+      "blocker": "static CBD pool has no geographic spread; enforced on OSM retrieval pools",
+      "coverage": 1.0,
+      "minority": 0.395,
+      "known": 397,
+      "applicable": 397,
+      "agreement": {
+        "D1": {
+          "rate": 0.519,
+          "overlap": 397
+        }
+      }
+    },
+    "D3": {
+      "name": "obviousness",
+      "poles": "大众答案 ↔ 冷门",
+      "status": "reserved",
+      "blocker": "retired as a global preference; research-only local reroll signal",
+      "coverage": 1.0,
+      "minority": 0.137,
+      "known": 211,
+      "applicable": 211,
+      "agreement": {
+        "D1": {
+          "rate": 0.588,
+          "overlap": 211
+        },
+        "D2": {
+          "rate": 0.659,
+          "overlap": 211
+        }
+      }
+    },
+    "D4": {
+      "name": "mood",
+      "poles": "安静 ↔ 热闹",
+      "status": "reserved",
+      "blocker": "needs full annotation",
+      "coverage": 0.121,
+      "minority": 0.0,
+      "known": 48,
+      "applicable": 397,
+      "agreement": {
+        "D1": {
+          "rate": 1.0,
+          "overlap": 48
+        },
+        "D2": {
+          "rate": 0.5,
+          "overlap": 48
+        }
+      }
+    }
+  }
+}

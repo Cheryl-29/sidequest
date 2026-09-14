@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.db
+*.db-*
+.env
+node_modules/
+frontend/dist/
+.DS_Store
+*.log
+
+# OSM place snapshots and the derived index: rebuilt locally, ODbL share-alike
+data/places/

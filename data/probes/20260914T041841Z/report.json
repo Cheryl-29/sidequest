@@ -1,0 +1,200 @@
+{
+  "generated_at": "20260914T041841Z",
+  "m0_complete": false,
+  "records": [
+    {
+      "name": "cbd",
+      "url": "https://overpass-api.de/api/interpreter",
+      "params": {
+        "data": "[out:json][timeout:25];(nwr[\"tourism\"~\"^(museum|gallery)$\"](-33.88,151.2,-33.865,151.216);nwr[\"leisure\"=\"park\"](-33.88,151.2,-33.865,151.216););out center tags;"
+      },
+      "fetched_at": "2026-09-14T04:18:41.971465+00:00",
+      "requests": 1,
+      "synthetic": false,
+      "status_code": 504,
+      "elapsed_seconds": 11.655744,
+      "raw_path": "data/probes/20260914T041841Z/cbd.response",
+      "sha256": "9e8d149c02b9ab7719f9e6cfdf696730c39abead6f27e39eb13793b7d2adbb82",
+      "error": "http_error"
+    },
+    {
+      "name": "harbour",
+      "url": "https://overpass-api.de/api/interpreter",
+      "params": {
+        "data": "[out:json][timeout:25];(nwr[\"tourism\"~\"^(museum|gallery)$\"](-33.865,151.2,-33.85,151.222);nwr[\"leisure\"=\"park\"](-33.865,151.2,-33.85,151.222););out center tags;"
+      },
+      "fetched_at": "2026-09-14T04:18:53.628329+00:00",
+      "requests": 1,
+      "synthetic": false,
+      "status_code": 200,
+      "elapsed_seconds": 18.636811,
+      "raw_path": "data/probes/20260914T041841Z/harbour.response",
+      "sha256": "a5e8b22cfcc69f91911be5cd8f5e976dfe61e97027f066daa7a9b6227a62cacf",
+      "coverage": {
+        "raw_count": 48,
+        "unique_objects": 48,
+        "duplicate_objects": 0,
+        "same_name_excess": 0,
+        "categories": {
+          "museum": 8,
+          "gallery": 4,
+          "park": 35,
+          "attraction": 1
+        },
+        "missing": {
+          "name": {
+            "count": 6,
+            "denominator": 48,
+            "rate": 0.125
+          },
+          "coordinates": {
+            "count": 0,
+            "denominator": 48,
+            "rate": 0.0
+          },
+          "opening_hours": {
+            "count": 39,
+            "denominator": 48,
+            "rate": 0.8125
+          },
+          "fee": {
+            "count": 40,
+            "denominator": 48,
+            "rate": 0.8333333333333334
+          }
+        },
+        "event_date_price_end_time": "not_applicable: permanent-place query",
+        "note": "fee tag presence is not numeric price coverage; center is not an entrance"
+      },
+      "source_timestamp": "2026-09-14T04:17:20Z"
+    },
+    {
+      "name": "glebe",
+      "url": "https://overpass-api.de/api/interpreter",
+      "params": {
+        "data": "[out:json][timeout:25];(nwr[\"tourism\"~\"^(museum|gallery)$\"](-33.89,151.175,-33.87,151.195);nwr[\"leisure\"=\"park\"](-33.89,151.175,-33.87,151.195););out center tags;"
+      },
+      "fetched_at": "2026-09-14T04:19:12.266248+00:00",
+      "requests": 1,
+      "synthetic": false,
+      "status_code": 200,
+      "elapsed_seconds": 2.677977,
+      "raw_path": "data/probes/20260914T041841Z/glebe.response",
+      "sha256": "ded694f9b11c453f98a50c811f516ba73fe698c82aeb2d17b4a89e31991c2af1",
+      "coverage": {
+        "raw_count": 89,
+        "unique_objects": 89,
+        "duplicate_objects": 0,
+        "same_name_excess": 8,
+        "categories": {
+          "gallery": 4,
+          "park": 84,
+          "museum": 1
+        },
+        "missing": {
+          "name": {
+            "count": 29,
+            "denominator": 89,
+            "rate": 0.3258426966292135
+          },
+          "coordinates": {
+            "count": 0,
+            "denominator": 89,
+            "rate": 0.0
+          },
+          "opening_hours": {
+            "count": 85,
+            "denominator": 89,
+            "rate": 0.9550561797752809
+          },
+          "fee": {
+            "count": 86,
+            "denominator": 89,
+            "rate": 0.9662921348314607
+          }
+        },
+        "event_date_price_end_time": "not_applicable: permanent-place query",
+        "note": "fee tag presence is not numeric price coverage; center is not an entrance"
+      },
+      "source_timestamp": "2026-09-14T04:18:19Z"
+    },
+    {
+      "name": "surry_hills",
+      "url": "https://overpass-api.de/api/interpreter",
+      "params": {
+        "data": "[out:json][timeout:25];(nwr[\"tourism\"~\"^(museum|gallery)$\"](-33.9,151.205,-33.88,151.225);nwr[\"leisure\"=\"park\"](-33.9,151.205,-33.88,151.225););out center tags;"
+      },
+      "fetched_at": "2026-09-14T04:19:14.946066+00:00",
+      "requests": 1,
+      "synthetic": false,
+      "status_code": 200,
+      "elapsed_seconds": 2.326623,
+      "raw_path": "data/probes/20260914T041841Z/surry_hills.response",
+      "sha256": "ca583269ec1019b14104407fafbf28d841c3b4ed2966d021b91c43284a319744",
+      "coverage": {
+        "raw_count": 66,
+        "unique_objects": 66,
+        "duplicate_objects": 0,
+        "same_name_excess": 2,
+        "categories": {
+          "gallery": 15,
+          "park": 51
+        },
+        "missing": {
+          "name": {
+            "count": 11,
+            "denominator": 66,
+            "rate": 0.16666666666666666
+          },
+          "coordinates": {
+            "count": 0,
+            "denominator": 66,
+            "rate": 0.0
+          },
+          "opening_hours": {
+            "count": 59,
+            "denominator": 66,
+            "rate": 0.8939393939393939
+          },
+          "fee": {
+            "count": 62,
+            "denominator": 66,
+            "rate": 0.9393939393939394
+          }
+        },
+        "event_date_price_end_time": "not_applicable: permanent-place query",
+        "note": "fee tag presence is not numeric price coverage; center is not an entrance"
+      },
+      "source_timestamp": "2026-09-14T04:18:19Z"
+    },
+    {
+      "name": "weather",
+      "url": "https://api.open-meteo.com/v1/forecast",
+      "params": {
+        "latitude": -33.8688,
+        "longitude": 151.2093,
+        "timezone": "Australia/Sydney",
+        "daily": "temperature_2m_max,precipitation_probability_max",
+        "forecast_days": 2
+      },
+      "fetched_at": "2026-09-14T04:19:17.274045+00:00",
+      "requests": 1,
+      "synthetic": false,
+      "status_code": 200,
+      "elapsed_seconds": 1.361212,
+      "raw_path": "data/probes/20260914T041841Z/weather.response",
+      "sha256": "836cfd14717003ec8402bad7195a10bbdc6170c122e895996fe9198f551f226f",
+      "returned_timezone": "Australia/Sydney",
+      "forecast_dates": [
+        "2026-09-14",
+        "2026-09-15"
+      ]
+    }
+  ],
+  "request_count": 5,
+  "unmeasured": [
+    "event coverage",
+    "authenticated search quality",
+    "today/tomorrow two- and three-stop transit round trips"
+  ]
+}
