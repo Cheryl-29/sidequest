@@ -23,5 +23,5 @@
   {"id":"holdout-05","split":"holdout","request":{"budget_aud":5,"locked_ids":["screening"]},"expect":{"run":["search_exhausted"],"no_itinerary":true}},
   {"id":"holdout-06","split":"holdout","request":{"excluded_ids":["gallery","park","museum"],"max_stops":2},"expect":{"run":["completed"],"forbidden":["gallery","park","museum"],"min_stops":1}},
   {"id":"holdout-09","split":"holdout","request":{"locked_ids":["garden"],"stay_minutes":{"garden":90},"max_stops":2},"expect":{"run":["completed"],"required":["garden"],"max_stops":2}},
-  {"id":"holdout-10","split":"holdout","request":{"preference":"电影 活动","deadline":"2026-09-14T17:00:00+10:00"},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}}
+  {"id":"holdout-10","split":"holdout","request":{"preference":"电影 活动","departure":"2026-09-14T13:00:00+10:00","deadline":"2026-09-14T17:00:00+10:00"},"expect":{"run":["completed"],"min_stops":2,"itinerary":["verified"]}}
 ]

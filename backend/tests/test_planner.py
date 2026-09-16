@@ -167,7 +167,7 @@ def test_event_must_be_complete_and_have_arrival_buffer():
 
 
 def test_missing_event_end_is_unknown():
-    req = request(deadline="2026-09-14T17:00:00+10:00")
+    req = request(departure="2026-09-14T13:00:00+10:00", deadline="2026-09-14T17:00:00+10:00")
     c = next(c for c in candidates(req) if c.event)
     c.event_end = None
     assert assemble(req, (c,), ReplayTools(req)).status == Status.CONDITIONAL
@@ -217,6 +217,7 @@ def test_transport_fare_is_outside_budget_unless_explicitly_included():
     [
         {"departure": "2026-09-14T10:00:00"},
         {"deadline": "2026-09-14T10:15:00+10:00"},
+        {"deadline": "2026-09-14T14:01:00+10:00"},  # longer than half a day is a day trip
         {"departure": "2026-09-14T23:00:00+10:00", "deadline": "2026-09-15T01:00:00+10:00"},
         {"locked_ids": ["gallery"], "excluded_ids": ["gallery"]},
         {"stay_minutes": {"gallery": 1}},

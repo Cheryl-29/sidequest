@@ -23,7 +23,7 @@ const toMinutes = (value: string) => Number(value.slice(0,2)) * 60 + Number(valu
 const names: Record<string,string> = {townhall:'Town Hall', central:'Central Station', circular:'Circular Quay', current:'当前位置'};
 
 type When = 'now' | 'tonight' | 'tomorrow' | 'custom';
-const durations: [number, string][] = [[30,'30 分钟'],[60,'1 小时'],[120,'2 小时'],[240,'半天'],[480,'一天']];
+const durations: [number, string][] = [[30,'30 分钟'],[60,'1 小时'],[120,'2 小时'],[240,'半天']];  // a side quest, not a day trip: the server caps the window at 4 h
 const examples = ['想找个安静的地方待一会儿', '出去散散步，吹吹风', '去看点艺术或历史', '想去海港边坐坐'];
 
 // Display-only guess at what the free time was carved out of (plan v2 §2.4).
