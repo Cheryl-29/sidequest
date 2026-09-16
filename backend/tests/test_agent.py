@@ -197,12 +197,11 @@ def test_sunset_is_placed_relative_to_the_trip():
     evening = request(departure="2026-09-14T18:30:00+10:00", deadline="2026-09-14T21:00:00+10:00")
     model = FakeModel()
     propose_quest(evening, TasteState(), model, said="出去走走")
-    assert "出发时已经日落 45 分钟" in dict(model.seen)["narrate_quest"]
+    assert "出发时天已经黑了" in dict(model.seen)["narrate_quest"]
     afternoon = request(departure="2026-09-14T15:00:00+10:00", deadline="2026-09-14T17:15:00+10:00")
     model = FakeModel()
-    back = propose_quest(afternoon, TasteState(), model, said="出去走走", seed=1).quest.itinerary.return_at
-    before = round((datetime.combine(back.date(), time(17, 45), back.tzinfo) - back).total_seconds() / 60)
-    assert f"{back:%H:%M} 回到，再过 {before} 分钟日落" in dict(model.seen)["narrate_quest"]
+    propose_quest(afternoon, TasteState(), model, said="出去走走", seed=1)
+    assert "回来之前天不会黑" in dict(model.seen)["narrate_quest"]
 
 
 def test_a_remembered_preference_behind_the_pick_reaches_the_hook():

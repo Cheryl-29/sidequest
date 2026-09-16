@@ -60,18 +60,13 @@ def sun_fact(request: Request, itinerary: Itinerary) -> Fact | None:
     fact_id = f"clock:sunset:{day.isoformat()}"
     text = f"约 {at:%H:%M} 日落（按日期与坐标计算）"
     if at <= request.departure:
-        return Fact(id=fact_id, text=f"{text}，出发时已经日落 {minutes(request.departure - at)} 分钟")
+        return Fact(id=fact_id, text=f"{text}，出发时天已经黑了")
     if at > itinerary.return_at:
-        return Fact(id=fact_id, text=f"{text}，{itinerary.return_at:%H:%M} 回到，"
-                                     f"再过 {minutes(at - itinerary.return_at)} 分钟日落")
+        return Fact(id=fact_id, text=f"{text}，回来之前天不会黑")
     for stop in itinerary.stops:
         if stop.arrival <= at <= stop.end:
             return Fact(id=fact_id, text=f"{text}，那时你正在{stop.candidate.name}")
     return Fact(id=fact_id, text=f"{text}，那时你在路上")
-
-
-def minutes(delta: timedelta) -> int:
-    return round(delta.total_seconds() / 60)
 
 
 def window_fact(request: Request, itinerary: Itinerary) -> Fact:
