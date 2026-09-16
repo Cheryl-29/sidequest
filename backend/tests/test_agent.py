@@ -169,10 +169,16 @@ def test_the_hook_gets_facts_about_now_and_may_cite_them():
     result = propose_quest(request(), TasteState(), model, said="出去走走")
     prompt = dict(model.seen)["narrate_quest"]
     quest = result.quest
-    assert "回来之前天不会黑" in prompt  # 10:00-14:00, sunset 17:45
     assert "空闲 240 分钟" in prompt
     assert all(leg.evidence.id in prompt for leg in quest.itinerary.legs)
-    assert quest.evidence_ids == ["clock:window", "clock:sunset:2026-09-14"]
+    assert quest.evidence_ids == ["clock:window"]
+
+
+def test_a_sunset_hours_away_is_not_a_reason():
+    """10:00-14:00 with sunset at 17:45: a real model turned "天不会黑" into "正好在日落前回到"."""
+    model = FakeModel()
+    propose_quest(request(), TasteState(), model, said="出去走走")
+    assert "日落" not in dict(model.seen)["narrate_quest"].split("此刻：")[1]
 
 
 def test_narration_is_told_which_stop_the_agent_bet_on():
@@ -192,6 +198,10 @@ def test_sunset_is_placed_relative_to_the_trip():
     model = FakeModel()
     propose_quest(evening, TasteState(), model, said="出去走走")
     assert "出发时天已经黑了" in dict(model.seen)["narrate_quest"]
+    afternoon = request(departure="2026-09-14T15:00:00+10:00", deadline="2026-09-14T17:15:00+10:00")
+    model = FakeModel()
+    propose_quest(afternoon, TasteState(), model, said="出去走走", seed=1)
+    assert "回来之前天不会黑" in dict(model.seen)["narrate_quest"]
 
 
 def test_a_remembered_preference_behind_the_pick_reaches_the_hook():

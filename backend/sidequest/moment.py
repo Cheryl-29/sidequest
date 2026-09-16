@@ -46,13 +46,18 @@ def sunset(day: date, lat: float, lon: float) -> datetime | None:
     return (midnight + timedelta(minutes=round(minutes))).astimezone(SYDNEY)
 
 
-def sun_fact(request: Request, itinerary: Itinerary) -> Fact:
+# Sunset is a reason only when it is close to the trip. Offered a lunch-break quest with
+# "回来之前天不会黑" five hours early, a real model wrote "正好在日落前回到".
+SUNSET_NEAR = timedelta(hours=1)
+
+
+def sun_fact(request: Request, itinerary: Itinerary) -> Fact | None:
     origin = request_origin(request)
     day = request.departure.date()
     at = sunset(day, origin["lat"], origin["lon"])
+    if at is None or not request.departure - SUNSET_NEAR <= at <= itinerary.return_at + SUNSET_NEAR:
+        return None
     fact_id = f"clock:sunset:{day.isoformat()}"
-    if at is None:
-        return Fact(id=fact_id, text="当天没有日落")
     text = f"约 {at:%H:%M} 日落（按日期与坐标计算）"
     if at <= request.departure:
         return Fact(id=fact_id, text=f"{text}，出发时天已经黑了")

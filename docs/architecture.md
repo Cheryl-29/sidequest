@@ -78,7 +78,7 @@ Target priority in `agent.targets`: session feedback > what the user said now > 
 
 Each fact includes a source URL, fetch timestamp, validity interval and a `synthetic` flag. Route cache keys include origin, destination and the exact departure instant; live keys also include the TfNSW adapter version and the departure rounded up to the provider's minute precision. A changed time therefore cannot reuse an old departure-specific route. The cache is persisted inside the parent run and may be passed to a revision.
 
-The hook's "why now" comes from `moment.py`: computed, citable facts (sunset relative to the stops, the free window, each leg, and memory items the pick agrees with), not encyclopedia text.
+The hook's "why now" comes from `moment.py`: computed, citable facts (sunset relative to the stops, offered only within an hour of the trip, the free window, each leg, and memory items the pick agrees with), not encyclopedia text.
 
 ## Provider boundary
 
