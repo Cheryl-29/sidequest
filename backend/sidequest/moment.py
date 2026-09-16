@@ -46,22 +46,32 @@ def sunset(day: date, lat: float, lon: float) -> datetime | None:
     return (midnight + timedelta(minutes=round(minutes))).astimezone(SYDNEY)
 
 
-def sun_fact(request: Request, itinerary: Itinerary) -> Fact:
+# Sunset is a reason only when it is close to the trip. Offered a lunch-break quest with
+# "回来之前天不会黑" five hours early, a real model wrote "正好在日落前回到".
+SUNSET_NEAR = timedelta(hours=1)
+
+
+def sun_fact(request: Request, itinerary: Itinerary) -> Fact | None:
     origin = request_origin(request)
     day = request.departure.date()
     at = sunset(day, origin["lat"], origin["lon"])
+    if at is None or not request.departure - SUNSET_NEAR <= at <= itinerary.return_at + SUNSET_NEAR:
+        return None
     fact_id = f"clock:sunset:{day.isoformat()}"
-    if at is None:
-        return Fact(id=fact_id, text="当天没有日落")
     text = f"约 {at:%H:%M} 日落（按日期与坐标计算）"
     if at <= request.departure:
-        return Fact(id=fact_id, text=f"{text}，出发时天已经黑了")
+        return Fact(id=fact_id, text=f"{text}，出发时已经日落 {minutes(request.departure - at)} 分钟")
     if at > itinerary.return_at:
-        return Fact(id=fact_id, text=f"{text}，回来之前天不会黑")
+        return Fact(id=fact_id, text=f"{text}，{itinerary.return_at:%H:%M} 回到，"
+                                     f"再过 {minutes(at - itinerary.return_at)} 分钟日落")
     for stop in itinerary.stops:
         if stop.arrival <= at <= stop.end:
             return Fact(id=fact_id, text=f"{text}，那时你正在{stop.candidate.name}")
     return Fact(id=fact_id, text=f"{text}，那时你在路上")
+
+
+def minutes(delta: timedelta) -> int:
+    return round(delta.total_seconds() / 60)
 
 
 def window_fact(request: Request, itinerary: Itinerary) -> Fact:

@@ -167,7 +167,7 @@ NARRATE_SYSTEM = (
     "hook：两句以内，说清为什么是现在、为什么值得离开座位。可以具体到某个细节。\n"
     "「此刻」里是这次出门的当下事实：日落与行程的关系、空闲时间用掉多少、每段路怎么走、"
     "用户确认过且与这次选择相符的偏好。hook 优先从这里找「为什么是现在」，"
-    "而不是介绍地点的历史或名气。日落只说几点、那时人在哪，"
+    "而不是介绍地点的历史或名气。「此刻」里没有日落这一条时不要提日落或天黑；有时只说几点、那时人在哪，"
     "不要说能看到晚霞、光线好或景色美——那取决于天气，没有证据。"
     "引用偏好时说「你说过」即可，不要夸大成「你一直最爱」。\n"
     "你可以创作标题和叙述，但不能创作事实——开放时间、费用、时长必须来自给定材料，"
@@ -586,7 +586,8 @@ def narrate(model: Model, request: Request, itinerary: Itinerary,
     `plan()` may put a filler stop first, so the anchor is named explicitly; without it a
     real model titled a "想动一动" reroll after the supermarket on the way to a garden.
     """
-    moment = [sun_fact(request, itinerary), window_fact(request, itinerary),
+    sun = sun_fact(request, itinerary)
+    moment = [*([sun] if sun else []), window_fact(request, itinerary),
               *leg_facts(request, itinerary), *(remembered or [])]
     known = {e.id: e.value for stop in itinerary.stops for e in stop.candidate.evidence}
     known.update({f.id: f.text for f in moment})
