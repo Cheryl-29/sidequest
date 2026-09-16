@@ -89,7 +89,7 @@ These are deliberate and covered by tests in `backend/tests/` and `evals/scenari
 - A user-locked stop is never silently replaced; a closed lock returns `needs_input`.
 - User input never forms a URL. The TfNSW and Open-Meteo endpoints are fixed constants; `preference` text is inert data (there is an explicit prompt-injection test).
 - `TFNSW_API_KEY` and `OPENAI_API_KEY` live only in the git-ignored `.env`, is read via `providers.load_local_env`, and go into the `Authorization` header — never into query params, logs, caches, probe reports or `/api/health`.
-- All datetimes are timezone-aware and normalised to `Australia/Sydney` (`models.SYDNEY`); `Request` rejects naive times, DST-imaginary wall times, and cross-midnight windows.
+- All datetimes are timezone-aware and normalised to `Australia/Sydney` (`models.SYDNEY`); `Request` rejects naive times, DST-imaginary wall times, cross-midnight windows, and windows outside 30 min – `models.MAX_WINDOW_MINUTES` (4 h, plan v2.5: a full day is a trip, not a side quest).
 - Coordinates are clamped to the Sydney bounding box by the `Request` field constraints.
 
 ## Conventions

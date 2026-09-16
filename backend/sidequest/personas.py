@@ -14,7 +14,7 @@ from datetime import date, datetime, time, timedelta
 from pydantic import BaseModel, Field
 
 from .memory import Context, MemoryItem, Proposal, Slot
-from .models import SYDNEY, Candidate, Request
+from .models import MAX_WINDOW_MINUTES, SYDNEY, Candidate, Request
 from .places import candidate_kind
 from .taste import Dimension, Reason, aim_value, dimensions_of
 
@@ -26,7 +26,7 @@ class Pattern(BaseModel):
 
     weekday: int = Field(ge=0, le=6)
     start: time
-    minutes: int = Field(ge=30, le=480)
+    minutes: int = Field(ge=30, le=MAX_WINDOW_MINUTES)
     lat: float
     lon: float
 

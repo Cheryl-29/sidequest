@@ -6,6 +6,9 @@ from zoneinfo import ZoneInfo
 from pydantic import BaseModel, Field, model_validator
 
 SYDNEY = ZoneInfo("Australia/Sydney")
+# A side quest is carved out of the day, not a day trip: the planner has no meals, rests or
+# pacing, and at 4 h the retrieval radius already reaches its 12 km cap.
+MAX_WINDOW_MINUTES = 240
 
 
 class Status(StrEnum):
@@ -52,8 +55,8 @@ class Request(BaseModel):
                 raise ValueError("无效的当地时间")
             setattr(self, field, local)
         minutes = (self.deadline.timestamp() - self.departure.timestamp()) / 60
-        if not 30 <= minutes <= 960:
-            raise ValueError("可用时间应为 30 分钟至 16 小时")
+        if not 30 <= minutes <= MAX_WINDOW_MINUTES:
+            raise ValueError("支线最长半天：可用时间应为 30 分钟至 4 小时")
         if self.departure.date() != self.deadline.date():
             raise ValueError("出发和返回必须在悉尼当地同一天")
         if set(self.locked_ids) & set(self.excluded_ids):

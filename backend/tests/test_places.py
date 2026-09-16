@@ -72,7 +72,8 @@ def test_only_named_side_quest_kinds_inside_sydney_are_indexed(index):
 
 def test_radius_comes_from_the_window_not_from_the_user():
     assert radius_for(request()) > radius_for(request(deadline="2026-09-14T11:00:00+10:00"))
-    assert radius_for(request(deadline="2026-09-14T22:00:00+10:00")) <= 12.0
+    # The longest window a side quest may have (4 h) already reaches the radius cap.
+    assert radius_for(request(deadline="2026-09-14T14:00:00+10:00")) == 12.0
 
 
 def test_discovery_is_centred_on_the_origin(index):
@@ -227,7 +228,7 @@ def harbour(tmp_path, monkeypatch):
 
 
 def day(**changes):
-    return request(deadline="2026-09-14T18:00:00+10:00", **changes)
+    return request(deadline="2026-09-14T14:00:00+10:00", **changes)
 
 
 def test_side_stops_around_a_lock_are_near_the_lock_not_near_home(harbour):
