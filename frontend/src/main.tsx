@@ -84,6 +84,9 @@ function App() {
   const questRef = useRef<HTMLElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const plan = result?.itineraries[selected];
+  // The server applies place and kind feedback to the stop the agent bet on, which the planner
+  // may have put second; label the chips with that stop, not whatever is listed first.
+  const anchor = plan && (plan.stops.find(s => s.candidate.id === result?.agent?.anchor_id) ?? plan.stops[0]).candidate;
   const endMinutes = toMinutes(depart) + minutes;
   const endTime = clock(endMinutes);
   const fitsToday = endMinutes < 24 * 60;
@@ -396,8 +399,9 @@ function App() {
             <p>为什么想换？</p>
             <div role="group" aria-label="口味">{tasteChips.map(([reason,label]) => <button key={reason} disabled={busy} onClick={() => reroll(reason)}>{label}</button>)}</div>
             <div role="group" aria-label="这类地方或这个地方">
-              {kindOf(plan.stops[0].candidate.tags) && <button disabled={busy} onClick={() => reroll('not_this_kind')}>不想要这类</button>}
-              <button disabled={busy} onClick={() => reroll('never_here')}>以后别推 {plan.stops[0].candidate.name}</button>
+              {anchor && kindOf(anchor.tags) && <button disabled={busy} onClick={() => reroll('not_this_kind')}>不想要这类</button>}
+              <button disabled={busy} onClick={() => reroll('never_here')}>以后别推 {anchor?.name}</button>
+              {result?.agent && plan.stops.length > 1 && <button disabled={busy} onClick={() => reroll('off_route')}>保留 {anchor?.name}，换掉顺路的站</button>}
             </div>
             <div role="group" aria-label="其他">
               <button disabled={busy} onClick={() => reroll('been_there')}>去过了</button>

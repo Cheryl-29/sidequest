@@ -349,6 +349,34 @@ def test_free_text_is_mapped_onto_a_typed_reason(tmp_path):
     assert taste["proposals"] == []
 
 
+def test_a_complaint_about_a_side_stop_keeps_the_place_it_bet_on(tmp_path):
+    """Seen live: "咖啡店离海滩太远" became too_far, and the reroll dropped the beach."""
+    models = Models(replies={"interpret_feedback": {"reason": "off_route", "lasting": ""}})
+    client = agent_client(tmp_path, models)
+    run, quest = agent_quest(client)
+    anchor = run["result"]["agent"]["anchor_id"]
+    sides = [s["candidate"]["id"] for s in quest["stops"] if s["candidate"]["id"] != anchor]
+    assert sides, "the replay quest needs a side stop for this test"
+    data = other(client, run, quest, "咖啡店离海滩太远")
+    assert data["message"].startswith("理解成「顺路的站太绕」") and "保留" in data["message"]
+    prompt = next(u for m in models.made for n, u in m.seen if n == "interpret_feedback")
+    assert "主要目的" in prompt and "顺路" in prompt and "离主要目的地" in prompt
+    after = completed(client, data["id"])
+    assert after["result"]["agent"]["anchor_id"] == anchor
+    assert not set(sides) & {s["candidate"]["id"] for s in after["result"]["itineraries"][0]["stops"]}
+    (episode,) = client.get("/api/taste").json()["episodes"]
+    assert not episode["counts"]  # a far side stop says nothing about travel willingness
+    assert after["result"]["request"]["locked_ids"] == []  # the kept anchor is not a lock the user set
+
+
+def test_off_route_needs_a_side_stop(tmp_path):
+    client = agent_client(tmp_path, Models())
+    run, quest = agent_quest(client, {**REQUEST, "max_stops": 1})
+    body = client.post(f"/api/runs/{run['id']}/reroll",
+                       json={"itinerary_id": quest["id"], "reason": "off_route"})
+    assert body.status_code == 422
+
+
 def test_unmapped_free_text_is_reinferred_and_a_lasting_note_waits_for_confirm(tmp_path):
     models = Models(replies={"interpret_feedback": {
         "reason": "none", "lasting": "不喜欢要排队拍照的地方", "summary": "长期口味"}})

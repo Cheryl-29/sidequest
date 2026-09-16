@@ -51,7 +51,7 @@ The validator checks connection continuity, opening windows, event arrival buffe
 
 ## Taste and memory
 
-Feedback is typed. Every `Reason` belongs to exactly one of seven scopes, enforced by an import-time assertion:
+Feedback is typed. Every `Reason` belongs to exactly one of eight scopes, enforced by an import-time assertion:
 
 | Scope | Reasons | Effect |
 |---|---|---|
@@ -61,6 +61,7 @@ Feedback is typed. Every `Reason` belongs to exactly one of seven scopes, enforc
 | stated | never_here | a user statement the caller confirms into a hard skip |
 | constraint | no_spend / bad_time | patches the request |
 | dedup | been_there | marks consumed; expresses no taste |
+| route | off_route | rejects only the side stops and re-bets on the same anchor; expresses no taste |
 | session | other | model-mapped, or kept as session context |
 
 Long-term memory is a list of typed `MemoryItem`s (`dimension`, `category`, `place`, `note`), each optionally scoped to a `Context` computed from the request clock (slot × window span). Every reroll and accept becomes an `Episode`; `Memory` only counts them:

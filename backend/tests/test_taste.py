@@ -80,12 +80,21 @@ def test_been_there_records_consumption_without_touching_taste():
 
 
 @pytest.mark.parametrize("reason", [Reason.NO_SPEND, Reason.BAD_TIME, Reason.BEEN_THERE,
-                                    Reason.OTHER])
+                                    Reason.OFF_ROUTE, Reason.OTHER])
 def test_non_taste_reasons_are_evidence_for_nothing(reason):
     state = in_lunch()
     push(state, reason, times=5, kind="museum")
     assert all(not e.signals for e in state.memory.episodes)
     assert state.proposals() == []
+
+
+def test_off_route_keeps_the_anchor_and_learns_nothing():
+    """"咖啡店离海滩太远" is about a side stop; it says nothing about travel willingness."""
+    state = in_lunch()
+    outcome = state.apply(fb(Reason.OFF_ROUTE, candidates=["cafe"], anchor="beach"))
+    assert outcome.keep == "beach"
+    assert state.rejected == ["cafe"] and state.session == {}
+    assert outcome.dimension is None and outcome.request_patch == {}
 
 
 def test_no_spend_patches_the_request_without_touching_taste():
