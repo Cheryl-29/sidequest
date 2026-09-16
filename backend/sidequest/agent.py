@@ -14,6 +14,7 @@ means a model choice cannot be quietly overridden either.
 
 import random
 import re
+import time
 from collections.abc import Callable
 from datetime import datetime
 from typing import Literal
@@ -161,6 +162,8 @@ NARRATE_SYSTEM = (
     "你可以创作标题和叙述，但不能创作事实——开放时间、费用、时长必须来自给定材料，"
     "并把依据的 id（材料里的 evidence id 或「此刻」里的 id）列进 evidence_ids。不要编造 id。\n"
     "「未核实」里列出的事项没有证据：不要说那里现在开着、正在营业或几点关门。\n"
+    "材料里 role 为「主要目的」的那一站是这次选中的地方：brief 和 hook 都围绕它写。"
+    "role 为「顺路」的站只是路上顺手做的小事，可以在 hook 里带一句，但不能成为任务名。\n"
     "材料里有 action 时，把它写成这次要做的那件小事，可以加一个不涉及事实的小挑战"
     "（例如「挑包装最奇怪的那个」）；不要声称店里有什么商品、口味或价格。\n"
     "材料里没有天气、季节、气温、拥挤程度的证据，所以一个字都不要提这些。"
@@ -545,8 +548,13 @@ def interpret_feedback(model: Model, text: str, quest: str) -> tuple[Reason, str
 
 
 def narrate(model: Model, request: Request, itinerary: Itinerary,
-            remembered: list[Fact] | None = None) -> tuple[str, str, list[str]]:
-    """Citations are checked, claims are not: an id that does not exist is dropped."""
+            remembered: list[Fact] | None = None,
+            anchor_id: str | None = None) -> tuple[str, str, list[str]]:
+    """Citations are checked, claims are not: an id that does not exist is dropped.
+
+    `plan()` may put a filler stop first, so the anchor is named explicitly; without it a
+    real model titled a "想动一动" reroll after the supermarket on the way to a garden.
+    """
     moment = [sun_fact(request, itinerary), window_fact(request, itinerary),
               *leg_facts(request, itinerary), *(remembered or [])]
     known = {e.id: e.value for stop in itinerary.stops for e in stop.candidate.evidence}
@@ -554,6 +562,8 @@ def narrate(model: Model, request: Request, itinerary: Itinerary,
     material = [
         {
             "name": stop.candidate.name,
+            **({"role": "主要目的" if stop.candidate.id == anchor_id else "顺路"}
+               if anchor_id and len(itinerary.stops) > 1 else {}),
             "description": stop.candidate.description,
             "action": action_for(stop.candidate),
             "evidence": {e.id: e.value for e in stop.candidate.evidence},
@@ -604,16 +614,20 @@ def propose_quest(
     trace: list[Trace] = []
     seed = random.SystemRandom().randrange(2**32) if seed is None else seed
     rng = random.Random(seed)
+    last = [time.perf_counter()]
 
     def log(node, action, summary, evidence=None):
+        # Time since the previous step, so a slow model call shows on the step it produced.
+        now = time.perf_counter()
         step = Trace(
             sequence=len(trace) + 1,
             node=node,
             action=action,
             summary=summary,
-            elapsed_ms=0.0,
+            elapsed_ms=round((now - last[0]) * 1000, 1),
             evidence_ids=evidence or [],
         )
+        last[0] = now
         trace.append(step)
         if on_step:
             on_step(step)  # may raise to abort a round nobody is waiting for any more
@@ -697,7 +711,8 @@ def propose_quest(
         return draw(ordered, scores, rng)
 
     pool = rank(aim, available)
-    log("select", "rank_candidates", f"目标 { {d.value: v for d, v in aim.items()} }；"
+    wanted = "、".join(f"{d.value} {aim_label(d, v)}" for d, v in aim.items()) or "无"
+    log("select", "rank_candidates", f"目标：{wanted}；"
         f"随机种子 {seed}；候选序 {'、'.join(c.name for c in pool[:attempts])}")
 
     ranked = [pool]
@@ -740,7 +755,7 @@ def propose_quest(
                 [i for i in recalled if i.id in memory_ids], candidate, candidate_kind(candidate),
                 {s.candidate.id: s.candidate.name for s in itinerary.stops},
             )
-            brief, hook, cited = narrate(model, request, itinerary, remembered)
+            brief, hook, cited = narrate(model, request, itinerary, remembered, candidate.id)
             log("narrate", "narrate_quest", brief[:60], cited)
             state.record_shown([s.candidate.id for s in itinerary.stops])
             return AgentResult(

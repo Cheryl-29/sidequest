@@ -175,6 +175,18 @@ def test_the_hook_gets_facts_about_now_and_may_cite_them():
     assert quest.evidence_ids == ["clock:window", "clock:sunset:2026-09-14"]
 
 
+def test_narration_is_told_which_stop_the_agent_bet_on():
+    """plan() may put a filler stop first; the title must not follow it."""
+    model = FakeModel()
+    quest = propose_quest(request(), TasteState(), model, said="出去走走", seed=1).quest
+    stops = quest.itinerary.stops
+    assert len(stops) > 1
+    prompt = dict(model.seen)["narrate_quest"]
+    anchor = next(s.candidate.name for s in stops if s.candidate.id == quest.anchor_id)
+    assert f"'name': '{anchor}', 'role': '主要目的'" in prompt
+    assert prompt.count("'role': '顺路'") == len(stops) - 1
+
+
 def test_sunset_is_placed_relative_to_the_trip():
     evening = request(departure="2026-09-14T18:30:00+10:00", deadline="2026-09-14T21:00:00+10:00")
     model = FakeModel()
