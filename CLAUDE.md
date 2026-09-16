@@ -6,6 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 make install        # venv + pip install -e '.[dev]' + npm install --prefix frontend
+make places-demo    # offline 157-place index from the committed probe; skips an existing index
 make test           # ruff check backend && pytest -q && npm run build --prefix frontend
 make eval           # frozen acceptance scenarios -> reports/latest-eval.json (exits non-zero on any failure)
 make dimensions     # taste-dimension gates vs the candidate pool -> reports/latest-dimensions.json

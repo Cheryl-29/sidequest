@@ -1,64 +1,158 @@
 # Sidequest
 
-Sidequest 根据当前位置、可用时间和一句偏好，生成当天可完成的悉尼小行程。当前版本包含确定性 Replay 和收缩范围的 Live Adapter：CBD 常设场馆、公园与 TfNSW 路线。它支持 1–3 个站点、完整往返、Google Maps 导航、时间与活动预算验证、局部修改、偏好存储、Trace 和 SSE 进度。
+**一个会从“换一个”里学习你口味的支线任务 Agent。** 说一句现在的状态、给一段空闲时间，它在出发地周边的真实地点里挑一个去得到、赶得回来的小任务；不喜欢就换，并告诉它为什么——换着换着，它越来越懂你。
 
-> 当前地点名称用于界面演示，开放时间、费用和交通时长均为合成数据。`verified` 只表示方案通过冻结回放场景的约束检查，不可作为真实出行依据。
+> 悉尼 · OpenStreetMap 地点快照 · TfNSW 实时公交路线 · OpenAI 结构化输出 · FastAPI + React/TypeScript
 
-配置 API key 后界面默认使用 Live 模式，并以当前悉尼时间作为可编辑的出发时间。用户点击“使用当前位置”后，浏览器才请求定位权限；坐标作为起点参与附近候选排序和完整往返验证，并保存在本地行程记录中。TfNSW 密钥不会进入请求参数、日志、缓存或结果。
+| 一句话 + 一段时间 | 带理由地换一个 | 换完之后 |
+|---|---|---|
+| ![首页](docs/images/home.png) | ![换一个的理由](docs/images/reroll.png) | ![换成户外](docs/images/quest-after-reroll.png) |
 
-预算默认只约束门票和活动费用。公共交通费另计，也不会仅因 TfNSW 缺少 Opal 票价而把方案标成 `conditional`；用户可以主动选择把交通费纳入预算。每个结果都提供无需 Google API key 的 Google Maps 整条路线链接。
+上面三张是真实运行截图：第一次给了咖啡馆，点“想动一动”之后，Agent 把目标改成户外，选中了一片城市林地，并用 TfNSW 查过往返路线，保证赶得回来。
 
-## 本地运行
+---
 
-需要 Python 3.12+ 和 Node.js 20+。
+## 核心设计：模型决定去哪，执行器决定去不去得了
 
-```bash
-python3 -m venv .venv
-.venv/bin/pip install -e '.[dev]'
-npm install --prefix frontend
-npm run build --prefix frontend
-PYTHONPATH=backend .venv/bin/uvicorn sidequest.api:app --reload
+```mermaid
+flowchart LR
+    U["一句话 + 时间窗口<br/>+ 带理由的 reroll"] --> A
+    subgraph A["Agent（LLM，结构化输出）"]
+        direction TB
+        I[infer_intent] --> P["choose_probe<br/>探索还是利用"] --> S["search_places<br/>从 18 类里选"]
+        N[narrate<br/>引用证据 id]
+    end
+    S --> R["确定性排序<br/>目标维度 × 记忆 × 受控随机"]
+    R -->|锁定一站| V
+    subgraph V["执行器（无 LLM）"]
+        direction TB
+        PL["fixed-v1 规划器<br/>组合 + 顺序搜索"] --> VA["全链条验证<br/>去程 / 站间 / 回程"]
+    end
+    VA --> N
+    M[("类型化记忆<br/>情节 → 提议 → 确认")] <--> R
+    OSM[("OSM 索引<br/>10,247 个地点")] --> S
+    TF[TfNSW Trip Planner] --> VA
 ```
 
-打开 <http://127.0.0.1:8000>。首次访问会创建仅保存在浏览器 Cookie 中的随机会话标识；行程和偏好写入项目目录下的 `sidequest.db`。
+- **LLM 永远不产出时间、费用和可行性结论。** 模型只输出受 JSON Schema 约束的意图、试探维度和地点类别；候选必须来自检索结果，被选中的地点作为“锁定站点”交给确定性规划器。模型回复再差，结果也只是“无聊”，不会是“去不了”。
+- **验证是全链条的。** 每个 `Check` 是 `pass | fail | unknown`：任何 `fail` ⇒ `infeasible`，任何 `unknown` ⇒ `conditional`，只有全部 `pass` 才是 `verified`。单个地点各自可达，不代表连起来赶得回来。
+- **缺失的事实保持缺失。** 缺营业时间不会被默认成“开着”，缺票价不会被当成 0，而是作为“出发前确认”列给用户看。
 
-开发前端时可分别运行：
+## 技术亮点
+
+**1. 反馈驱动的类型化记忆（主亮点）**
+- 每次“换一个”都必须带一个类型化理由，理由分 7 个作用域，互不混用（导入时 `assert` 检查完整划分）：移动口味维度、一次性局部调整、类别偏好、用户明示、硬约束、仅去重、仅本会话。例如“去过了”不表达任何口味，用户可能正是因为喜欢才去过。
+- 记忆条目分 `dimension / category / place / note` 四类，可以绑定由请求时间自动推出的**情境**（午休、下班后、周末 × 窗口长短），不需要问用户，也不由模型命名。
+- 管理流程可审计：情节记录 → 规则合并 → 服务端提议 → 用户确认 → 冲突裁决 → 召回 → 删除级联。只有 `confirm()` 能写入长期记忆；同一情境的支持数达到阈值、跨 ≥2 个会话且没有反例才会提议；其他情境里的反例不算反例；记忆加分有上限，不能压过用户当下说的话。
+
+**2. 探索与利用**
+- `choose_probe` 决定这一轮是试探某个口味维度，还是利用已知偏好；可以试探的维度由闸门脚本（`check_dimensions.py`）在真实候选池上验证覆盖率和两极分布后才会启用。
+- 随机性放在执行器里，而不是模型温度：在分数与最佳相差不超过一次维度命中的前 5 名里做带种子的加权抽样，种子写进 Trace，评测时固定种子。
+
+**3. 可靠性工程**
+- 异步任务 + SSE 逐步推送 Agent 进度；SQLite 文档存储上的 compare-and-swap 保证已取消或已被取代的请求，不会被迟到的结果覆盖；服务重启时，未完成的任务标记为 `interrupted`。
+- 模型错误、45 s 超时，或押注的地点全部验证失败时，自动降级到固定策略，并在界面上说明原因。
+- 路线缓存键包含精确出发时刻；API Key 只放在 Header 里，不进 URL、日志或缓存；用户输入不参与拼接 URL，并有专门的提示注入测试。
+- 叙述里引用的证据 id 会和真实证据核对，编造的 id 直接丢弃；没有已确认记忆支撑时，“你说过 / 你喜欢”这类话由执行器删掉（这是真实模型实测时发现的问题）。
+
+**4. 评测体系**：冻结场景回归、暴力参考规划器、模拟用户跨会话实验，详见下一节。
+
+## 评测
+
+三层评测，全部可以离线复现，报告在 [`reports/`](reports/) 中，给出原始分子和分母。
+
+### 1. 硬约束回归：`make eval`
+24 个冻结场景（16 个开发 + 8 个保留），期望条件写在验证器之外，单独断言。**24/24 通过**，在 CI 中运行。
+
+### 2. 搜索召回：`scripts/check_reference.py`
+暴力参考规划器穷举所有“组合 × 顺序”，用来衡量固定规划器有没有漏掉可行解：有可行解的 22 个场景里，**规划器全部命中（22/22），有 verified 解的 21 个场景也全部拿到 verified（21/21）**，没有漏报，也没有判定分歧。
+
+### 3. 模拟用户跨会话实验：`scripts/run_personas.py`
+12 个合成 persona，每个带有对 Agent 隐藏的口味（D1 室内/户外、D2 远/近、类别好恶、情境规则、拉黑地点），判官是确定性的。每个 persona 依次进行多次会话，会话之间只保留记忆。六组对照只改变“允许存什么”，不改产品代码。
+
+开发集 persona（7 个 persona、44 个会话、完整 OSM 索引、gpt-4o-mini，[报告](reports/latest-personas-openai.json)）：
+
+| 组 | 首轮接受 | 3 轮内接受 | 提议被接受 | 记忆召回 |
+|---|---:|---:|---:|---:|
+| 固定策略（不解读理由） | 25/44 | 29/44 | — | — |
+| Agent · 无长期记忆 | 22/44 | **44/44** | — | 0/11 |
+| Agent · 扁平维度画像 | 34/44 | 44/44 | 6/12 | 6/11 |
+| **Agent · 类型化 + 情境记忆**（上线方案） | **34/44** | **44/44** | **5/5** | 5/11 |
+
+读法：
+- **会收敛**：固定策略被拒之后几乎不再收敛（3 轮内 29/44）；读取理由的 Agent 3 轮内全部被接受（44/44）。
+- **会记住**：有长期记忆时，首轮接受率从 22/44 提升到 34/44。
+- **记得准**：情境化记忆的提议全部被 persona 接受（5/5），扁平画像有一半被拒（6/12）。44 个会话共 201 次模型调用，约 13.1 万 token。
+- 这个实验暴露并修掉了一个产品 bug：`search_places` 的类别过滤曾把户外地点全部删掉，导致偏户外的 persona 连说五次“想动一动”，拿到的仍是五家奶茶店。现在由执行器在过滤删光用户要的东西时补回（`keep_what_the_user_asked_for`）。
+
+> 边界：persona 是合成的，不代表真实用户；上表只跑了开发集和 1 次重复，保留集 persona 尚未用于正式实验。确定性的 `RuleModel` 替身（无网络、无模型）可以随时复现同一套机制：`typed_context` 首轮接受 28/44、提议 6/6、全同意 persona 错误记忆 0。
+
+## 快速开始
+
+需要 Python 3.12+、Node.js 20+。
 
 ```bash
-PYTHONPATH=backend .venv/bin/uvicorn sidequest.api:app --reload
-npm run dev --prefix frontend
+make install       # venv + 后端依赖 + 前端依赖
+make places-demo   # 用仓库内的 OSM 探针快照离线构建小索引（157 个地点）
+make run           # 构建前端并启动服务
 ```
 
-Vite 会把 `/api` 转发到端口 8000，前端地址是 <http://127.0.0.1:5173>。
+打开 <http://127.0.0.1:8000>。不配置任何 Key 时，路线使用合成回放、策略使用固定规划器，全程不需要联网。
 
-## 验证
+想启用真实路线和 Agent，在项目根目录的 `.env` 中写入：
 
 ```bash
-.venv/bin/pytest -q
-.venv/bin/ruff check backend
-npm run build --prefix frontend
-PYTHONPATH=backend .venv/bin/python scripts/run_eval.py
+TFNSW_API_KEY=...     # Live 公交路线
+OPENAI_API_KEY=...    # Agent 策略（可选 OPENAI_MODEL / OPENAI_BASE_URL）
 ```
 
-最后一条命令运行冻结的 16 个开发场景和 8 个保留场景，将逐案例结果写入 `reports/latest-eval.json`。它是确定性软件评测，不包含模型质量或真实数据准确率。
+完整的悉尼索引（10,247 个地点）需要先运行 `scripts/fetch_places.py` 抓取 Overpass 快照，再用 `scripts/build_places.py` 构建；`make places-demo` 不会覆盖已有的索引。
 
-## 主要目录
+验证（与 CI 一致）：
 
-- `backend/sidequest/`：请求模型、回放数据、规划器、验证器、持久化与 API。
-- `frontend/`：React + TypeScript 单页界面。
-- `evals/scenarios.json`：24 个冻结场景和独立期望条件。
-- `reports/`：评测产物。
-- `docs/architecture.md`：状态、证据、缓存和修改语义。
-- `docs/data-feasibility.md`：真实数据接入前的已验证事实与待办。
+```bash
+make test         # ruff + pytest（200 项）+ 前端类型检查与构建
+make eval         # 24 个冻结场景
+make dimensions   # 口味维度闸门
+```
 
-## 现在能证明什么
+## 代码结构
 
-- 多站行程按完整链条验证，单个地点各自可行不代表组合可行。
-- `unknown` 不会被标成 `verified`；预算、营业时间或活动结束时间缺失会产生 `conditional`。
-- 用户锁定的站点不会被静默替换，迟到结果不能覆盖取消状态。
-- 路线缓存包含精确出发时刻；时间改变后会重新计算受影响路段。
-- 每个会话独立读取行程和偏好。“换一个”的理由和“就这个”会记成经历；同一个意思在不止一次出门里反复出现，系统才提议记住，用户确认后才写入长期偏好。偏好抽屉里可以查看每条记忆的生效时段和依据，删除记忆或经历，或暂停记录。
+```text
+backend/sidequest/      FastAPI 后端，约 5k 行
+  agent.py              Agent 一轮：意图 → 试探 → 搜索 → 排序 → 锁定 → 叙述
+  llm.py                OpenAI JSON Schema 结构化输出适配器（httpx，无 SDK，调用预算，类型化错误）
+  planner.py            fixed-v1 规划器与全链条验证器
+  providers.py          TfNSW 路线适配器、Live 工具
+  places.py             OSM 地点索引、半径检索、分环配额、营业时间软排除
+  taste.py / memory.py  反馈作用域、证据规则；类型化记忆、情境、提议与删除级联
+  moment.py             “为什么是现在”的可引用事实（日落、时间窗口、路段）
+  api.py / storage.py   异步任务、SSE、reroll/accept/偏好 API；owner 隔离的 SQLite 文档存储
+  personas.py / harness.py / reference.py   模拟用户、跨会话实验、暴力参考规划器
+backend/tests/          200 项测试，约 2.3k 行
+frontend/src/           React + TypeScript 单页（输入 → 任务卡 → 换一个 → 偏好抽屉 / 开发视图）
+evals/                  冻结场景与 persona 定义
+reports/                评测产物
+docs/                   架构说明、数据可行性探针记录
+```
 
-TfNSW Live Adapter 已接入后端 Provider 契约，包含响应解析、学校巴士过滤、出发时刻约束、未知票价、类型化错误和短期路线缓存。前端可在 Live 与 Replay 间切换；Live 候选已加入 Royal Botanic Garden 和 Barangaroo Reserve。场馆页面的自动刷新仍是下一阶段。
+## 开发视图
 
-M0 于 2026-09-14 通过：完成地点、天气、TfNSW 交通和 DDGS 活动发现实测（探针脚本与大部分原始快照已于 2026-09-15 收敛时删除，结论保留在文档中）。今天两站和明天三站的 7 个顺序路段通过时间连续性检查并冻结为历史 Provider Replay。DDGS 精确日期召回不足，故只保留为开发工具；首版 Live 范围收缩为悉尼 CBD 的少量常设场馆。查看 [探针报告](docs/data-feasibility.md)。
+每一轮都能看到 Agent 押注了什么、调用了几次模型、用了多少 token，以及每一步的耗时；行程详情页列出每一项检查及其依据。
+
+| 可审计的动作 Trace | 时间线与“凭什么说走得通” |
+|---|---|
+| ![开发视图](docs/images/trace.png) | ![行程与检查](docs/images/plan.png) |
+
+## 诚实边界
+
+- 营业时间目前只作提示，不参与判定（`venue_facts="advisory"`）：OSM 的 `opening_hours` 不可靠，已知的关门时间仍会判定失败。
+- 地点描述只来自 OSM 标签，所以叙述会偏平淡；地点的当期内容（展览等）是计划中的 RAG 切入点，还没有实现。
+- 身份是随机会话 Cookie，没有账号体系；清掉 Cookie 就会失去记忆。
+- 仅限悉尼范围；公交票价缺失时显示为未知，不按 0 计算。
+
+## 文档
+
+- [`docs/architecture.md`](docs/architecture.md)：请求生命周期、Agent 边界、记忆规则、证据与缓存
+- [`docs/data-feasibility.md`](docs/data-feasibility.md)：M0 真实数据探针与许可
+- [`Sidequest_项目计划_v2.md`](Sidequest_项目计划_v2.md)：产品定位、研究问题、实验记录与取舍

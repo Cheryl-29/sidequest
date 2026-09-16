@@ -1,7 +1,7 @@
 [project]
 name = "sidequest"
 version = "0.1.0"
-description = "Evidence-aware Sydney micro-itinerary planner"
+description = "Side-quest agent that learns taste from typed rerolls, with evidence-checked Sydney itineraries"
 requires-python = ">=3.12"
 dependencies = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.30,<1", "sqlalchemy>=2.0,<3", "httpx>=0.27,<1"]
 

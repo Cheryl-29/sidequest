@@ -13,3 +13,6 @@ frontend/dist/
 
 # OSM place snapshots and the derived index: rebuilt locally, ODbL share-alike
 data/places/
+
+# Local resume notes, never committed
+RESUME_NOTES.md
