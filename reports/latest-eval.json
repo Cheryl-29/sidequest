@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T17:29:03.734685+00:00",
+  "generated_at": "2026-09-16T10:56:47.372241+00:00",
   "configuration": {
     "strategy": "fixed-v1",
     "fixture": "synthetic-fixtures-v1",
@@ -134,7 +134,7 @@
       "run_status": "completed",
       "itinerary_status": "verified",
       "stops": 3,
-      "tool_calls": 12
+      "tool_calls": 11
     },
     {
       "id": "dev-13",
@@ -154,7 +154,7 @@
       "run_status": "completed",
       "itinerary_status": "conditional",
       "stops": 3,
-      "tool_calls": 11
+      "tool_calls": 8
     },
     {
       "id": "dev-18",
@@ -164,7 +164,7 @@
       "run_status": "completed",
       "itinerary_status": "verified",
       "stops": 3,
-      "tool_calls": 12
+      "tool_calls": 11
     },
     {
       "id": "dev-19",
@@ -224,7 +224,7 @@
       "run_status": "search_exhausted",
       "itinerary_status": null,
       "stops": 0,
-      "tool_calls": 9
+      "tool_calls": 8
     },
     {
       "id": "holdout-06",

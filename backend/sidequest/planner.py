@@ -10,6 +10,10 @@ from .fixtures import ORIGINS, candidates
 from .models import Candidate, Check, Evidence, Itinerary, Leg, Request, Result, Status, Stop, Trace
 from .providers import BudgetExhausted, CuratedVenueProvider, LiveTools, NoRouteError
 
+# A stop added around a locked one must be walkable from it (~13 minutes); farther away it is
+# a second destination, not something done on the way.
+SIDE_KM = 1.0
+
 
 class PlannerTools(Protocol):
     calls: int
@@ -451,9 +455,22 @@ def plan(
 
     found.sort(key=relevance, reverse=True)
     locked = [c for c in found if c.id in request.locked_ids]
+
+    def from_locks(c):
+        return min(distance(lock.model_dump(), c.model_dump()) for lock in locked)
+
+    if locked:
+        # Stops added around a lock are on the way to it. Picking them by distance from the
+        # origin put a corner shop and a cafe at home around a beach 4 km away.
+        found.sort(key=lambda c: from_locks(c) - relevance(c) * 0.08)
+
     def individually_possible(c):
         if c.id in request.excluded_ids or c.cancelled:
             return False
+        if locked and c not in locked and (
+            from_locks(c) > SIDE_KM or c.category in {lock.category for lock in locked}
+        ):
+            return False  # too far to be on the way, or a second beach after the beach
         # An event that cannot finish and return by the deadline is an obvious
         # deterministic conflict. Unknown hours remain eligible for inspection.
         if c.event_end:
@@ -494,7 +511,8 @@ def plan(
                 near = sorted(
                     (c for c in pool if c not in selected),
                     key=lambda c: (
-                        distance(anchor.model_dump(), c.model_dump()) - relevance(c) * 0.08
+                        min(distance(s.model_dump(), c.model_dump()) for s in selected)
+                        - relevance(c) * 0.08
                     ),
                 )
                 selected += near[: size - len(selected)]

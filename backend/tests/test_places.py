@@ -16,8 +16,8 @@ from sidequest.places import (
     shut_for_window,
     weekly_hours,
 )
-from sidequest.planner import plan
-from sidequest.taste import TasteState
+from sidequest.planner import SIDE_KM, distance, plan
+from sidequest.taste import Feedback, Reason, TasteState
 from test_agent import FakeModel
 
 BBOX = (-34.2, 150.8, -33.5, 151.5)
@@ -204,3 +204,74 @@ def test_a_place_mapped_twice_is_offered_once_but_chain_branches_stay():
     ]
     kept = dedupe(rows)
     assert [r["km"] for r in kept] == [0.1, 6.8]
+
+
+# The reported day: "想去海港边坐坐" from home, a harbour beach ~4.5 km east.
+HARBOUR_DAY = [
+    element(40, "Corner Store", -33.8736, 151.2068, kind=("shop", "convenience")),
+    element(41, "Home Cafe", -33.8737, 151.2069, kind=("amenity", "cafe")),
+    element(42, "Pocket Park", -33.8745, 151.2080, kind=("leisure", "park"), way=True),
+    element(43, "Harbour Beach", -33.8696, 151.2540, kind=("natural", "beach"), way=True),
+    element(44, "Next Beach", -33.8700, 151.2590, kind=("natural", "beach"), way=True),
+    element(45, "Beach Kiosk", -33.8703, 151.2545, kind=("amenity", "cafe")),
+]
+BEACH = "osm:way/43"
+
+
+@pytest.fixture
+def harbour(tmp_path, monkeypatch):
+    path = tmp_path / "harbour.sqlite"
+    build_index(HARBOUR_DAY, path,
+                {"source": "test", "source_timestamp": "2026-09-13T00:00:00+00:00"}, BBOX)
+    monkeypatch.setenv("SIDEQUEST_PLACES_DB", str(path))
+
+
+def day(**changes):
+    return request(deadline="2026-09-14T18:00:00+10:00", **changes)
+
+
+def test_side_stops_around_a_lock_are_near_the_lock_not_near_home(harbour):
+    """Seen live: corner shop at home -> beach 4 km away -> cafe at home."""
+    result, _ = plan(day(locked_ids=[BEACH]))
+    assert result.itineraries
+    for itinerary in result.itineraries:
+        beach = next(s.candidate for s in itinerary.stops if s.candidate.id == BEACH)
+        others = [s.candidate for s in itinerary.stops if s.candidate.id != BEACH]
+        assert all(distance(beach.model_dump(), c.model_dump()) <= SIDE_KM for c in others)
+        assert all(c.category != beach.category for c in others)  # not a second beach
+    assert any(s.candidate.name == "Beach Kiosk" for i in result.itineraries for s in i.stops)
+
+
+def test_a_named_kind_goes_first_even_when_the_search_mixes_in_others(harbour):
+    for seed in range(5):
+        model = FakeModel(replies={
+            "infer_intent": {"form": "outdoor", "places": ["beach"], "summary": "想去海边坐坐"},
+            "search_places": {"kinds": ["park", "cafe"]},  # the model forgot the beach
+        })
+        result = propose_quest(day(), TasteState(), model, said="想去海港边坐坐", seed=seed)
+        assert result.quest.anchor_id in {BEACH, "osm:way/44"}
+    assert "可选类型" in dict(model.seen)["infer_intent"]
+
+
+def test_a_named_kind_does_not_overrule_what_the_user_settled_this_session(harbour):
+    """After "太远了" on the beach, a far beach must not jump the queue."""
+    state = TasteState()
+    state.apply(Feedback(quest_id="q", candidate_ids=[BEACH], reason=Reason.TOO_FAR))
+    model = FakeModel(replies={
+        "infer_intent": {"form": "outdoor", "places": ["beach"], "summary": "想去海边坐坐"},
+        "search_places": {"kinds": ["park", "beach"]},
+    })
+    result = propose_quest(day(), state, model, said="想去海港边坐坐", seed=1)
+    assert result.quest.anchor_id == "osm:way/42"
+    assert any("没有符合条件" in t.summary for t in result.trace)
+
+
+def test_keeping_the_anchor_rebets_on_it_without_probing_or_searching(harbour):
+    state = TasteState()
+    state.apply(Feedback(quest_id="q", candidate_ids=["osm:node/45"], anchor_id=BEACH,
+                         reason=Reason.OFF_ROUTE))
+    model = FakeModel()
+    result = propose_quest(day(), state, model, said="想去海港边坐坐", keep=BEACH, seed=3)
+    assert result.quest.anchor_id == BEACH
+    assert "osm:node/45" not in {s.candidate.id for s in result.quest.itinerary.stops}
+    assert [name for name, _ in model.seen] == ["infer_intent", "narrate_quest"]

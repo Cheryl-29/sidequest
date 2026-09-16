@@ -89,6 +89,7 @@ REASON_LABELS = {
     Reason.NO_SPEND: "不想花钱",
     Reason.BAD_TIME: "时间不合适",
     Reason.BEEN_THERE: "去过了",
+    Reason.OFF_ROUTE: "顺路的站太绕",
     Reason.OTHER: "其他",
 }
 ACTION_LABELS = {"add": "记住", "narrow": "收窄", "retire": "不再记住"}
@@ -194,7 +195,12 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
             raise HTTPException(404, "未找到这次规划")
         return run
 
-    async def fixed_round(uid, request, previous, note=None):
+    async def fixed_round(uid, request, previous, note=None, keep=None):
+        if keep:
+            # Only this round is locked; the stored request stays unlocked, so a later
+            # "不想要这类" on the same place is not overruled by a lock the user never set.
+            request = request.model_copy(
+                update={"locked_ids": list(dict.fromkeys([*request.locked_ids, keep]))[:3]})
         result, cache = await asyncio.wait_for(
             asyncio.to_thread(plan, request, 20, previous), timeout=60
         )
@@ -226,27 +232,28 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
             if not db.change(uid, run_id, data=current, expected=["running"]):
                 raise AgentAborted()  # cancelled while the model was thinking
 
-        intent = record.get("intent")
+        intent, keep = record.get("intent"), record.get("keep")
         started = datetime.now()
         try:
             model = make_model()
             outcome = await asyncio.wait_for(asyncio.to_thread(
                 propose_quest, request, state, model, request.preference,
-                None if intent is None else Intent.model_validate(intent), 3, None, on_step,
+                None if intent is None else Intent.model_validate(intent), 3, None, on_step, keep,
             ), timeout=agent_timeout)
         except (ModelError, asyncio.TimeoutError) as exc:
             abandoned = True
             reason = "模型超时" if isinstance(exc, asyncio.TimeoutError) else str(exc)
             logger.warning("Agent degraded for %s: %s", run_id, reason)
             return await fixed_round(uid, request, None,
-                                     f"{reason}，这一轮改用固定策略，没有调用模型推荐")
+                                     f"{reason}，这一轮改用固定策略，没有调用模型推荐", keep)
         elapsed = round((datetime.now() - started).total_seconds() * 1000, 2)
         if outcome.quest is None and outcome.model_calls:
             # The agent only tries a few bets. When they all fail the clock, a wider search may
             # still find something; say that the model's pick is not what came back.
             save_taste(uid, state, data.get("offered", False))
             return await fixed_round(uid, request, None,
-                                     "模型押注的几个地方都赶不回来，这一轮改用固定策略找了一个走得通的")
+                                     "模型押注的几个地方都赶不回来，这一轮改用固定策略找了一个走得通的",
+                                     keep)
         state.clear_local_reroll()
         save_taste(uid, state, data.get("offered", False))
         payload = agent_payload(request, outcome, elapsed)
@@ -260,7 +267,8 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
             if record.get("strategy") == "agent":
                 result, cache, status = await agent_round(uid, run_id, request, record)
             else:
-                result, cache, status = await fixed_round(uid, request, previous)
+                result, cache, status = await fixed_round(uid, request, previous,
+                                                          keep=record.get("keep"))
             record = get_run(uid, run_id)["data"]
             record.update(result=result, cache=cache)
             # Cancellation and supersession are compare-and-swap guards against late writes.
@@ -274,7 +282,8 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
             logger.exception("Planning failed: %s", run_id)
             db.change(uid, run_id, status="failed", expected=["running"])
 
-    def launch(uid, request, parent=None, previous=None, key=None, strategy="fixed", intent=None):
+    def launch(uid, request, parent=None, previous=None, key=None, strategy="fixed", intent=None,
+               keep=None):
         digest = hashlib.sha256(f"{strategy}:{request.model_dump_json()}".encode()).hexdigest()
         run_id = hashlib.sha256(f"{uid}:{key}".encode()).hexdigest()[:32] if key else uuid4().hex
         old = db.get(uid, run_id)
@@ -303,6 +312,7 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
             "cache": {},
             "strategy": strategy,
             "intent": intent,
+            "keep": keep,
         }
         try:
             db.put(uid, "run", data, id=run_id, status="queued")
@@ -468,13 +478,18 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
                 quest = r["data"]["result"]["itineraries"][0]["title"]
                 try:
                     reason, lasting = await asyncio.wait_for(asyncio.to_thread(
-                        interpret_feedback, make_model(), body.note, quest), timeout=15)
+                        interpret_feedback, make_model(), body.note, quest, stops,
+                        request_origin(request)), timeout=15)
                 except (ModelError, asyncio.TimeoutError):
                     understood = False
             else:
                 understood = False
+        if reason is Reason.OFF_ROUTE and len(stops) < 2:
+            raise HTTPException(422, "这一趟只有一站，没有顺路的站可换")
+        # Complaining about the side stops rejects only them; the anchor goes into the next round.
+        rejected = stops[1:] if reason is Reason.OFF_ROUTE else stops
         outcome = state.apply(Feedback(
-            quest_id=body.itinerary_id, candidate_ids=[c.id for c in stops][:3],
+            quest_id=body.itinerary_id, candidate_ids=[c.id for c in rejected][:3],
             anchor_id=anchor.id, kind=candidate_kind(anchor), reason=reason,
             anchor_obviousness=anchor.obviousness, note=body.note.strip(),
         ))
@@ -483,7 +498,10 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
             # Mapped text already counts as evidence for a typed item, and that item has to earn
             # its proposal across sessions. A note would let one sentence skip that rule.
             state.propose_note(lasting)  # offered like any proposal; only confirm() writes it
-        if body.reason is Reason.OTHER and reason is not Reason.OTHER:
+        if outcome.keep:
+            message = (f"理解成「{label}」：" if body.reason is Reason.OTHER else "") + \
+                f"保留 {anchor.name}，只换顺路的站。"
+        elif body.reason is Reason.OTHER and reason is not Reason.OTHER:
             message = f"理解成「{label}」。"
         elif reason is Reason.OTHER:
             message = ("这句话会带进这一轮的推荐，但不会被记住。" if understood
@@ -519,7 +537,8 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
         intent = None if reason is Reason.OTHER else r["data"].get("intent") or (
             (r["data"]["result"].get("agent") or {}).get("intent"))
         launched = launch(uid, with_bans(merged, state, state.rejected), parent=run_id,
-                          previous=r["data"].get("cache"), strategy=strategy, intent=intent)
+                          previous=r["data"].get("cache"), strategy=strategy, intent=intent,
+                          keep=outcome.keep)
         return {**launched, "clarify": None, "message": message, "proposal": proposal}
 
     @app.post("/api/runs/{run_id}/accept")

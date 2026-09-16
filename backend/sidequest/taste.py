@@ -66,6 +66,7 @@ class Reason(StrEnum):
     NO_SPEND = "no_spend"
     BAD_TIME = "bad_time"
     BEEN_THERE = "been_there"
+    OFF_ROUTE = "off_route"  # the stops added on the way do not sit near the one it bet on
     OTHER = "other"  # free text the model could not map onto any reason above
 
 
@@ -81,10 +82,13 @@ KIND_REASONS = frozenset({Reason.NOT_THIS_KIND})  # category taste, not a dimens
 STATED_REASONS = frozenset({Reason.NEVER_HERE})  # the user's own long-term statement
 CONSTRAINT_REASONS = frozenset({Reason.NO_SPEND, Reason.BAD_TIME})
 DEDUP_REASONS = frozenset({Reason.BEEN_THERE})
+# About how the quest was put together, not about the place it bet on: the side stops go, the
+# anchor stays, and nothing is learned (a far cafe says nothing about travel willingness).
+ROUTE_REASONS = frozenset({Reason.OFF_ROUTE})
 SESSION_REASONS = frozenset({Reason.OTHER})  # soft context for this session, evidence for nothing
 
 SCOPES = (frozenset(TASTE_REASONS), LOCAL_REASONS, KIND_REASONS, STATED_REASONS, CONSTRAINT_REASONS,
-          DEDUP_REASONS, SESSION_REASONS)
+          DEDUP_REASONS, ROUTE_REASONS, SESSION_REASONS)
 # A new Reason must be classified into exactly one scope before it can ship.
 assert frozenset().union(*SCOPES) == set(Reason)
 assert sum(len(s) for s in SCOPES) == len(Reason)
@@ -246,6 +250,7 @@ class Outcome(BaseModel):
     kind: str | None = None
     request_patch: dict = Field(default_factory=dict)
     clarify: Literal["time"] | None = None
+    keep: str | None = None  # the anchor the next round must bet on again
     consumed: list[str] = Field(default_factory=list)
     local: bool = False
     # A statement the chip itself confirms ("以后别推这个"). The caller passes it to
@@ -328,6 +333,11 @@ class TasteState(BaseModel):
                 outcome.stated = Proposal(action="add", key=place_key(anchor, "never"),
                                           source="user_stated", text=describe(
                                               place_key(anchor, "never")))
+            return outcome
+
+        if reason in ROUTE_REASONS:
+            # candidate_ids are only the side stops here; the caller keeps the anchor off them.
+            outcome.keep = feedback.anchor_id
             return outcome
 
         if reason in SESSION_REASONS:
