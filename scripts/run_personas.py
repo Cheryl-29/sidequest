@@ -2,6 +2,7 @@
 
   PYTHONPATH=backend .venv/bin/python scripts/run_personas.py --places <index.sqlite>
   ... --holdout            include the held-out personas (only for a frozen configuration)
+  ... --personas a,b       run only these persona ids (held-out ids still need --holdout)
 
 Uses RuleModel, not an LLM: the numbers describe the memory and ranking machinery. Personas
 that need an inactive dimension are skipped and listed as blocked. The report records the
@@ -35,6 +36,7 @@ def main():
     p.add_argument("--model", choices=["rule", "openai"], default="rule",
                    help="openai: real model calls (costs money, needs OPENAI_API_KEY)")
     p.add_argument("--groups", help="comma-separated subset of groups")
+    p.add_argument("--personas", help="comma-separated subset of persona ids")
     p.add_argument("--workers", type=int, default=1, help="personas run in parallel")
     p.add_argument("--repeat", type=int, default=1, help="repeat index recorded in the report")
     args = p.parse_args()
@@ -51,6 +53,10 @@ def main():
     personas = load_personas(ROOT / "evals" / "personas.json")
     blocked = {x.id: x.blocked_by(active) for x in personas if x.blocked_by(active)}
     chosen = [x for x in personas if x.id not in blocked and (args.holdout or not x.holdout)]
+    if args.personas:
+        wanted = set(args.personas.split(","))
+        assert wanted <= {x.id for x in chosen}, f"unknown, blocked or held-out persona in {wanted}"
+        chosen = [x for x in chosen if x.id in wanted]
     groups = args.groups.split(",") if args.groups else GROUPS
     assert set(groups) <= set(GROUPS), f"unknown group in {groups}"
     if args.model == "openai":
@@ -83,6 +89,9 @@ def main():
               f"情境误用 {row['other_context_misuse']['rate']}  提议精确 "
               f"{row['proposal_precision']['rate']}  召回 {row['memory_recall']['rate']}  "
               f"错记(全同意) {row['false_memory_all_agree']['rate']}")
+    if errors := sum(row["model_errors"] for row in report["summary"].values()):
+        # A failed call ends its session, so the rates above are not the product's.
+        print(f"警告：{errors} 次模型错误（例如限流），本次结果不能代表产品表现")
 
 
 if __name__ == "__main__":

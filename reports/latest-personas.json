@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T17:20:54.886729+00:00",
+  "generated_at": "2026-09-16T13:43:30.612219+00:00",
   "kind": "开发运行（非冻结实验）",
   "model": "RuleModel（确定性规则，不是 LLM）",
   "repeat": 1,
@@ -1179,7 +1179,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "78cdbaabfdf54fbeaa512ed4f818c787"
+                "f6bc7c53e67c4d18b29c2390e8ba25ff"
               ],
               "violates_other_context": false
             }
@@ -1197,7 +1197,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "78cdbaabfdf54fbeaa512ed4f818c787"
+                "f6bc7c53e67c4d18b29c2390e8ba25ff"
               ],
               "violates_other_context": false
             }
@@ -1215,7 +1215,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "78cdbaabfdf54fbeaa512ed4f818c787"
+                "f6bc7c53e67c4d18b29c2390e8ba25ff"
               ],
               "violates_other_context": false
             }
@@ -1309,7 +1309,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "6878e9772ab6438a95aedb8538e46e8a"
+                "cfc9b3f345854b46b289f9e028830623"
               ],
               "violates_other_context": false
             }
@@ -1327,7 +1327,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "6878e9772ab6438a95aedb8538e46e8a"
+                "cfc9b3f345854b46b289f9e028830623"
               ],
               "violates_other_context": false
             }
@@ -1345,7 +1345,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "6878e9772ab6438a95aedb8538e46e8a"
+                "cfc9b3f345854b46b289f9e028830623"
               ],
               "violates_other_context": false
             }
@@ -1439,7 +1439,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "0ff58fb53ce94a84aacb279b15a459fa"
+                "f73d870c7c6646a3abe3020126101a88"
               ],
               "violates_other_context": false
             }
@@ -1457,7 +1457,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "0ff58fb53ce94a84aacb279b15a459fa"
+                "f73d870c7c6646a3abe3020126101a88"
               ],
               "violates_other_context": false
             }
@@ -1475,7 +1475,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "0ff58fb53ce94a84aacb279b15a459fa"
+                "f73d870c7c6646a3abe3020126101a88"
               ],
               "violates_other_context": false
             }
@@ -1917,7 +1917,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "63a7d7d03c84491aabdf0e169148570e"
+                "922f86d3e16b410a9f254ea660f4d47c"
               ],
               "violates_other_context": false
             }
@@ -1935,7 +1935,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "63a7d7d03c84491aabdf0e169148570e"
+                "922f86d3e16b410a9f254ea660f4d47c"
               ],
               "violates_other_context": false
             }
@@ -2037,7 +2037,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "f71dae9f547a4d24b25a47e3cb2151a1"
+                "fafd351fbaf34e469afdce2272b7d750"
               ],
               "violates_other_context": false
             }
@@ -2055,7 +2055,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "f71dae9f547a4d24b25a47e3cb2151a1"
+                "fafd351fbaf34e469afdce2272b7d750"
               ],
               "violates_other_context": false
             }
@@ -2845,7 +2845,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "e3e75bc0579e475a9e48d3a23eae1099"
+                "ffa38a4b2ca24c60beaaad3023726e49"
               ],
               "violates_other_context": false
             }
@@ -2863,7 +2863,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "e3e75bc0579e475a9e48d3a23eae1099"
+                "ffa38a4b2ca24c60beaaad3023726e49"
               ],
               "violates_other_context": false
             }
@@ -2973,7 +2973,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "88a1e275852c4de0a276d8c8544dd3b9"
+                "e5014ef0bfe4472ab719bb9fa711ca74"
               ],
               "violates_other_context": false
             }
@@ -2991,7 +2991,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "88a1e275852c4de0a276d8c8544dd3b9"
+                "e5014ef0bfe4472ab719bb9fa711ca74"
               ],
               "violates_other_context": false
             }
@@ -3117,7 +3117,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "bff0b7c7aa0f4064aae151ccdb47a886"
+                "68354c57ef2e4726a61426f610c1a2b9"
               ],
               "violates_other_context": false
             }
@@ -4719,7 +4719,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "38506efa007a4d88915689f2347ec12d"
+                "e6d10c88009d42c0b855b8185db8f597"
               ],
               "violates_other_context": false
             }
@@ -4737,7 +4737,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "aaca60450fde49ed84ce9e8eaf2325fb"
+                "c9f1f099c0f548dbbb0c0cc19a8933d6"
               ],
               "violates_other_context": false
             }
@@ -5087,7 +5087,7 @@
             },
             {
               "quest": true,
-              "anchor": "Anna",
+              "anchor": "Lion Corner Cafe",
               "reason": null,
               "error": null,
               "memory_ids": [],
@@ -5251,7 +5251,7 @@
             },
             {
               "quest": true,
-              "anchor": "Anna",
+              "anchor": "Lion Corner Cafe",
               "reason": null,
               "error": null,
               "memory_ids": [],
@@ -5415,7 +5415,7 @@
             },
             {
               "quest": true,
-              "anchor": "Anna",
+              "anchor": "Lion Corner Cafe",
               "reason": null,
               "error": null,
               "memory_ids": [],
@@ -5579,7 +5579,7 @@
             },
             {
               "quest": true,
-              "anchor": "Anna",
+              "anchor": "Lion Corner Cafe",
               "reason": null,
               "error": null,
               "memory_ids": [],
@@ -5743,7 +5743,7 @@
             },
             {
               "quest": true,
-              "anchor": "Anna",
+              "anchor": "Lion Corner Cafe",
               "reason": null,
               "error": null,
               "memory_ids": [],
@@ -6371,7 +6371,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "5231fe64d8d14ea499c1188dcadff9a7"
+                "d19a0da35861467a9a08f14a7e70aad7"
               ],
               "violates_other_context": false
             }
@@ -6389,7 +6389,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "5231fe64d8d14ea499c1188dcadff9a7"
+                "d19a0da35861467a9a08f14a7e70aad7"
               ],
               "violates_other_context": false
             }
@@ -6499,7 +6499,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "e9f73ec0ba6a4085ad51b877d02d0c53"
+                "612985e984c440b0ae87dfc7e515d4ea"
               ],
               "violates_other_context": false
             }
@@ -6517,7 +6517,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "e9f73ec0ba6a4085ad51b877d02d0c53"
+                "612985e984c440b0ae87dfc7e515d4ea"
               ],
               "violates_other_context": false
             }
@@ -6627,7 +6627,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "4e354e2be2234a1fabfb004683e5f0fe"
+                "3aa13cbefb8e4ae2922cf91e5fb7bceb"
               ],
               "violates_other_context": false
             }
@@ -6645,7 +6645,7 @@
               "reason": null,
               "error": null,
               "memory_ids": [
-                "4e354e2be2234a1fabfb004683e5f0fe"
+                "3aa13cbefb8e4ae2922cf91e5fb7bceb"
               ],
               "violates_other_context": false
             }
