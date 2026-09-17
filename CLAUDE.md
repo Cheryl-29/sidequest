@@ -41,7 +41,7 @@ PYTHONPATH=backend .venv/bin/python scripts/run_personas.py --places /tmp/probe.
 PYTHONPATH=backend .venv/bin/python scripts/check_reference.py                          # -> reports/latest-reference.json
 ```
 
-`run_personas.py` excludes holdout personas unless `--holdout` is passed; only pass it for a frozen configuration.
+`run_personas.py` excludes holdout personas unless `--holdout` is passed; only pass it for a frozen configuration. The holdout was run once on frozen `0bb454e` (`reports/holdout-*.json`): changing thresholds or ranking after that makes it a dev set, so say so in any new report. `--personas a,b` restricts a run; with `--model openai` keep `--workers` ≤ 4, since the account's 200k tokens/min limit turns 429s into ended sessions and the script only warns.
 
 Place index: `scripts/fetch_places.py` makes one real Overpass request (batch job, run by hand, never in tests) and `scripts/build_places.py <json…>` builds the SQLite index at `data/places/sydney.sqlite` (git-ignored; override with `SIDEQUEST_PLACES_DB`). `build_places.py` also accepts the M0 probe responses for an offline small index. `check_dimensions.py --places <sqlite>` gates an index and writes `reports/latest-dimensions-osm.json` without touching the CI report. Dimension status can depend on the pool (D2 is `pending` on the fixed pool, `active` on OSM pools), coverage only counts candidates a dimension applies to (D3 skips errands), and D3 is a reserved research dimension since v2.3 whose `obviousness` comes only from the OSM tag formula (the Wikidata sitelinks enrichment and human labels were removed in v2.4). `run_personas.py` blocks personas on whatever dimensions the given index actually passes.
 

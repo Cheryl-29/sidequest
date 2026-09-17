@@ -1,0 +1,5933 @@
+{
+  "generated_at": "2026-09-17T07:00:55.643878+00:00",
+  "kind": "含保留集",
+  "model": "OpenAI gpt-4o-mini",
+  "repeat": 3,
+  "groups": [
+    "fixed",
+    "no_memory",
+    "last_feedback",
+    "flat_profile",
+    "typed_no_context",
+    "typed_context"
+  ],
+  "places_index_sha256": "a63b82afe52876f808933d862f8b39084db5588cb7f41ac9abff51189058d214",
+  "active_dimensions": [
+    "D1",
+    "D2"
+  ],
+  "max_rounds": 5,
+  "personas": [
+    "p03-d2-far",
+    "p05-d1-x-d2",
+    "p08-lunch-only-walk",
+    "p09-says-walk-wants-sit",
+    "p12-nothing-fits"
+  ],
+  "blocked": {},
+  "excluded_holdout": [],
+  "summary": {
+    "fixed": {
+      "accept@1": {
+        "n": 9,
+        "d": 30,
+        "rate": 0.3
+      },
+      "accept@3": {
+        "n": 9,
+        "d": 30,
+        "rate": 0.3
+      },
+      "accept@5": {
+        "n": 9,
+        "d": 30,
+        "rate": 0.3
+      },
+      "mean_rounds_when_accepted": 1.0,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 1,
+          "d": 5,
+          "rate": 0.2
+        },
+        "1": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        },
+        "2": {
+          "n": 1,
+          "d": 5,
+          "rate": 0.2
+        },
+        "3": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        },
+        "4": {
+          "n": 1,
+          "d": 5,
+          "rate": 0.2
+        },
+        "5": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 6,
+        "d": 20,
+        "rate": 0.3
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 0,
+        "d": 30,
+        "rate": 0.0
+      },
+      "proposal_precision": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "memory_recall": {
+        "n": 0,
+        "d": 23,
+        "rate": 0.0
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    "no_memory": {
+      "accept@1": {
+        "n": 8,
+        "d": 30,
+        "rate": 0.267
+      },
+      "accept@3": {
+        "n": 24,
+        "d": 30,
+        "rate": 0.8
+      },
+      "accept@5": {
+        "n": 24,
+        "d": 30,
+        "rate": 0.8
+      },
+      "mean_rounds_when_accepted": 1.67,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 0,
+          "d": 5,
+          "rate": 0.0
+        },
+        "1": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        },
+        "2": {
+          "n": 1,
+          "d": 5,
+          "rate": 0.2
+        },
+        "3": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        },
+        "4": {
+          "n": 1,
+          "d": 5,
+          "rate": 0.2
+        },
+        "5": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 6,
+        "d": 20,
+        "rate": 0.3
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 0,
+        "d": 30,
+        "rate": 0.0
+      },
+      "proposal_precision": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "memory_recall": {
+        "n": 0,
+        "d": 23,
+        "rate": 0.0
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 233,
+      "tokens": 174000
+    },
+    "last_feedback": {
+      "accept@1": {
+        "n": 9,
+        "d": 30,
+        "rate": 0.3
+      },
+      "accept@3": {
+        "n": 24,
+        "d": 30,
+        "rate": 0.8
+      },
+      "accept@5": {
+        "n": 24,
+        "d": 30,
+        "rate": 0.8
+      },
+      "mean_rounds_when_accepted": 1.62,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 1,
+          "d": 5,
+          "rate": 0.2
+        },
+        "1": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        },
+        "2": {
+          "n": 1,
+          "d": 5,
+          "rate": 0.2
+        },
+        "3": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        },
+        "4": {
+          "n": 1,
+          "d": 5,
+          "rate": 0.2
+        },
+        "5": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 6,
+        "d": 20,
+        "rate": 0.3
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 0,
+        "d": 30,
+        "rate": 0.0
+      },
+      "proposal_precision": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "memory_recall": {
+        "n": 0,
+        "d": 23,
+        "rate": 0.0
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 233,
+      "tokens": 173154
+    },
+    "flat_profile": {
+      "accept@1": {
+        "n": 15,
+        "d": 30,
+        "rate": 0.5
+      },
+      "accept@3": {
+        "n": 24,
+        "d": 30,
+        "rate": 0.8
+      },
+      "accept@5": {
+        "n": 24,
+        "d": 30,
+        "rate": 0.8
+      },
+      "mean_rounds_when_accepted": 1.38,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 0,
+          "d": 5,
+          "rate": 0.0
+        },
+        "1": {
+          "n": 3,
+          "d": 5,
+          "rate": 0.6
+        },
+        "2": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        },
+        "3": {
+          "n": 3,
+          "d": 5,
+          "rate": 0.6
+        },
+        "4": {
+          "n": 3,
+          "d": 5,
+          "rate": 0.6
+        },
+        "5": {
+          "n": 4,
+          "d": 5,
+          "rate": 0.8
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 12,
+        "d": 20,
+        "rate": 0.6
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 7,
+        "d": 30,
+        "rate": 0.233
+      },
+      "proposal_precision": {
+        "n": 4,
+        "d": 7,
+        "rate": 0.571
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "memory_recall": {
+        "n": 4,
+        "d": 23,
+        "rate": 0.174
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 214,
+      "tokens": 159523
+    },
+    "typed_no_context": {
+      "accept@1": {
+        "n": 15,
+        "d": 30,
+        "rate": 0.5
+      },
+      "accept@3": {
+        "n": 24,
+        "d": 30,
+        "rate": 0.8
+      },
+      "accept@5": {
+        "n": 24,
+        "d": 30,
+        "rate": 0.8
+      },
+      "mean_rounds_when_accepted": 1.38,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 1,
+          "d": 5,
+          "rate": 0.2
+        },
+        "1": {
+          "n": 1,
+          "d": 5,
+          "rate": 0.2
+        },
+        "2": {
+          "n": 3,
+          "d": 5,
+          "rate": 0.6
+        },
+        "3": {
+          "n": 3,
+          "d": 5,
+          "rate": 0.6
+        },
+        "4": {
+          "n": 3,
+          "d": 5,
+          "rate": 0.6
+        },
+        "5": {
+          "n": 4,
+          "d": 5,
+          "rate": 0.8
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 13,
+        "d": 20,
+        "rate": 0.65
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 8,
+        "d": 30,
+        "rate": 0.267
+      },
+      "proposal_precision": {
+        "n": 8,
+        "d": 11,
+        "rate": 0.727
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "memory_recall": {
+        "n": 8,
+        "d": 23,
+        "rate": 0.348
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 214,
+      "tokens": 158681
+    },
+    "typed_context": {
+      "accept@1": {
+        "n": 16,
+        "d": 30,
+        "rate": 0.533
+      },
+      "accept@3": {
+        "n": 24,
+        "d": 30,
+        "rate": 0.8
+      },
+      "accept@5": {
+        "n": 24,
+        "d": 30,
+        "rate": 0.8
+      },
+      "mean_rounds_when_accepted": 1.33,
+      "first_round_accept_by_session": {
+        "0": {
+          "n": 0,
+          "d": 5,
+          "rate": 0.0
+        },
+        "1": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        },
+        "2": {
+          "n": 2,
+          "d": 5,
+          "rate": 0.4
+        },
+        "3": {
+          "n": 4,
+          "d": 5,
+          "rate": 0.8
+        },
+        "4": {
+          "n": 4,
+          "d": 5,
+          "rate": 0.8
+        },
+        "5": {
+          "n": 4,
+          "d": 5,
+          "rate": 0.8
+        }
+      },
+      "first_round_accept_session_3_plus": {
+        "n": 14,
+        "d": 20,
+        "rate": 0.7
+      },
+      "other_context_misuse": {
+        "n": 0,
+        "d": 1,
+        "rate": 0.0
+      },
+      "first_rounds_shaped_by_memory": {
+        "n": 8,
+        "d": 30,
+        "rate": 0.267
+      },
+      "proposal_precision": {
+        "n": 8,
+        "d": 8,
+        "rate": 1.0
+      },
+      "false_memory_all_agree": {
+        "n": 0,
+        "d": 0,
+        "rate": null
+      },
+      "memory_recall": {
+        "n": 8,
+        "d": 23,
+        "rate": 0.348
+      },
+      "empty_rounds": 0,
+      "model_errors": 0,
+      "model_calls": 212,
+      "tokens": 157636
+    }
+  },
+  "runs": [
+    {
+      "persona": "p03-d2-far",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe The Bethel",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kirsova 3 Playground",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe 70",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Surry Hills Library",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe The Bethel",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kirsova 3 Playground",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe 70",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Surry Hills Library",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p03-d2-far",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Side Plate",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Bourke Street Bakery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kosta's Takeaway",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Build & Brew Hub",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Chatime",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Davian Bakery & Patisserie",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Teddy Tea Break",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 42,
+      "tokens": 30900
+    },
+    {
+      "persona": "p03-d2-far",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Side Plate",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "CoCo Fresh Tea & Juice",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Richie’s Cafe",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Build & Brew Hub",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Davian Bakery & Patisserie",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Grano",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Teddy Tea Break",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 42,
+      "tokens": 31042
+    },
+    {
+      "persona": "p03-d2-far",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Side Plate",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Andersen’s Ice Cream",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Richie’s Cafe",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Woolworths",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "2bfb9573cc834201bef901f4295bced2"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Andersen’s Ice Cream",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "2bfb9573cc834201bef901f4295bced2"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Kosta's Takeaway",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "2bfb9573cc834201bef901f4295bced2"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 30,
+      "tokens": 21792
+    },
+    {
+      "persona": "p03-d2-far",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Side Plate",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi Machi Mascot",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "CoCo Fresh Tea & Juice",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "e48b4666026d421bbe86387f3dbf2df2"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Build & Brew Hub",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "e48b4666026d421bbe86387f3dbf2df2"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Your Display Gallery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "e48b4666026d421bbe86387f3dbf2df2"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Kosta's Takeaway",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "e48b4666026d421bbe86387f3dbf2df2"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 30,
+      "tokens": 21212
+    },
+    {
+      "persona": "p03-d2-far",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Side Plate",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Andersen’s Ice Cream",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Lion Corner Cafe",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Richie’s Cafe",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 3,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gelato Bar",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "20f7283a644f453cb4e3f15570d3f8a0"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Constant Reader",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "20f7283a644f453cb4e3f15570d3f8a0"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Kosta's Takeaway",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "20f7283a644f453cb4e3f15570d3f8a0"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 30,
+      "tokens": 21554
+    },
+    {
+      "persona": "p05-d1-x-d2",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe The Bethel",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kirsova 3 Playground",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe The Bethel",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kirsova 3 Playground",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe The Bethel",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kirsova 3 Playground",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p05-d1-x-d2",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Andersen’s Ice Cream",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Daily French Hot Bread",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Eats on Abercrombie",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Edgecliff Mart",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 33,
+      "tokens": 24302
+    },
+    {
+      "persona": "p05-d1-x-d2",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Build & Brew Hub",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Constant Reader",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Eats on Abercrombie",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Woolworths",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Loulou Boulangerie & Traiteur",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 0,
+      "model_calls": 39,
+      "tokens": 28348
+    },
+    {
+      "persona": "p05-d1-x-d2",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Constant Reader",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "e419cc80b4164da09c58d1f13526973a"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "e419cc80b4164da09c58d1f13526973a"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "e419cc80b4164da09c58d1f13526973a"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "e419cc80b4164da09c58d1f13526973a"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        }
+      ],
+      "active_items": 2,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 2,
+      "model_calls": 30,
+      "tokens": 21592
+    },
+    {
+      "persona": "p05-d1-x-d2",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Ballsy Tea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Build & Brew Hub",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "810d8c6969674830bc94c0b10c44ced3"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "810d8c6969674830bc94c0b10c44ced3"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "810d8c6969674830bc94c0b10c44ced3"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "810d8c6969674830bc94c0b10c44ced3"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        }
+      ],
+      "active_items": 2,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 2,
+      "model_calls": 30,
+      "tokens": 21819
+    },
+    {
+      "persona": "p05-d1-x-d2",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Source Bulk Foods",
+              "reason": "want_farther",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cool Mac",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "ddd25432a1434ea2a045fdb4d9c342c6"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "CoCo Fresh Tea & Juice",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "ddd25432a1434ea2a045fdb4d9c342c6"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Ice Creamery",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "ddd25432a1434ea2a045fdb4d9c342c6"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi Machi Mascot",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "ddd25432a1434ea2a045fdb4d9c342c6"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 2,
+      "truths_covered": 1,
+      "model_calls": 30,
+      "tokens": 21805
+    },
+    {
+      "persona": "p08-lunch-only-walk",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p08-lunch-only-walk",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Chatime",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Bodalla",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 21926
+    },
+    {
+      "persona": "p08-lunch-only-walk",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Bodalla",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Edgecliff Mart",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 21880
+    },
+    {
+      "persona": "p08-lunch-only-walk",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "The Antique Bookshop & Curios",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Edgecliff Mart",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 21787
+    },
+    {
+      "persona": "p08-lunch-only-walk",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "CoCo Fresh Tea & Juice",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 30,
+      "tokens": 21992
+    },
+    {
+      "persona": "p08-lunch-only-walk",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Barlow Street Forest",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "want_move",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Hyde Park",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "CoCo Fresh Tea & Juice",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Frances Newton Reserve Community Garden",
+              "reason": null,
+              "error": null,
+              "memory_ids": [
+                "22fa663234d2478ebde845c9f274bfda"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 28,
+      "tokens": 20156
+    },
+    {
+      "persona": "p09-says-walk-wants-sit",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p09-says-walk-wants-sit",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Dough Collective",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cooper Street Reserve",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Japan Foundation Library",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Garden of Reflection",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 32,
+      "tokens": 24651
+    },
+    {
+      "persona": "p09-says-walk-wants-sit",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 0,
+      "model_calls": 26,
+      "tokens": 19602
+    },
+    {
+      "persona": "p09-says-walk-wants-sit",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sydney Tower Eye",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Holt Convenience Store",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Three Saint’s Square",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "NAS Library",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 28,
+      "tokens": 21230
+    },
+    {
+      "persona": "p09-says-walk-wants-sit",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cooper Street Reserve",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Shannon Reserve",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Maloney's",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 28,
+      "tokens": 21302
+    },
+    {
+      "persona": "p09-says-walk-wants-sit",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Darling Quarter Village Green (North)",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Cooper Street Reserve",
+              "reason": "want_sit",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Anna",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "after_work",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": null,
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 1,
+      "wrong_items": 0,
+      "truths": 1,
+      "truths_covered": 1,
+      "model_calls": 28,
+      "tokens": 21507
+    },
+    {
+      "persona": "p12-nothing-fits",
+      "group": "fixed",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe The Bethel",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kirsova 3 Playground",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe The Bethel",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kirsova 3 Playground",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Sharetea",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Lüneburger",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kinokuniya",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Jean Cawley Reserve",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "St Helen's Community Garden",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cafe The Bethel",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Kirsova 3 Playground",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 18,
+      "truths_covered": 0,
+      "model_calls": 0,
+      "tokens": 0
+    },
+    {
+      "persona": "p12-nothing-fits",
+      "group": "no_memory",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Gelatissimo",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Stitch Coffee",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Bodalla",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Source Bulk Foods",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Westeros Convenience",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cool Mac",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "K-Mall-09",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Stitch Coffee",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Gelatissimo",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Edgecliff Mart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Chatime",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "GetGelato",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Bourke Street Bakery",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "K-Mall-09",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Workshop Espresso",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "EzyMart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Loulou Boulangerie & Traiteur",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Source Bulk Foods",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Anita Gelato",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Copper Rose Cafe",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 18,
+      "truths_covered": 0,
+      "model_calls": 96,
+      "tokens": 72221
+    },
+    {
+      "persona": "p12-nothing-fits",
+      "group": "last_feedback",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Genki Mart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Bodalla",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Chatime",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Source Bulk Foods",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "K-Mall-09",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TS Express",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Hustle Sandwich Coffee",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Genki Mart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Chatime",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Loulou Boulangerie & Traiteur",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Andersen’s Ice Cream",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Hustle Sandwich Coffee",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "K-Mall-09",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Gelatissimo",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Chatime",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Source Bulk Foods",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 18,
+      "truths_covered": 0,
+      "model_calls": 96,
+      "tokens": 72282
+    },
+    {
+      "persona": "p12-nothing-fits",
+      "group": "flat_profile",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Genki Mart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "CoCo Fresh Tea & Juice",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Antoine's Kitchen / Haven Cafe",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Stitch Coffee",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TNT Convenience & Tobacconist",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Edgecliff Mart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Chatime",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "GetGelato",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Loulou Boulangerie & Traiteur",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Supamart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Genki Mart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Dulcet",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "EzyMart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Goose Bakery",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Source Bulk Foods",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Cool Mac",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Edgecliff Mart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        }
+      ],
+      "active_items": 0,
+      "wrong_items": 0,
+      "truths": 18,
+      "truths_covered": 0,
+      "model_calls": 96,
+      "tokens": 73122
+    },
+    {
+      "persona": "p12-nothing-fits",
+      "group": "typed_no_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Stitch Coffee",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Dough Collective",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "K-Mall-09",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TNT Convenience & Tobacconist",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Bodalla",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Source Bulk Foods",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Edgecliff Mart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi Machi Mascot",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Glebe Bakery",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "K-Mall-09",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Stitch Coffee",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TNT Convenience & Tobacconist",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Andersen’s Ice Cream",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Westeros Convenience",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Friendly Grocer",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Antoine's Kitchen / Haven Cafe",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "3bd9eaec1e774f079f9977285d5cfac5"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "K-Mall-09",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "7-Eleven",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Stitch Coffee",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "a68cc307463449409c896d33267e432d"
+              ],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "BONO espresso + eatery",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TNT Convenience & Tobacconist",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Friendly Grocer",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Gong Cha",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "3bd9eaec1e774f079f9977285d5cfac5"
+              ],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Sonoma Bread",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "bf468c79d01b4f1da9fb7532c85889cf"
+              ],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Copper Rose Cafe",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "a68cc307463449409c896d33267e432d"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        }
+      ],
+      "active_items": 4,
+      "wrong_items": 0,
+      "truths": 18,
+      "truths_covered": 4,
+      "model_calls": 96,
+      "tokens": 72356
+    },
+    {
+      "persona": "p12-nothing-fits",
+      "group": "typed_context",
+      "sessions": [
+        {
+          "index": 0,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Hustle Sandwich Coffee",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "kaffi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "yogurberry",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Coles Local",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 1,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "CoCo Fresh Tea & Juice",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "The Source Bulk Foods",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Andersen’s Ice Cream",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Westeros Convenience",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Antoine's Kitchen / Haven Cafe",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 0,
+          "proposals_accepted": 0
+        },
+        {
+          "index": 2,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Koomi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "K-Mall-09",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Wholegreen Bakery & Cafe Sydney CBD",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Stitch Coffee",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Genki Mart",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 3,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Andersen’s Ice Cream",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Davian Bakery & Patisserie",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "cd5658d889dc461884408c5c6c5e79d8"
+              ],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Antoine's Kitchen / Haven Cafe",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "c26378a9cb36442794d3d7d6e5aba8ee"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 4,
+          "slot": "lunch",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "K-Mall-09",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "TNT Convenience & Tobacconist",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi machi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "cd5658d889dc461884408c5c6c5e79d8"
+              ],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Gelatissimo",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Workshop Espresso",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "c26378a9cb36442794d3d7d6e5aba8ee"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        },
+        {
+          "index": 5,
+          "slot": "weekend_day",
+          "rounds": [
+            {
+              "quest": true,
+              "anchor": "Yo-Chi",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Westeros Convenience",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "IGA",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Machi Machi Mascot",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "cd5658d889dc461884408c5c6c5e79d8"
+              ],
+              "violates_other_context": false
+            },
+            {
+              "quest": true,
+              "anchor": "Loulou Boulangerie & Traiteur",
+              "reason": "not_this_kind",
+              "error": null,
+              "memory_ids": [
+                "69dc40a67bc6495c99ddcb8f2dd94231"
+              ],
+              "violates_other_context": false
+            }
+          ],
+          "proposals": 1,
+          "proposals_accepted": 1
+        }
+      ],
+      "active_items": 4,
+      "wrong_items": 0,
+      "truths": 18,
+      "truths_covered": 4,
+      "model_calls": 96,
+      "tokens": 72614
+    }
+  ]
+}
