@@ -11,12 +11,13 @@ FastAPI (api.py)
   ├─ executor (no LLM decides IF / HOW)                                 planner.py
   │    candidate catalog → ≤6 combinations × permutations → full-chain validator
   ├─ providers: OSM place index, TfNSW trips, synthetic replay          places.py, providers.py, fixtures.py
-  └─ evaluation: frozen scenarios, brute-force reference, simulated users   reference.py, personas.py, harness.py
+  └─ evaluation: frozen scenarios, brute-force reference, simulated users,
+       unchecked-model baseline                                       reference.py, personas.py, harness.py, baseline.py
 ```
 
 ## The boundary that matters
 
-The model never produces a time, a cost or a feasibility verdict. Every model decision is a JSON-schema structured reply with a fixed vocabulary (form/travel poles, one of 18 place kinds). The executor turns those decisions into a ranked list of real candidates from the place index, locks one of them into a request, and hands it to the deterministic planner. Whatever the model says, the worst outcome is a dull quest, never an unreachable one.
+The model never produces a time, a cost or a feasibility verdict. Every model decision is a JSON-schema structured reply with a fixed vocabulary (form/travel poles, one of 18 place kinds). The executor turns those decisions into a ranked list of real candidates from the place index, locks one of them into a request, and hands it to the deterministic planner. Validation rejects known constraint violations; incomplete data and real-world changes still limit feasibility claims.
 
 | The agent decides | The executor guarantees |
 |---|---|
@@ -90,7 +91,8 @@ The TfNSW adapter calls one fixed endpoint, selects the fastest journey departin
 
 1. **Frozen scenarios** (`evals/scenarios.json`, 16 dev + 8 holdout) run in CI with expectations outside validator internals.
 2. **Reference planner** measures the fixed planner's search recall.
-3. **Simulated users** (`evals/personas.json`, 12 personas, 5 holdout): hidden structured taste, a deterministic judge, and multi-session runs where only memory carries over. Six groups (`fixed`, `no_memory`, `last_feedback`, `flat_profile`, `typed_no_context`, `typed_context`) differ only in what they may store. `RuleModel` stands in for the LLM for offline, deterministic runs; reports carry raw numerators and denominators.
+3. **Unchecked-model baseline** (`baseline.py`, `scripts/run_baseline.py`; real model calls, not in CI): the reason the boundary above exists. The model answers each frozen scenario in one shot (stop order, stated return time, whether it vouches for the plan, which stops have unconfirmed facts) and nothing checks the answer before it is scored. Its stop order is scheduled by `assemble` at the earliest times the order allows and judged by the same validator, so `infeasible` means no timing of that order works. Three arms: no leg durations, all leg durations, and leg durations with opening hours withheld for three venues. With gpt-4o-mini (72 answers per arm) every answer proposed a plan and vouched for it, including on unsolvable scenarios (18/18); with every fact on the page 16/66 plans on solvable scenarios were infeasible; with hours withheld 6/41 affected plans flagged all the missing facts. It shares the validator and synthetic fixtures, and is a single-shot small model without a tool loop. Full table and limits: [`evaluation.md`](evaluation.md).
+4. **Simulated users** (`evals/personas.json`, 12 personas, 5 holdout): hidden structured taste, a deterministic judge, and multi-session runs where only memory carries over. Six groups (`fixed`, `no_memory`, `last_feedback`, `flat_profile`, `typed_no_context`, `typed_context`) differ only in what they may store. `RuleModel` stands in for the LLM for offline, deterministic runs; reports carry raw numerators and denominators.
 
 ## State and privacy
 
