@@ -1,0 +1,5125 @@
+{
+  "generated_at": "2026-11-10T04:28:30.632565+00:00",
+  "configuration": {
+    "model": "gpt-4o-mini",
+    "scenarios": 24,
+    "repeats": 3,
+    "fixture": "synthetic-fixtures-v1",
+    "hidden_hours": [
+      "garden",
+      "library",
+      "harbour"
+    ],
+    "model_calls": 216,
+    "tokens": 260225
+  },
+  "sidequest_fixed": {
+    "scenarios": 24,
+    "plans": 22,
+    "infeasible_plans": 0,
+    "unsolvable_scenarios": 2,
+    "planned_when_unsolvable": 0
+  },
+  "summary": {
+    "plain": {
+      "answers": 72,
+      "errors": 0,
+      "plans": 72,
+      "vouched_plans": 72,
+      "infeasible_plans": 19,
+      "plans_on_solvable": 66,
+      "infeasible_on_solvable": 13,
+      "infeasible_and_vouched": 19,
+      "failed_checks": {
+        "deadline": 12,
+        "walking": 6,
+        "budget": 3,
+        "opening_hours": 2
+      },
+      "late": 12,
+      "late_unnoticed": 12,
+      "return_time_stated": 72,
+      "return_time_optimistic": 14,
+      "unsolvable_scenarios": 6,
+      "planned_when_unsolvable": 6,
+      "plans_with_missing_facts": 22,
+      "missing_facts_all_flagged": 15
+    },
+    "routes": {
+      "answers": 72,
+      "errors": 0,
+      "plans": 72,
+      "vouched_plans": 72,
+      "infeasible_plans": 22,
+      "plans_on_solvable": 66,
+      "infeasible_on_solvable": 16,
+      "infeasible_and_vouched": 22,
+      "failed_checks": {
+        "deadline": 17,
+        "walking": 6,
+        "budget": 3
+      },
+      "late": 17,
+      "late_unnoticed": 17,
+      "return_time_stated": 72,
+      "return_time_optimistic": 19,
+      "unsolvable_scenarios": 6,
+      "planned_when_unsolvable": 6,
+      "plans_with_missing_facts": 7,
+      "missing_facts_all_flagged": 3
+    },
+    "routes_hidden": {
+      "answers": 72,
+      "errors": 0,
+      "plans": 72,
+      "vouched_plans": 72,
+      "infeasible_plans": 25,
+      "plans_on_solvable": 66,
+      "infeasible_on_solvable": 19,
+      "infeasible_and_vouched": 25,
+      "failed_checks": {
+        "deadline": 24,
+        "walking": 5,
+        "budget": 3,
+        "opening_hours": 1
+      },
+      "late": 24,
+      "late_unnoticed": 24,
+      "return_time_stated": 72,
+      "return_time_optimistic": 25,
+      "unsolvable_scenarios": 6,
+      "planned_when_unsolvable": 6,
+      "plans_with_missing_facts": 41,
+      "missing_facts_all_flagged": 6
+    }
+  },
+  "results": [
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-01",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:45",
+      "stated_return": "13:45",
+      "return_error": 60,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-02",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "library",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:15",
+      "stated_return": "13:50",
+      "return_error": 35,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:35",
+      "stated_return": "13:45",
+      "return_error": 70,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-04",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "library",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:00",
+      "stated_return": "13:30",
+      "return_error": 30,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-05",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:39",
+      "stated_return": "13:50",
+      "return_error": 71,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-06",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:49",
+      "stated_return": "13:45",
+      "return_error": 56,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-07",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "13:01",
+      "stated_return": "11:00",
+      "return_error": -121,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-08",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:55",
+      "stated_return": "11:25",
+      "return_error": -30,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:55",
+      "stated_return": "13:30",
+      "return_error": 95,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-10",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "11:55",
+      "stated_return": "13:35",
+      "return_error": 100,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-11",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "gallery",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:05",
+      "stated_return": "13:50",
+      "return_error": 45,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-12",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:45",
+      "stated_return": "13:00",
+      "return_error": 15,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-13",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:01",
+      "stated_return": "13:40",
+      "return_error": 39,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-17",
+      "solvable": true,
+      "stops": [
+        "market",
+        "harbour",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:36",
+      "stated_return": "13:40",
+      "return_error": 64,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-18",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "library",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:45",
+      "stated_return": "13:40",
+      "return_error": 55,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "dev-19",
+      "solvable": true,
+      "stops": [
+        "library",
+        "garden",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "14:15",
+      "stated_return": "13:30",
+      "return_error": -45,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "holdout-01",
+      "solvable": true,
+      "stops": [
+        "harbour",
+        "garden",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:15",
+      "stated_return": "13:30",
+      "return_error": 75,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "holdout-02",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:37",
+      "stated_return": "13:25",
+      "return_error": 48,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "holdout-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:45",
+      "stated_return": "11:15",
+      "return_error": -90,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "holdout-04",
+      "solvable": false,
+      "stops": [
+        "garden",
+        "harbour",
+        "library"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "12:37",
+      "stated_return": "13:35",
+      "return_error": 58,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "holdout-05",
+      "solvable": false,
+      "stops": [
+        "harbour",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "budget",
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "holdout-06",
+      "solvable": true,
+      "stops": [
+        "library",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:45",
+      "stated_return": "13:30",
+      "return_error": 105,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "holdout-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:42",
+      "stated_return": "12:40",
+      "return_error": -2,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 1,
+      "id": "holdout-10",
+      "solvable": true,
+      "stops": [
+        "screening",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "15:55",
+      "stated_return": "16:15",
+      "return_error": 20,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-01",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:01",
+      "stated_return": "13:50",
+      "return_error": 49,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-02",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "library",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:00",
+      "stated_return": "13:50",
+      "return_error": 50,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:35",
+      "stated_return": "13:30",
+      "return_error": 55,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-04",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "library"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:10",
+      "stated_return": "13:45",
+      "return_error": 95,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-05",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "market",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:49",
+      "stated_return": "13:50",
+      "return_error": 61,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-06",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "library",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:30",
+      "stated_return": "13:40",
+      "return_error": 70,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-07",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "11:55",
+      "stated_return": "11:00",
+      "return_error": -55,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-08",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:55",
+      "stated_return": "11:50",
+      "return_error": -5,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:55",
+      "stated_return": "13:30",
+      "return_error": 95,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-10",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "library"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "12:37",
+      "stated_return": "13:45",
+      "return_error": 68,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-11",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:01",
+      "stated_return": "13:25",
+      "return_error": 24,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-12",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:45",
+      "stated_return": "13:58",
+      "return_error": 73,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-13",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:01",
+      "stated_return": "13:30",
+      "return_error": 29,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-17",
+      "solvable": true,
+      "stops": [
+        "market",
+        "harbour",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:36",
+      "stated_return": "13:30",
+      "return_error": 54,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-18",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "harbour",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:21",
+      "stated_return": "13:40",
+      "return_error": 19,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "dev-19",
+      "solvable": true,
+      "stops": [
+        "library",
+        "market",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "14:27",
+      "stated_return": "13:45",
+      "return_error": -42,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "holdout-01",
+      "solvable": true,
+      "stops": [
+        "harbour",
+        "garden",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:15",
+      "stated_return": "13:50",
+      "return_error": 95,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "holdout-02",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:37",
+      "stated_return": "13:50",
+      "return_error": 73,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "holdout-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:45",
+      "stated_return": "11:10",
+      "return_error": -95,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "holdout-04",
+      "solvable": false,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "12:45",
+      "stated_return": "13:30",
+      "return_error": 45,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "holdout-05",
+      "solvable": false,
+      "stops": [
+        "library",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "budget",
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "holdout-06",
+      "solvable": true,
+      "stops": [
+        "library",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:45",
+      "stated_return": "13:45",
+      "return_error": 120,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "holdout-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:21",
+      "stated_return": "13:55",
+      "return_error": 34,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 2,
+      "id": "holdout-10",
+      "solvable": true,
+      "stops": [
+        "screening",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "opening_hours"
+      ],
+      "return_at": "16:35",
+      "stated_return": "16:40",
+      "return_error": 5,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-01",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "library"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:37",
+      "stated_return": "13:40",
+      "return_error": 63,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-02",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "library",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:05",
+      "stated_return": "13:30",
+      "return_error": 25,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:47",
+      "stated_return": "12:20",
+      "return_error": 33,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-04",
+      "solvable": true,
+      "stops": [
+        "library",
+        "gallery",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:55",
+      "stated_return": "13:50",
+      "return_error": 55,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-05",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:39",
+      "stated_return": "13:50",
+      "return_error": 71,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-06",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "gallery",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:54",
+      "stated_return": "13:55",
+      "return_error": 61,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-07",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "library",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:35",
+      "stated_return": "11:00",
+      "return_error": -95,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-08",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:55",
+      "stated_return": "11:35",
+      "return_error": -20,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:55",
+      "stated_return": "13:35",
+      "return_error": 100,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-10",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "13:01",
+      "stated_return": "13:55",
+      "return_error": 54,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-11",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "gallery",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:05",
+      "stated_return": "13:30",
+      "return_error": 25,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-12",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:45",
+      "stated_return": "13:55",
+      "return_error": 70,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-13",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:45",
+      "stated_return": "13:20",
+      "return_error": 35,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-17",
+      "solvable": true,
+      "stops": [
+        "market",
+        "garden",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:04",
+      "stated_return": "13:55",
+      "return_error": 51,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-18",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:25",
+      "stated_return": "13:50",
+      "return_error": 25,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "dev-19",
+      "solvable": true,
+      "stops": [
+        "library",
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:55",
+      "stated_return": "13:50",
+      "return_error": -5,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "holdout-01",
+      "solvable": true,
+      "stops": [
+        "harbour",
+        "garden",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:15",
+      "stated_return": "13:50",
+      "return_error": 95,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "holdout-02",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:37",
+      "stated_return": "13:50",
+      "return_error": 73,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "holdout-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:45",
+      "stated_return": "11:10",
+      "return_error": -95,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "holdout-04",
+      "solvable": false,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "12:45",
+      "stated_return": "13:45",
+      "return_error": 60,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "holdout-05",
+      "solvable": false,
+      "stops": [
+        "library",
+        "screening",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "budget",
+        "deadline"
+      ],
+      "return_at": "15:55",
+      "stated_return": "13:50",
+      "return_error": -125,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "holdout-06",
+      "solvable": true,
+      "stops": [
+        "library",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:45",
+      "stated_return": "13:45",
+      "return_error": 120,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "holdout-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "library"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:54",
+      "stated_return": "13:15",
+      "return_error": 21,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "plain",
+      "repeat": 3,
+      "id": "holdout-10",
+      "solvable": true,
+      "stops": [
+        "screening",
+        "garden",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline",
+        "opening_hours"
+      ],
+      "return_at": "17:15",
+      "stated_return": "16:55",
+      "return_error": -20,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-01",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum",
+        "library"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:25",
+      "stated_return": "13:55",
+      "return_error": 30,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-02",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:29",
+      "stated_return": "13:45",
+      "return_error": 76,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:47",
+      "stated_return": "13:56",
+      "return_error": 129,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-04",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:14",
+      "stated_return": "13:52",
+      "return_error": 98,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-05",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:19",
+      "stated_return": "13:53",
+      "return_error": 34,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-06",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:14",
+      "stated_return": "13:57",
+      "return_error": 103,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-07",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:48",
+      "stated_return": "11:00",
+      "return_error": -108,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-08",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:26",
+      "stated_return": "11:50",
+      "return_error": -36,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-09",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:15",
+      "stated_return": "13:54",
+      "return_error": 99,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-10",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "12:48",
+      "stated_return": "13:30",
+      "return_error": 42,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-11",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "harbour",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:00",
+      "stated_return": "13:30",
+      "return_error": 30,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-12",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:25",
+      "stated_return": "13:37",
+      "return_error": 12,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-13",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:25",
+      "stated_return": "13:44",
+      "return_error": 19,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-17",
+      "solvable": true,
+      "stops": [
+        "market",
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:35",
+      "stated_return": "13:50",
+      "return_error": 15,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-18",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:25",
+      "stated_return": "13:54",
+      "return_error": 29,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "dev-19",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "14:50",
+      "stated_return": "13:00",
+      "return_error": -110,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "holdout-01",
+      "solvable": true,
+      "stops": [
+        "harbour",
+        "market",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:19",
+      "stated_return": "13:52",
+      "return_error": 93,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "holdout-02",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:28",
+      "stated_return": "13:00",
+      "return_error": 32,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "holdout-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum",
+        "library"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "13:25",
+      "stated_return": "11:15",
+      "return_error": -130,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "holdout-04",
+      "solvable": false,
+      "stops": [
+        "museum",
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "12:55",
+      "stated_return": "13:56",
+      "return_error": 61,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "holdout-05",
+      "solvable": false,
+      "stops": [
+        "library",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "budget",
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "holdout-06",
+      "solvable": true,
+      "stops": [
+        "library",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:45",
+      "stated_return": "13:30",
+      "return_error": 105,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "holdout-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:21",
+      "stated_return": "13:44",
+      "return_error": 23,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 1,
+      "id": "holdout-10",
+      "solvable": true,
+      "stops": [
+        "screening",
+        "harbour",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "16:41",
+      "stated_return": "16:58",
+      "return_error": 17,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-01",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:25",
+      "stated_return": "13:58",
+      "return_error": 33,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-02",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "library"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:28",
+      "stated_return": "13:55",
+      "return_error": 27,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:48",
+      "stated_return": "13:34",
+      "return_error": 46,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-04",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:28",
+      "stated_return": "13:10",
+      "return_error": -18,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-05",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:19",
+      "stated_return": "13:54",
+      "return_error": 35,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-06",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:14",
+      "stated_return": "13:35",
+      "return_error": 81,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-07",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:51",
+      "stated_return": "11:00",
+      "return_error": -111,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-08",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:37",
+      "stated_return": "11:30",
+      "return_error": -7,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-09",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:29",
+      "stated_return": "13:30",
+      "return_error": 61,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-10",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "13:01",
+      "stated_return": "13:57",
+      "return_error": 56,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-11",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:40",
+      "stated_return": "13:50",
+      "return_error": 10,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-12",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:40",
+      "stated_return": "14:00",
+      "return_error": 20,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-13",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:01",
+      "stated_return": "13:40",
+      "return_error": 39,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-17",
+      "solvable": true,
+      "stops": [
+        "market",
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:35",
+      "stated_return": "13:30",
+      "return_error": -5,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-18",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:25",
+      "stated_return": "13:39",
+      "return_error": 14,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "dev-19",
+      "solvable": true,
+      "stops": [
+        "library",
+        "garden",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:55",
+      "stated_return": "13:25",
+      "return_error": -30,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "holdout-01",
+      "solvable": true,
+      "stops": [
+        "harbour",
+        "garden",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:15",
+      "stated_return": "13:40",
+      "return_error": 85,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "holdout-02",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:28",
+      "stated_return": "13:33",
+      "return_error": 65,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "holdout-03",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:51",
+      "stated_return": "11:12",
+      "return_error": -99,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "holdout-04",
+      "solvable": false,
+      "stops": [
+        "museum",
+        "harbour",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline",
+        "walking"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "holdout-05",
+      "solvable": false,
+      "stops": [
+        "museum",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "budget",
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "holdout-06",
+      "solvable": true,
+      "stops": [
+        "library",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:45",
+      "stated_return": "13:43",
+      "return_error": 118,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "holdout-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:42",
+      "stated_return": "13:38",
+      "return_error": 56,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 2,
+      "id": "holdout-10",
+      "solvable": true,
+      "stops": [
+        "screening",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "16:20",
+      "stated_return": "16:30",
+      "return_error": 10,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-01",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum",
+        "library"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:25",
+      "stated_return": "13:35",
+      "return_error": 10,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-02",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "13:30",
+      "return_error": -112,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:48",
+      "stated_return": "13:06",
+      "return_error": 18,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-04",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:14",
+      "stated_return": "13:52",
+      "return_error": 98,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-05",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:19",
+      "stated_return": "13:56",
+      "return_error": 37,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-06",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "15:04",
+      "stated_return": "14:00",
+      "return_error": -64,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-07",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:48",
+      "stated_return": "11:00",
+      "return_error": -108,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-08",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:15",
+      "stated_return": "11:40",
+      "return_error": -35,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-09",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:37",
+      "stated_return": "13:30",
+      "return_error": 113,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-10",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "harbour",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "13:00",
+      "stated_return": "13:18",
+      "return_error": 18,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-11",
+      "solvable": true,
+      "stops": [
+        "library",
+        "garden",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:53",
+      "stated_return": "13:53",
+      "return_error": 60,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-12",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:40",
+      "stated_return": "13:54",
+      "return_error": 14,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-13",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "harbour",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:01",
+      "stated_return": "13:57",
+      "return_error": 56,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-17",
+      "solvable": true,
+      "stops": [
+        "market",
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:35",
+      "stated_return": "14:00",
+      "return_error": 25,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-18",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:25",
+      "stated_return": "13:54",
+      "return_error": 29,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "dev-19",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "14:53",
+      "stated_return": "13:57",
+      "return_error": -56,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "holdout-01",
+      "solvable": true,
+      "stops": [
+        "harbour",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:26",
+      "stated_return": "13:56",
+      "return_error": 150,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "holdout-02",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:28",
+      "stated_return": "14:00",
+      "return_error": 92,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "holdout-03",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "13:25",
+      "stated_return": "11:15",
+      "return_error": -130,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "holdout-04",
+      "solvable": false,
+      "stops": [
+        "museum",
+        "harbour",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "13:00",
+      "stated_return": "13:50",
+      "return_error": 50,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "holdout-05",
+      "solvable": false,
+      "stops": [
+        "library",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "budget",
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "13:50",
+      "return_error": -92,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "holdout-06",
+      "solvable": true,
+      "stops": [
+        "library",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:45",
+      "stated_return": "13:57",
+      "return_error": 132,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "holdout-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:21",
+      "stated_return": "13:50",
+      "return_error": 29,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes",
+      "repeat": 3,
+      "id": "holdout-10",
+      "solvable": true,
+      "stops": [
+        "screening",
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "17:31",
+      "stated_return": "16:50",
+      "return_error": -41,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-01",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:51",
+      "stated_return": "13:59",
+      "return_error": 68,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-02",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:48",
+      "stated_return": "12:20",
+      "return_error": -28,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "garden"
+      ],
+      "missing_flagged": [
+        "garden"
+      ]
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-04",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "library",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:15",
+      "stated_return": "13:44",
+      "return_error": 29,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "library"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-05",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:02",
+      "stated_return": "13:47",
+      "return_error": 45,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-06",
+      "solvable": true,
+      "stops": [
+        "harbour",
+        "market",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:48",
+      "stated_return": "13:55",
+      "return_error": 67,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "harbour",
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-07",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:48",
+      "stated_return": "11:00",
+      "return_error": -108,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "garden"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-08",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:37",
+      "stated_return": "11:48",
+      "return_error": 11,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-09",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:29",
+      "stated_return": "13:20",
+      "return_error": 51,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-10",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:37",
+      "stated_return": "13:50",
+      "return_error": 133,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-11",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:48",
+      "stated_return": "13:49",
+      "return_error": 61,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "garden"
+      ],
+      "missing_flagged": [
+        "garden"
+      ]
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-12",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:51",
+      "stated_return": "13:57",
+      "return_error": 66,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-13",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:55",
+      "stated_return": "13:57",
+      "return_error": 62,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "harbour",
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-17",
+      "solvable": true,
+      "stops": [
+        "market",
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:35",
+      "stated_return": "13:40",
+      "return_error": 5,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-18",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:35",
+      "stated_return": "13:30",
+      "return_error": -5,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "dev-19",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "14:01",
+      "stated_return": "13:50",
+      "return_error": -11,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "library"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "holdout-01",
+      "solvable": true,
+      "stops": [
+        "harbour",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "15:04",
+      "stated_return": "14:00",
+      "return_error": -64,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "harbour"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "holdout-02",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:37",
+      "stated_return": "13:53",
+      "return_error": 76,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "holdout-03",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "11:37",
+      "stated_return": "11:10",
+      "return_error": -27,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "holdout-04",
+      "solvable": false,
+      "stops": [
+        "museum",
+        "market",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline",
+        "walking"
+      ],
+      "return_at": "15:22",
+      "stated_return": "13:37",
+      "return_error": -105,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "holdout-05",
+      "solvable": false,
+      "stops": [
+        "library",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "budget",
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "library"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "holdout-06",
+      "solvable": true,
+      "stops": [
+        "library",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:05",
+      "stated_return": "13:41",
+      "return_error": 96,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "library",
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "holdout-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:21",
+      "stated_return": "13:50",
+      "return_error": 29,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "garden"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 1,
+      "id": "holdout-10",
+      "solvable": true,
+      "stops": [
+        "screening",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "16:42",
+      "stated_return": "16:54",
+      "return_error": 12,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-01",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "13:50",
+      "return_error": -92,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-02",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:29",
+      "stated_return": "13:50",
+      "return_error": 81,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:48",
+      "stated_return": "13:50",
+      "return_error": 62,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "garden"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-04",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:28",
+      "stated_return": "13:47",
+      "return_error": 19,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "library"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-05",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "15:18",
+      "stated_return": "14:00",
+      "return_error": -78,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-06",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "market",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:26",
+      "stated_return": "13:50",
+      "return_error": 24,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "garden",
+        "market"
+      ],
+      "missing_flagged": [
+        "garden",
+        "market"
+      ]
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-07",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "11:37",
+      "stated_return": "10:52",
+      "return_error": -45,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-08",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:37",
+      "stated_return": "11:57",
+      "return_error": 20,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-09",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:25",
+      "stated_return": "13:40",
+      "return_error": 75,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-10",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "walking"
+      ],
+      "return_at": "12:51",
+      "stated_return": "13:10",
+      "return_error": 19,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-11",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:51",
+      "stated_return": "13:12",
+      "return_error": 21,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-12",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:51",
+      "stated_return": "13:59",
+      "return_error": 68,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-13",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:36",
+      "stated_return": "13:40",
+      "return_error": 64,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "library"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-17",
+      "solvable": true,
+      "stops": [
+        "market",
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:32",
+      "stated_return": "13:55",
+      "return_error": 23,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market",
+        "garden"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-18",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:35",
+      "stated_return": "13:50",
+      "return_error": 15,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "dev-19",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "14:53",
+      "stated_return": "13:45",
+      "return_error": -68,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "library"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "holdout-01",
+      "solvable": true,
+      "stops": [
+        "harbour",
+        "market",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:48",
+      "stated_return": "13:30",
+      "return_error": 42,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "harbour",
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "holdout-02",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:28",
+      "stated_return": "13:44",
+      "return_error": 76,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "garden"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "holdout-03",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "11:37",
+      "stated_return": "11:12",
+      "return_error": -25,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "holdout-04",
+      "solvable": false,
+      "stops": [
+        "museum",
+        "harbour",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline",
+        "walking"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "harbour"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "holdout-05",
+      "solvable": false,
+      "stops": [
+        "screening",
+        "market",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "budget",
+        "deadline",
+        "opening_hours"
+      ],
+      "return_at": "17:11",
+      "stated_return": "14:00",
+      "return_error": -191,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "holdout-06",
+      "solvable": true,
+      "stops": [
+        "library",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "11:45",
+      "stated_return": "13:51",
+      "return_error": 126,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "library",
+        "harbour"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "holdout-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:21",
+      "stated_return": "13:55",
+      "return_error": 34,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "garden"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 2,
+      "id": "holdout-10",
+      "solvable": true,
+      "stops": [
+        "screening",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "16:42",
+      "stated_return": "16:57",
+      "return_error": 15,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-01",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "13:56",
+      "return_error": -86,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-02",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:51",
+      "stated_return": "13:48",
+      "return_error": 57,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-03",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "park",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:48",
+      "stated_return": "13:00",
+      "return_error": 12,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "garden"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-04",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-05",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "15:18",
+      "stated_return": "14:00",
+      "return_error": -78,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-06",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "market",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "15:04",
+      "stated_return": "14:00",
+      "return_error": -64,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-07",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park",
+        "garden"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "12:48",
+      "stated_return": "11:00",
+      "return_error": -108,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "garden"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-08",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:37",
+      "stated_return": "11:30",
+      "return_error": -7,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-09",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "11:37",
+      "stated_return": "13:50",
+      "return_error": 133,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-10",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "harbour",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline",
+        "walking"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "harbour"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-11",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:51",
+      "stated_return": "13:23",
+      "return_error": 32,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-12",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:51",
+      "stated_return": "13:36",
+      "return_error": 45,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-13",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "12:36",
+      "stated_return": "13:37",
+      "return_error": 61,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "library"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-17",
+      "solvable": true,
+      "stops": [
+        "market",
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:35",
+      "stated_return": "13:50",
+      "return_error": 15,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-18",
+      "solvable": true,
+      "stops": [
+        "gallery",
+        "museum",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "13:35",
+      "stated_return": "13:58",
+      "return_error": 23,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "dev-19",
+      "solvable": true,
+      "stops": [
+        "library",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "14:01",
+      "stated_return": "13:40",
+      "return_error": -21,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "library"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "holdout-01",
+      "solvable": true,
+      "stops": [
+        "harbour",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "11:21",
+      "stated_return": "13:30",
+      "return_error": 129,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "harbour",
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "holdout-02",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "gallery"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "12:37",
+      "stated_return": "13:55",
+      "return_error": 78,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "holdout-03",
+      "solvable": true,
+      "stops": [
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline"
+      ],
+      "return_at": "11:37",
+      "stated_return": "11:13",
+      "return_error": -24,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "holdout-04",
+      "solvable": false,
+      "stops": [
+        "museum",
+        "market",
+        "screening"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "deadline",
+        "walking"
+      ],
+      "return_at": "15:22",
+      "stated_return": "14:00",
+      "return_error": -82,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "holdout-05",
+      "solvable": false,
+      "stops": [
+        "screening",
+        "market"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "infeasible",
+      "failed": [
+        "budget",
+        "deadline"
+      ],
+      "return_at": "16:05",
+      "stated_return": "14:00",
+      "return_error": -125,
+      "late": true,
+      "late_unnoticed": true,
+      "missing_facts": [
+        "market"
+      ],
+      "missing_flagged": [
+        "market"
+      ]
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "holdout-06",
+      "solvable": true,
+      "stops": [
+        "library",
+        "harbour"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "11:45",
+      "stated_return": "13:40",
+      "return_error": 115,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "library",
+        "harbour"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "holdout-09",
+      "solvable": true,
+      "stops": [
+        "garden",
+        "museum"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "conditional",
+      "failed": [],
+      "return_at": "13:21",
+      "stated_return": "13:30",
+      "return_error": 9,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [
+        "garden"
+      ],
+      "missing_flagged": []
+    },
+    {
+      "arm": "routes_hidden",
+      "repeat": 3,
+      "id": "holdout-10",
+      "solvable": true,
+      "stops": [
+        "screening",
+        "museum",
+        "park"
+      ],
+      "vouched": true,
+      "planned": true,
+      "status": "verified",
+      "failed": [],
+      "return_at": "16:42",
+      "stated_return": "16:50",
+      "return_error": 8,
+      "late": false,
+      "late_unnoticed": false,
+      "missing_facts": [],
+      "missing_flagged": []
+    }
+  ]
+}

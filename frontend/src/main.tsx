@@ -284,13 +284,13 @@ function App() {
     </header>
 
     <main>
-      <section className={`intake ${result || busy ? 'compact' : ''}`} aria-label="领取支线">
-        <p className="kicker">主线之外</p>
-        <h1>空出来的这点时间，<br/>拿去做点什么。</h1>
-        <p className="lede">说一句你现在的状态。给你一个附近真实存在、时间上赶得回来的支线任务。</p>
+      <section className={`intake ${result || busy ? 'compact' : ''}`} aria-label="规划一次出门">
+        <p className="kicker">悉尼 · 短时出门</p>
+        <h1>有一点空闲，<br/>决定去哪走走。</h1>
+        <p className="lede">告诉我想做什么、有多少时间。一起选去处、查往返，列出出发前还需确认的信息。</p>
 
         <div className="intake-card">
-          <textarea ref={inputRef} rows={2} aria-label="用一句话说说现在" placeholder="下午空出来了，不想待在家…" maxLength={300} value={preference}
+          <textarea ref={inputRef} rows={2} aria-label="用一句话说说现在" placeholder="午休想出去透透气，不想走太远…" maxLength={300} value={preference}
             onChange={e => setPreference(e.target.value)} onKeyDown={e => {if (e.key === 'Enter' && !e.shiftKey) {e.preventDefault();generate();}}}/>
           {!preference && <div className="examples">{examples.map(t => <button key={t} onClick={() => {setPreference(t);inputRef.current?.focus();}}>{t}</button>)}</div>}
 
@@ -311,7 +311,7 @@ function App() {
               <ChevronDown size={13} className={adjustOpen ? 'rotate' : ''}/>
             </button>
             <button className="go" disabled={busy || !session || !fitsToday} onClick={generate}>
-              {busy ? <LoaderCircle className="spin" size={16}/> : null}{busy ? '正在找' : '领一个支线'}{!busy && <ArrowRight size={16}/>}
+              {busy ? <LoaderCircle className="spin" size={16}/> : null}{busy ? '正在找' : '帮我选个去处'}{!busy && <ArrowRight size={16}/>}
             </button>
           </div>
 
@@ -345,7 +345,7 @@ function App() {
         </div>}
 
         {result && !plan && !busy && <div className="empty">
-          <h2>这次没找到赶得回来的支线</h2>
+          <h2>这次搜索未找到符合时间限制的方案</h2>
           <p>{result.message}</p>
           <div><button className="ghost" onClick={rerollTime}>换个时间</button><button className="text-button" onClick={() => setTraceOpen(true)}>看看哪些被排除了 <ArrowRight size={13}/></button></div>
         </div>}
@@ -382,10 +382,10 @@ function App() {
             <section className="facts">
               <div><span>路上</span><b>步行 {plan.walking_minutes} 分钟{plan.legs.some(l => l.mode === 'transit') ? ' + 公共交通' : ''}</b></div>
               <div><span>已知花费</span><b>{plan.known_cost === 0 ? 'AUD 0（另有未知项）' : `AUD ${plan.known_cost}`}</b></div>
-              <div><span>回到原地</span><b>{time(plan.return_at)}</b></div>
+              <div><span>预计返回</span><b>{time(plan.return_at)}</b></div>
             </section>
             {plan.status === 'verified'
-              ? <p className="assurance">路线和时间预算已核实，按当前估算赶得回来。</p>
+              ? <p className="assurance">按当前路线数据估算，可在截止时间前返回；实际交通可能变化。</p>
               : <div className="unknowns"><h3>还没核实的</h3><ul>{[...unknowns,...advisories].map((u,i) => <li key={i}>{u}</li>)}</ul></div>}
             {plan.status === 'verified' && (unknowns.length > 0 || advisories.length > 0) && <div className="unknowns"><h3>出发前确认</h3><ul>{[...advisories,...unknowns].map((u,i) => <li key={i}>{u}</li>)}</ul></div>}
           </div>
@@ -465,7 +465,7 @@ function App() {
         {result&&result.itineraries.length>1&&<p className="drawer-description">本次共 {result.itineraries.length} 个可行方案，主界面一次只展示一个。{result.message}</p>}
         {run&&<div className="run-label">Run {run.id.slice(0,12)} · {run.status}<br/>{result?.agent ? `模型调用 ${result.agent.model_calls} · ${live?'TfNSW Live':'合成回放'}` : live?'TfNSW Live · 模型调用 0':'外部请求 0 · 模型调用 0 · 合成回放'}</div>}
         {result?.trace.map(t=><div className="trace-row" key={t.sequence}><span className="trace-number">{String(t.sequence).padStart(2,'0')}</span><div><code>{t.action}</code><p>{t.summary}</p></div><small>{t.elapsed_ms}ms{t.cache_hit&&' · cache'}</small></div>)}
-        {!result&&<div className="empty-drawer">领一次支线后，这里会显示调用和验证记录。</div>}
+        {!result&&<div className="empty-drawer">生成一次方案后，这里会显示调用和验证记录。</div>}
         {!!result?.rejected.length&&<div className="rejections"><h3>没有通过的组合</h3>{result.rejected.map((r,i)=><div key={i}><code>{r.candidates.join(' → ')}</code><p>{r.reasons.join('；')}</p></div>)}</div>}
       </>:<>
         <p className="drawer-description">同一个意思在不止一次出门里反复出现，系统才会提议记住；不确认就不会记。你当下说的话永远优先。</p>
