@@ -22,7 +22,7 @@ from .memory import Proposal, context_of
 from .models import SYDNEY, Candidate, Request, Result, Trace
 from .places import candidate_kind
 from .planner import distance, plan, request_origin
-from .providers import tfnsw_configured
+from .providers import ProviderRateLimitError, tfnsw_configured
 from .storage import Store
 from .taste import (
     TASTE_REASONS,
@@ -273,6 +273,11 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
         except asyncio.CancelledError:
             db.change(uid, run_id, status="interrupted", expected=["running", "queued"])
             raise
+        except ProviderRateLimitError as exc:
+            record = get_run(uid, run_id)["data"]
+            record["error"] = str(exc)
+            db.change(uid, run_id, data=record, status="failed", expected=["running"])
+            logger.warning("Route provider limited for %s: %s", run_id, exc)
         except Exception:
             logger.exception("Planning failed: %s", run_id)
             db.change(uid, run_id, status="failed", expected=["running"])
@@ -390,6 +395,7 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
             "status": r["status"],
             "parent_id": r["data"].get("parent_id"),
             "result": r["data"].get("result"),
+            "error": r["data"].get("error"),
         }
 
     @app.post("/api/runs/{run_id}/revise", status_code=202)
@@ -430,7 +436,7 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
                     if result:
                         for step in result["trace"][sent:]:
                             yield f"event: trace\ndata: {json.dumps(step, ensure_ascii=False)}\n\n"
-                    yield f"event: done\ndata: {json.dumps({'id': run_id, 'status': r['status'], 'result': result}, ensure_ascii=False)}\n\n"
+                    yield f"event: done\ndata: {json.dumps({'id': run_id, 'status': r['status'], 'result': result, 'error': r['data'].get('error')}, ensure_ascii=False)}\n\n"
                     return
                 yield ": heartbeat\n\n"
                 await asyncio.sleep(0.1)

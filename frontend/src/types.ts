@@ -16,7 +16,7 @@ export interface Itinerary {id: string; title: string; reason: string; stops: St
 export interface Trace {sequence: number; node: string; action: string; summary: string; elapsed_ms: number; cache_hit: boolean}
 export interface Result {request: PlanRequest; itineraries: Itinerary[]; trace: Trace[]; rejected: {candidates: string[]; reasons: string[]}[]; status: string; message: string; tool_calls: number; cache_hits: number; elapsed_ms: number; data_notice: string; strategy: string; agent?: AgentInfo}
 export interface AgentInfo {anchor_id: string | null; memory_ids: string[]; evidence_ids: string[]; probe: {dimension: string | null; pole: number; mode: string; summary: string} | null; intent: {summary: string; inferred: string[]} | null; seed: number | null; model_calls: number; tokens: number}
-export interface Run {id: string; status: string; result: Result | null}
+export interface Run {id: string; status: string; result: Result | null; error?: string | null}
 export type Reason = 'want_sit' | 'want_move' | 'too_far' | 'want_farther' | 'not_this_kind' | 'never_here' | 'no_spend' | 'bad_time' | 'been_there' | 'off_route' | 'other';
 export interface Proposal {signature: string; action: 'add' | 'narrow' | 'retire'; text: string; evidence: number}
 export interface MemoryItem {id: string; kind: 'dimension' | 'category' | 'place' | 'note'; text: string; context: string | null; source: 'user_stated' | 'agent_proposed'; evidence: number; stale: boolean; confirmed_at: string}

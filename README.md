@@ -25,9 +25,9 @@
 
 | 输入需求和时间 | 带理由换一个 | 查看新方案 |
 |---|---|---|
-| ![首页](docs/images/home.png) | ![换一个的理由](docs/images/reroll.png) | ![换成户外](docs/images/quest-after-reroll.png) |
+| ![首页](docs/images/home.jpg) | ![换一个的理由](docs/images/reroll.jpg) | ![反馈后的新方案](docs/images/quest-after-reroll.jpg) |
 
-截图来自早期版本，界面文字以当前运行版本为准。
+截图更新于 2026-11-10，使用当前前端、OSM 地点快照与固定策略；路线为合成回放，仅用于展示交互，不能据此出门。
 
 ## 它怎么工作
 
@@ -93,6 +93,7 @@ flowchart LR
 ## 可靠性
 
 - **迟到的结果不会覆盖新状态。** 任务异步执行，进度通过 SSE 推送；写入结果时用 compare-and-swap 确认任务仍在运行，已取消或被取代的请求不会被写回。服务重启时，未完成的任务标记为 `interrupted`。
+- **路线限流会等待或明确提示。** 同一服务进程、同一 Key 的 TfNSW 请求间隔至少 350 毫秒；遇到限流最多尝试三次，遵守 `Retry-After`。等待过长时停止本轮查询，前端提示稍后再试；明确的额度耗尽不自动重试。多进程部署需另配共享限流。
 - **路线缓存按出发时刻区分。** 缓存键包含精确出发时刻，改了时间不会复用旧路线。
 - **用户输入不拼接 URL。** 外部接口地址是固定常量，API Key 只放在请求头里，不进 URL、日志或缓存；有专门的提示注入测试。
 - **推荐文案受检查。** 文案引用的证据 id 要和真实证据核对，编造的直接丢弃；没有已确认的记忆时，“你说过 / 你喜欢”这类话会被删掉。这只核对引用是否存在，不核对文案说得对不对。
@@ -157,7 +158,7 @@ OPENAI_API_KEY=...    # 模型选地点（可选 OPENAI_MODEL / OPENAI_BASE_URL�
 验证（与 CI 一致）：
 
 ```bash
-make test         # ruff + pytest（211 项）+ 前端类型检查与构建
+make test         # ruff + pytest（218 项）+ 前端类型检查与构建
 make eval         # 24 个冻结场景
 make dimensions   # 口味维度闸门
 ```
@@ -181,17 +182,17 @@ backend/sidequest/      FastAPI 后端，约 5k 行
   api.py / storage.py   异步任务、SSE、owner 隔离的 SQLite 文档存储
   personas.py / harness.py / reference.py   合成用户、跨会话实验、暴力参考规划器
   baseline.py           未经检查的模型基线：模型直接给方案，再用验证器打分
-backend/tests/          211 项测试
+backend/tests/          218 项测试
 frontend/src/           React + TypeScript 单页
 evals/                  冻结场景与合成用户定义
 reports/                评测产物
 ```
 
-界面里的开发视图可以看到每一轮模型选了什么、调用了几次、每一步耗时；行程详情列出每一项检查及其依据。
+界面里的开发视图可以看到规划步骤、调用次数和耗时（下图为不调用模型的固定策略）；行程详情列出每一项检查及其依据。
 
 | 可审计的动作 Trace | 时间线与“凭什么说走得通” |
 |---|---|
-| ![开发视图](docs/images/trace.png) | ![行程与检查](docs/images/plan.png) |
+| ![开发视图](docs/images/trace.jpg) | ![行程与检查](docs/images/plan.jpg) |
 
 ## 文档
 

@@ -15,6 +15,7 @@ from typing import Any
 import httpx
 
 from .models import SYDNEY, Evidence, Leg, Request, Trace
+from .rate_limit import gate_for, retry_after
 
 TFNSW_ENDPOINT = "https://api.transport.nsw.gov.au/v1/tp/trip"
 
@@ -28,6 +29,10 @@ class ProviderAuthError(ProviderError):
 
 
 class ProviderRateLimitError(ProviderError):
+    pass
+
+
+class ProviderQuotaError(ProviderRateLimitError):
     pass
 
 
@@ -111,6 +116,7 @@ class TfNSWRouteProvider:
         if not api_key or any(char.isspace() for char in api_key):
             raise ProviderAuthError("TFNSW_API_KEY 未配置或格式无效")
         self.api_key = api_key
+        self.gate = gate_for(api_key)
         self.client = client or httpx.Client(
             timeout=20,
             follow_redirects=False,
@@ -143,21 +149,39 @@ class TfNSWRouteProvider:
             "calcNumberOfTrips": 3,
             "TfNSWTR": "true",
         }
-        fetched_at = datetime.now(timezone.utc).astimezone(SYDNEY)
-        try:
-            response = self.client.get(
-                TFNSW_ENDPOINT,
-                params=params,
-                headers={"Authorization": f"apikey {self.api_key}", "Accept": "application/json"},
+        # Bound each leg's retries; long server cooldowns fail fast and stay shared.
+        deadline = time.monotonic() + 25
+        for attempt in range(3):
+            if not self.gate.acquire(min(deadline, time.monotonic() + 8)):
+                raise ProviderRateLimitError("路线服务正在限流，请稍后再试；若持续出现，请检查 TfNSW 配额。")
+            fetched_at = datetime.now(timezone.utc).astimezone(SYDNEY)
+            try:
+                response = self.client.get(
+                    TFNSW_ENDPOINT,
+                    params=params,
+                    headers={"Authorization": f"apikey {self.api_key}", "Accept": "application/json"},
+                    timeout=max(0.1, min(20, deadline - time.monotonic())),
+                )
+            except httpx.TimeoutException as exc:
+                raise ProviderTimeoutError("TfNSW 路线请求超时") from exc
+            except httpx.HTTPError as exc:
+                raise ProviderError("TfNSW 路线来源暂时不可用") from exc
+            detail = response.headers.get("X-Error-Detail", "").lower()
+            if response.status_code in (401, 403, 429) and "quota" in detail:
+                self.gate.defer(retry_after(response.headers.get("Retry-After")) or 300)
+                raise ProviderQuotaError("TfNSW 路线查询额度已用尽，请检查账户配额并等待恢复。")
+            limited = response.status_code == 429 or (
+                response.status_code in (401, 403) and "rate limit" in detail
             )
-        except httpx.TimeoutException as exc:
-            raise ProviderTimeoutError("TfNSW 路线请求超时") from exc
-        except httpx.HTTPError as exc:
-            raise ProviderError("TfNSW 路线来源暂时不可用") from exc
-        if response.status_code in (401, 403):
-            raise ProviderAuthError("TfNSW 拒绝了当前 API key")
-        if response.status_code == 429:
-            raise ProviderRateLimitError("TfNSW 请求频率受限")
+            if limited:
+                delay = retry_after(response.headers.get("Retry-After"))
+                self.gate.defer(max(0.35, delay if delay is not None else 2 ** attempt))
+                if attempt == 2:
+                    raise ProviderRateLimitError("路线服务繁忙，重试后仍受限，请稍后再试。")
+                continue
+            if response.status_code in (401, 403):
+                raise ProviderAuthError("TFNSW_API_KEY 无效或没有路线接口访问权限")
+            break
         if not response.is_success:
             raise ProviderError(f"TfNSW 返回 HTTP {response.status_code}")
         try:

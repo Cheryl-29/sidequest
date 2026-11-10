@@ -156,7 +156,7 @@ function App() {
         const said = value.result.trace.find(t => t.action === 'degrade') ?? value.result.trace.find(t => t.action === 'taste_miss');
         if (said) setNotice(said.summary);
       }
-      else setError(value.status === 'cancelled' ? '这次已取消。' : '这次没找到去处，请再试一次。');
+      else setError(value.status === 'cancelled' ? '这次已取消。' : value.error || '这次没找到去处，请再试一次。');
     };
     setProgress('');
     // Agent steps arrive while the model is still deciding; show the latest one.

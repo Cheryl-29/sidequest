@@ -431,3 +431,19 @@ def test_a_round_that_never_called_the_model_is_not_rescued(tmp_path, monkeypatc
     client = agent_client(tmp_path, Models())
     run, quest = agent_quest(client)
     assert quest is None and run["result"]["message"] == "候选地点都已关门"
+
+
+def test_rate_limit_error_reaches_poll_and_sse(client, monkeypatch):
+    from sidequest.providers import ProviderRateLimitError
+
+    def limited(*args, **kwargs):
+        raise ProviderRateLimitError("路线服务繁忙，请稍后再试。")
+
+    monkeypatch.setattr("sidequest.api.plan", limited)
+    created = client.post("/api/runs", json=REQUEST).json()
+    run = completed(client, created["id"])
+    assert run["status"] == "failed"
+    assert run["error"] == "路线服务繁忙，请稍后再试。"
+    assert run["result"] is None
+    stream = client.get(f"/api/runs/{created['id']}/events").text
+    assert '"error": "路线服务繁忙，请稍后再试。"' in stream

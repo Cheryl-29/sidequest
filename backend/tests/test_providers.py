@@ -119,3 +119,94 @@ def test_real_routes_never_run_over_the_synthetic_fixture_catalog():
     with pytest.raises(ValueError, match="合成"):
         Request.model_validate({"departure": "2026-09-14T15:00:00+10:00",
                                 "deadline": "2026-09-14T18:00:00+10:00", "mode": "live"})
+
+@pytest.fixture
+def provider_clock(monkeypatch):
+    from sidequest import rate_limit
+    clock = [100.0]
+    monkeypatch.setattr(rate_limit.time, "monotonic", lambda: clock[0])
+    monkeypatch.setattr(rate_limit.time, "sleep", lambda seconds: clock.__setitem__(0, clock[0] + seconds))
+    monkeypatch.setattr(rate_limit, "_gates", {})
+    return clock
+
+
+def call_provider(provider):
+    return provider.route("a", "b", {"lat": 1, "lon": 2}, {"lat": 3, "lon": 4}, request().departure)
+
+
+def test_rate_limit_recovers_and_honors_retry_after(provider_clock):
+    calls = []
+
+    def handle(_):
+        calls.append(provider_clock[0])
+        if len(calls) == 1:
+            return httpx.Response(429, headers={"Retry-After": "2"})
+        return httpx.Response(200, json={"journeys": [journey("2026-09-14T05:01:00Z", "2026-09-14T05:08:00Z")]})
+
+    provider = TfNSWRouteProvider("retry-key", httpx.Client(transport=httpx.MockTransport(handle)))
+    assert call_provider(provider).minutes == 7
+    assert calls == [100, 102]
+
+
+def test_rate_limit_stops_after_three_attempts(provider_clock):
+    from sidequest.providers import ProviderRateLimitError
+    calls = []
+
+    def handle(_):
+        calls.append(provider_clock[0])
+        return httpx.Response(429)
+
+    with pytest.raises(ProviderRateLimitError):
+        call_provider(TfNSWRouteProvider("retry-key", httpx.Client(transport=httpx.MockTransport(handle))))
+    assert calls == [100, 101, 103]
+
+
+def test_long_cooldown_shared_across_provider_instances(provider_clock):
+    from sidequest.providers import ProviderRateLimitError
+    calls = []
+
+    def handle(_):
+        calls.append(1)
+        return httpx.Response(429, headers={"Retry-After": "120"})
+
+    client = httpx.Client(transport=httpx.MockTransport(handle))
+    for _ in range(2):
+        with pytest.raises(ProviderRateLimitError):
+            call_provider(TfNSWRouteProvider("shared-key", client))
+    assert len(calls) == 1
+
+
+def test_quota_does_not_retry(provider_clock):
+    from sidequest.providers import ProviderQuotaError
+    calls = []
+
+    def handle(_):
+        calls.append(1)
+        return httpx.Response(403, headers={"X-Error-Detail": "Account Over Quota Limit"})
+
+    with pytest.raises(ProviderQuotaError, match="额度"):
+        call_provider(TfNSWRouteProvider("quota-key", httpx.Client(transport=httpx.MockTransport(handle))))
+    assert len(calls) == 1
+
+
+def test_gate_spacing_and_deadline(provider_clock):
+    from sidequest.rate_limit import gate_for
+    gate = gate_for("key")
+    assert gate is gate_for("key")
+    assert gate.acquire(101)
+    assert gate.acquire(101)
+    assert provider_clock[0] == pytest.approx(100.35)
+    assert not gate.acquire(100.5)
+
+
+def test_retry_after_formats():
+    from datetime import timedelta, timezone
+    from email.utils import format_datetime
+
+    from sidequest.rate_limit import retry_after
+    assert retry_after("invalid") is None
+    assert retry_after("NaN") is None
+    assert retry_after("-1") == 0
+    assert retry_after("3") == 3
+    future = format_datetime(datetime.now(timezone.utc) + timedelta(seconds=60))
+    assert 58 < retry_after(future) <= 60

@@ -96,3 +96,7 @@ The TfNSW adapter calls one fixed endpoint, selects the fastest journey departin
 ## State and privacy
 
 The browser receives a random HTTP-only, SameSite=Strict session cookie. Every run, taste session and memory read or write is owner-scoped. Geolocation is requested only after the user clicks the location control and is clamped to the Sydney area. Episodes store a context bucket and candidate ids, not coordinates. Users can inspect and delete memory items and episodes, or pause recording. API keys live in the git-ignored `.env` and only ever go into the `Authorization` header.
+
+## TfNSW throttling
+
+Providers sharing a credential in one process share a locked request gate (350 ms minimum spacing). HTTP 429 and explicit X-Error-Detail rate-limit responses receive at most three attempts, respecting numeric or HTTP-date Retry-After values; otherwise delays are 1, 2 and 4 seconds. Each leg has a 25-second request/retry deadline and waits at most eight seconds for admission. Longer cooldowns remain shared but fail the current run promptly. Explicit quota errors do not retry and impose Retry-After or a five-minute cooldown. Failed runs carry a safe error through polling and SSE to the frontend. This gate is process-local: multiple workers or applications sharing a key require an external shared limiter. Existing departure-specific route cache validity is unchanged.
