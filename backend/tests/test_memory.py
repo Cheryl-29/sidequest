@@ -145,7 +145,7 @@ def test_spread_support_needs_two_sessions_and_two_contexts():
 
 def test_accepts_spread_over_contexts_never_generalise_on_their_own():
     user = User()
-    axes = {Dimension.FORM: None, Dimension.TRAVEL: 0, Dimension.OBVIOUSNESS: None}
+    axes = {Dimension.FORM: None, Dimension.TRAVEL: 0}
     for context in (LUNCH, WEEKEND, AFTER_WORK) * 2:  # 6 x 0.5 = PROPOSE_SUPPORT
         user.session(context).accept(["x"], None, axes)
     assert user.state().proposals() == []

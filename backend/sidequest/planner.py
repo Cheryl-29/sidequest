@@ -8,7 +8,7 @@ from urllib.parse import urlencode
 
 from .fixtures import ORIGINS, candidates
 from .models import Candidate, Check, Evidence, Itinerary, Leg, Request, Result, Status, Stop, Trace
-from .providers import BudgetExhausted, CuratedVenueProvider, LiveTools, NoRouteError
+from .providers import BudgetExhausted, LiveTools, NoRouteError
 
 # A stop added around a locked one must be walkable from it (~13 minutes); farther away it is
 # a second destination, not something done on the way.
@@ -70,9 +70,7 @@ def catalog(request: Request) -> list[Candidate]:
         from .places import discover
 
         return discover(request)
-    if request.mode == "replay":
-        return candidates(request)
-    return CuratedVenueProvider().retrieve(request)
+    return candidates(request)  # synthetic fixtures; `Request` rejects them with live routes
 
 
 def osm_summary(request: Request, found: list[Candidate]) -> str:
@@ -423,7 +421,7 @@ def plan(
     data_notice = (
         "合成回放数据，仅用于验证软件行为，不可据此实际出行。"
         if request.mode == "replay"
-        else "路线为 TfNSW 实时查询；场馆事实来自 M0 核验快照，过期时仅作条件性提示。出行前请复核。"
+        else "路线为 TfNSW 实时查询。出行前请复核。"
     )
     if request.catalog == "osm":
         data_notice = (

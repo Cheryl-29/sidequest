@@ -9,16 +9,14 @@ import math
 import os
 import time
 from datetime import datetime, timedelta, timezone
-from datetime import time as clock
 from pathlib import Path
 from typing import Any
 
 import httpx
 
-from .models import SYDNEY, Candidate, Evidence, Leg, Request, Trace
+from .models import SYDNEY, Evidence, Leg, Request, Trace
 
 TFNSW_ENDPOINT = "https://api.transport.nsw.gov.au/v1/tp/trip"
-CATALOG_OBSERVED_AT = datetime(2026, 9, 14, 5, 49, 10, tzinfo=timezone.utc)
 
 
 class ProviderError(RuntimeError):
@@ -68,147 +66,6 @@ def load_local_env(name: str) -> str | None:
 def tfnsw_configured() -> bool:
     key = load_local_env("TFNSW_API_KEY") or ""
     return bool(key and not any(char.isspace() for char in key))
-
-
-def _at(request: Request, hour: int) -> datetime:
-    return datetime.combine(request.departure.date(), clock(hour), SYDNEY)
-
-
-class CuratedVenueProvider:
-    """M0-verified venue allowlist.
-
-    Facts remain verified only inside the observation TTL. Once stale, the
-    planner can still show a conditional result but cannot claim verification.
-    """
-
-    rows = (
-        {
-            "id": "museum_of_sydney",
-            "obviousness": 0.45,
-            "name": "Museum of Sydney",
-            "category": "博物馆",
-            "description": "从城市原点认识悉尼，适合一段安静的室内停留。",
-            "lat": -33.8637531,
-            "lon": 151.2114804,
-            "tags": ["博物馆", "文化", "室内", "历史", "museum"],
-            "stay": 45,
-            "open": 10,
-            "close": 17,
-            "weekdays": None,
-            "source": "https://mhnsw.au/visit-us/museum-of-sydney/plan-your-visit/",
-        },
-        {
-            "id": "the_mint",
-            "obviousness": 0.2,
-            "name": "The Mint",
-            "category": "历史建筑",
-            "description": "在旧铸币厂建筑里看一段城市与公共生活的历史。",
-            "lat": -33.8689428,
-            "lon": 151.2124305,
-            "tags": ["历史", "建筑", "文化", "室内"],
-            "stay": 30,
-            "open": 9,
-            "close": 16,
-            "weekdays": {0, 1, 2, 3, 4},
-            "source": "https://mhnsw.au/visit-us/the-mint/plan-your-visit/",
-        },
-        {
-            "id": "australian_museum",
-            "obviousness": 0.9,
-            "name": "Australian Museum",
-            "category": "自然史",
-            "description": "用自然史和科学展览填满一段好奇心时间。",
-            "lat": -33.8743465,
-            "lon": 151.2132545,
-            "tags": ["博物馆", "自然史", "科学", "室内", "museum"],
-            "stay": 60,
-            "open": 10,
-            "close": 17,
-            "weekdays": None,
-            "source": "https://australian.museum/visit/admission/",
-        },
-        {
-            "id": "royal_botanic_garden",
-            "obviousness": 0.95,
-            "name": "Royal Botanic Garden Sydney",
-            "category": "公园",
-            "description": "从城市走进海港边的植物园，适合随时开始的一段散步。",
-            "lat": -33.8642,
-            "lon": 151.2166,
-            "tags": ["公园", "自然", "散步", "户外", "garden", "park"],
-            "stay": 35,
-            "open": 7,
-            "close": 18,
-            "close_by_month": {1: 20, 2: 20, 3: 18.5, 4: 18, 5: 17.5, 6: 17,
-                               7: 17, 8: 17.5, 9: 18, 10: 19.5, 11: 20, 12: 20},
-            "weekdays": None,
-            "source": "https://www.botanicgardens.org.au/royal-botanic-garden-sydney/plan-your-visit",
-        },
-        {
-            "id": "barangaroo_reserve",
-            "obviousness": 0.55,
-            "name": "Barangaroo Reserve",
-            "category": "海港公园",
-            "description": "沿海港步道走一圈，在草地和砂岩岸线之间停下来。",
-            "lat": -33.8538,
-            "lon": 151.2039,
-            "tags": ["公园", "自然", "散步", "海港", "户外", "park"],
-            "stay": 35,
-            "open": 0,
-            "close": 24,
-            "weekdays": None,
-            "source": "https://www.barangaroo.com/precincts/barangaroo-reserve",
-        },
-    )
-
-    def retrieve(self, request: Request) -> list[Candidate]:
-        day_start = _at(request, 0)
-        day_end = day_start + timedelta(days=1)
-        observed_local = CATALOG_OBSERVED_AT.astimezone(SYDNEY)
-        validity_end = max(observed_local, min(day_end, observed_local + timedelta(hours=24)))
-        result = []
-        for row in self.rows:
-            scheduled = row["weekdays"] is None or request.departure.weekday() in row["weekdays"]
-            close_value = row.get("close_by_month", {}).get(request.departure.month, row["close"])
-            close_hour = int(close_value)
-            close_minute = 30 if close_value % 1 else 0
-            closes = day_start + timedelta(hours=close_hour, minutes=close_minute)
-            evidence = [
-                Evidence(
-                    id=f"curated-m0:{row['id']}:{field}:20260914",
-                    field=field,
-                    value=value,
-                    source_url=row["source"],
-                    fetched_at=observed_local,
-                    valid_from=observed_local,
-                    valid_until=validity_end,
-                    synthetic=False,
-                )
-                for field, value in (
-                    ("hours", f"{row['open']:02}:00–{close_hour:02}:{close_minute:02}"),
-                    ("cost", "Free general entry / 免费入场"),
-                    ("status", "open" if scheduled else "closed by recurring schedule"),
-                )
-            ]
-            result.append(
-                Candidate(
-                    id=row["id"],
-                    name=row["name"],
-                    category=row["category"],
-                    description=row["description"],
-                    lat=row["lat"],
-                    lon=row["lon"],
-                    tags=row["tags"],
-                    stay=row["stay"],
-                    cost=0,
-                    obviousness=row["obviousness"],
-                    open_at=_at(request, row["open"]) if scheduled else None,
-                    close_at=closes if scheduled else None,
-                    cancelled=not scheduled,
-                    evidence=evidence,
-                )
-            )
-        return result
 
 
 def _parse_dt(value: str) -> datetime:
@@ -368,7 +225,6 @@ class LiveTools:
         limit: int = 20,
         previous: dict | None = None,
         routes: TfNSWRouteProvider | None = None,
-        venues: CuratedVenueProvider | None = None,
     ):
         self.request = request
         self.limit = limit
@@ -378,7 +234,6 @@ class LiveTools:
         self.cache: dict[str, dict] = dict(previous or {})
         self.started = time.perf_counter()
         self.routes = routes or TfNSWRouteProvider.from_env()
-        self.venues = venues or CuratedVenueProvider()
 
     def log(self, node: str, action: str, summary: str, cached=False, evidence=None):
         self.trace.append(
@@ -400,14 +255,10 @@ class LiveTools:
 
     def retrieve(self):
         self.consume()
-        if self.request.catalog == "osm":
-            from .planner import catalog, osm_summary
+        from .planner import catalog, osm_summary
 
-            found = catalog(self.request)
-            self.log("retrieve", "retrieve_candidates", osm_summary(self.request, found))
-            return found
-        found = self.venues.retrieve(self.request)
-        self.log("retrieve", "retrieve_candidates", f"读取 {len(found)} 个 M0 核验的 CBD 候选")
+        found = catalog(self.request)
+        self.log("retrieve", "retrieve_candidates", osm_summary(self.request, found))
         return found
 
     def route(self, origin: str, dest: str, a: dict, b: dict, departure: datetime):

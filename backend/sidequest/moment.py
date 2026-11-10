@@ -19,7 +19,7 @@ from pydantic import BaseModel
 from .memory import MemoryItem, context_of
 from .models import SYDNEY, Candidate, Itinerary, Request
 from .planner import request_origin
-from .taste import Dimension, aim_value, describe, dimensions_of
+from .taste import Dimension, describe, dimensions_of
 
 
 class Fact(BaseModel, frozen=True):
@@ -100,14 +100,14 @@ def memory_facts(items: list[MemoryItem], anchor: Candidate, kind: str | None,
                  names: dict[str, str]) -> list[Fact]:
     """Only remembered preferences this pick actually agrees with. An item that pushed the
     anchor down, or a dimension the anchor sits on the other side of, is not a reason to go."""
-    axes = dimensions_of(anchor.tags, 0.0, anchor.obviousness)
+    axes = dimensions_of(anchor.tags, 0.0)
     out = []
     for item in items:
         key = item.key
         if key.kind == "dimension":
             dimension = Dimension(key.key)
             fits = (dimension is not Dimension.TRAVEL
-                    and axes[dimension] == aim_value(dimension, int(key.value)))
+                    and axes[dimension] == int(key.value))
         elif key.kind == "category":
             fits = key.key == kind and key.value == "like"
         elif key.kind == "place":

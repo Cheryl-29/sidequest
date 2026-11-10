@@ -6,9 +6,7 @@ survives. Groups differ in what they are allowed to learn and keep:
 
   fixed             planner order, a rejection only excludes what was shown
   no_memory         agent + session feedback; memory wiped every session
-  last_feedback     agent that only remembers the latest reroll reason
-  flat_profile      v2's design: dimension items only, no context
-  typed_no_context  typed items, but every context collapsed into one
+  flat_profile      dimension items only, no context
   typed_context     plan v2.2 §7.4, the design under test
 
 The ablations are applied by rewriting what the group may store (episode contexts, item
@@ -36,9 +34,8 @@ from .planner import distance, plan, request_origin
 from .taste import Feedback, TasteState, dimensions_of
 
 MAX_ROUNDS = 5
-GROUPS = ["fixed", "no_memory", "last_feedback", "flat_profile", "typed_no_context",
-          "typed_context"]
-ONE_CONTEXT = Context(slot=Slot.OTHER, span=Span.MEDIUM)  # what ablated groups see everywhere
+GROUPS = ["fixed", "no_memory", "flat_profile", "typed_context"]
+ONE_CONTEXT = Context(slot=Slot.OTHER, span=Span.MEDIUM)  # what the flat profile sees everywhere
 
 
 class RuleModel:
@@ -118,7 +115,7 @@ def seed_for(*parts) -> int:
 
 def other_context_violation(persona: Persona, session: int, slot: Slot, anchor: Candidate) -> bool:
     """Served the pole another slot wants, against what this slot wants."""
-    axes = {d.value: pole for d, pole in dimensions_of(anchor.tags, 0.0, anchor.obviousness).items()}
+    axes = {d.value: pole for d, pole in dimensions_of(anchor.tags, 0.0).items()}
     here = persona.prefs(session, slot)
     for other, rules in persona.context_dims.items():
         if other == slot:
@@ -140,17 +137,16 @@ class Harness:
     # --- ablations: what the group may keep ---------------------------------------------
 
     def restrict(self, state: TasteState) -> None:
-        if self.group in ("flat_profile", "typed_no_context"):
+        if self.group == "flat_profile":
             for episode in state.memory.episodes:
                 episode.context = ONE_CONTEXT
             for item in state.memory.items:
                 item.context = None
-        if self.group == "flat_profile":
             state.memory.items = [i for i in state.memory.items if i.key.kind == "dimension"]
 
     def offer(self, state: TasteState, session: Session, index: int) -> None:
         """At most one proposal per session, as the API does; the persona answers it."""
-        if session.proposals or self.group in ("fixed", "no_memory", "last_feedback"):
+        if session.proposals or self.group in ("fixed", "no_memory"):
             return
         self.restrict(state)
         proposals = state.proposals()
@@ -189,14 +185,7 @@ class Harness:
         memory = Memory() if self.group == "no_memory" else self.memory
         state = TasteState(session_id=f"{self.persona.id}:{index}", memory=memory)
         intent: Intent | None = None
-        last: Feedback | None = None
         for round_index in range(MAX_ROUNDS):
-            if self.group == "last_feedback":
-                kept = TasteState(session_id=state.session_id, memory=Memory(),
-                                  rejected=state.rejected, consumed=state.consumed)
-                if last:
-                    kept.apply(last)
-                state = kept
             seed = seed_for(self.persona.id, index, round_index)
             model = self.make_model(seed)
             try:
@@ -230,16 +219,15 @@ class Harness:
             ))
             if reason is None:
                 origin = request_origin(request)
-                axes = dimensions_of(anchor.tags, distance(origin, anchor.model_dump()),
-                                     anchor.obviousness)
+                axes = dimensions_of(anchor.tags, distance(origin, anchor.model_dump()))
                 state.accept(list(stops), candidate_kind(anchor), axes)
                 self.restrict(state)
                 self.offer(state, session, index)
                 return
-            last = Feedback(quest_id=outcome.quest.itinerary.id, candidate_ids=list(stops)[:3],
-                            anchor_id=anchor.id, kind=candidate_kind(anchor), reason=reason)
-            result = state.apply(last)
-            if result.stated and self.group != "last_feedback":
+            result = state.apply(Feedback(
+                quest_id=outcome.quest.itinerary.id, candidate_ids=list(stops)[:3],
+                anchor_id=anchor.id, kind=candidate_kind(anchor), reason=reason))
+            if result.stated:
                 result.stated.text = f"以后别再推 {anchor.name}"
                 state.confirm(result.stated)
             self.restrict(state)
@@ -257,8 +245,7 @@ class Harness:
                 self.agent_session(request, session, index, context)
             sessions.append(session)
         last = self.persona.sessions - 1
-        items = self.memory.active() if self.group not in ("fixed", "no_memory",
-                                                           "last_feedback") else []
+        items = self.memory.active() if self.group not in ("fixed", "no_memory") else []
         judged = [i for i in items if self.persona.holds(i, last, self.names) is not None]
         truths = self.persona.truths(last)
         return PersonaRun(

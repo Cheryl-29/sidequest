@@ -37,7 +37,7 @@ function carvedFrom(date: string, start: number, minutes: number) {
 }
 // Reroll chips grouped by what they touch (plan v2.3 §2.2). D1/D2 feedback moves a session
 // dimension; popularity feedback is a one-shot, same-kind reroll and is never remembered.
-const tasteChips: [Reason,string][] = [['want_sit','想坐着'],['want_move','想动一动'],['too_far','太远了'],['want_farther','想走远点'],['too_obvious','太大众了'],['too_obscure','太冷门了']];
+const tasteChips: [Reason,string][] = [['want_sit','想坐着'],['want_move','想动一动'],['too_far','太远了'],['want_farther','想走远点']];
 const kindOf = (tags: string[]) => tags.find(t => t.startsWith('kind:'))?.slice(5);
 const sourceLabel = {user_stated:'你说的', agent_proposed:'你确认过的提议'};
 const sharesStop = (a: Itinerary, b: Itinerary) => a.stops.some(s => b.stops.some(t => t.candidate.id === s.candidate.id));

@@ -25,7 +25,6 @@ from .planner import distance, plan, request_origin
 from .providers import tfnsw_configured
 from .storage import Store
 from .taste import (
-    LOCAL_REASONS,
     TASTE_REASONS,
     Dimension,
     Feedback,
@@ -82,8 +81,6 @@ REASON_LABELS = {
     Reason.WANT_MOVE: "想动一动",
     Reason.TOO_FAR: "太远了",
     Reason.WANT_FARTHER: "想走远点",
-    Reason.TOO_OBVIOUS: "太大众了",
-    Reason.TOO_OBSCURE: "太冷门了",
     Reason.NOT_THIS_KIND: "不想要这类",
     Reason.NEVER_HERE: "以后别推这个",
     Reason.NO_SPEND: "不想花钱",
@@ -212,7 +209,6 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
             result.strategy = "fixed-v1（降级）"
         state, data = load_taste(uid)
         rank_itineraries(result, state)
-        state.clear_local_reroll()
         if result.itineraries:
             state.record_shown([s.candidate.id for s in result.itineraries[0].stops])
         save_taste(uid, state, data.get("offered", False))
@@ -254,7 +250,6 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
             return await fixed_round(uid, request, None,
                                      "模型押注的几个地方都赶不回来，这一轮改用固定策略找了一个走得通的",
                                      keep)
-        state.clear_local_reroll()
         save_taste(uid, state, data.get("offered", False))
         payload = agent_payload(request, outcome, elapsed)
         return payload, {}, payload["status"]
@@ -491,7 +486,7 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
         outcome = state.apply(Feedback(
             quest_id=body.itinerary_id, candidate_ids=[c.id for c in rejected][:3],
             anchor_id=anchor.id, kind=candidate_kind(anchor), reason=reason,
-            anchor_obviousness=anchor.obviousness, note=body.note.strip(),
+            note=body.note.strip(),
         ))
         label = REASON_LABELS[reason]
         if lasting and reason is Reason.OTHER:
@@ -513,8 +508,6 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
             message = f"记住了：以后不再推 {anchor.name}。随时可以在「我的偏好」里删掉。"
         elif body.reason in TASTE_REASONS:
             message = f"「{label}」只影响这一轮；要是换个时候还这么说，才会问你要不要记住。"
-        elif reason in LOCAL_REASONS:
-            message = f"这一轮优先在同类地点里往{'冷门' if reason is Reason.TOO_OBVIOUS else '大众'}一点换；不会记成长期偏好。"
         elif outcome.kind:
             message = "这一轮先避开这类地方。"
         elif body.reason is Reason.BEEN_THERE:
@@ -547,8 +540,7 @@ def create_app(store: Store | None = None, model_factory=None, agent_timeout=AGE
         state, data = load_taste(uid)
         state.context = context_of(request.departure, request.deadline)
         anchor = stops[0]
-        axes = dimensions_of(anchor.tags, distance(request_origin(request), anchor.model_dump()),
-                             anchor.obviousness)
+        axes = dimensions_of(anchor.tags, distance(request_origin(request), anchor.model_dump()))
         episode = state.accept([c.id for c in stops], candidate_kind(anchor), axes)
         proposal = offer(state, data)
         save_taste(uid, state, data["offered"])

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T17:10:54.132113+00:00",
+  "generated_at": "2026-11-10T04:47:53.605889+00:00",
   "summary": {
     "scenarios": 24,
     "feasible_exists": 22,
@@ -365,8 +365,8 @@
       "planner_found": true,
       "planner_verified": true,
       "unexplained": [],
-      "combinations": 92,
-      "planner_combinations": 3,
+      "combinations": 84,
+      "planner_combinations": 2,
       "reference_max_stops": 3,
       "planner_max_stops": 3,
       "assemblies": 400,

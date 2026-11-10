@@ -121,16 +121,6 @@ def test_a_taste_reroll_excludes_what_was_shown_and_moves_the_next_quest(client)
     assert "只影响这一轮" in data["message"]
 
 
-def test_popularity_reroll_is_local_and_never_offers_memory(client):
-    run, first = fresh_quest(client)
-    data, after, _ = reroll(client, run, first, "too_obscure")
-    assert after is not None
-    assert "同类地点" in data["message"] and "不会记成长期偏好" in data["message"]
-    taste = client.get("/api/taste").json()
-    assert taste["items"] == [] and taste["proposals"] == []
-    assert taste["episodes"][-1]["reason"] == "太冷门了"
-
-
 def test_when_nothing_feasible_fits_the_reason_the_quest_says_so(client):
     """1-hour lunch: every indoor venue overruns the deadline, so the answer is outdoor."""
     run, first = fresh_quest(client, LUNCH)
