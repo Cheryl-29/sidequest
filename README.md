@@ -77,7 +77,7 @@ flowchart LR
 
 两个容易做错、这里刻意没做的地方：“去过了”不代表不喜欢（可能正是喜欢才去过）；“太远了”只让下一轮偏近，不会被悄悄改写成一个步行上限。
 
-同方向的理由在多次使用中重复出现时，系统会问要不要记住；只有你确认的才会保存，随时可以查看和删除，而且你当下说的话始终优先于记忆。这是辅助能力，是一套可审计的规则，不是模型训练。细节（代码里的 8 个理由作用域、记忆条目与情境）见 [`docs/architecture.md`](docs/architecture.md)。
+同方向的理由在多次使用中重复出现时，系统会问要不要记住；只有你确认的才会保存，随时可以查看和删除，而且你当下说的话始终优先于记忆。这是辅助能力，是一套可审计的规则，不是模型训练。细节（代码里的 7 个理由作用域、记忆条目与情境）见 [`docs/architecture.md`](docs/architecture.md)。
 
 ## 两种运行方式
 
@@ -157,7 +157,7 @@ OPENAI_API_KEY=...    # 模型选地点（可选 OPENAI_MODEL / OPENAI_BASE_URL�
 验证（与 CI 一致）：
 
 ```bash
-make test         # ruff + pytest（215 项）+ 前端类型检查与构建
+make test         # ruff + pytest（211 项）+ 前端类型检查与构建
 make eval         # 24 个冻结场景
 make dimensions   # 口味维度闸门
 ```
@@ -181,7 +181,7 @@ backend/sidequest/      FastAPI 后端，约 5k 行
   api.py / storage.py   异步任务、SSE、owner 隔离的 SQLite 文档存储
   personas.py / harness.py / reference.py   合成用户、跨会话实验、暴力参考规划器
   baseline.py           未经检查的模型基线：模型直接给方案，再用验证器打分
-backend/tests/          215 项测试
+backend/tests/          211 项测试
 frontend/src/           React + TypeScript 单页
 evals/                  冻结场景与合成用户定义
 reports/                评测产物
@@ -199,7 +199,7 @@ reports/                评测产物
 - [`docs/architecture.md`](docs/architecture.md)：请求生命周期、模型与执行器的边界、理由与记忆规则、证据与缓存
 - [`docs/evaluation.md`](docs/evaluation.md)：三层评测的完整结果与局限
 - [`docs/data-feasibility.md`](docs/data-feasibility.md)：真实数据探针与许可
-- [`Sidequest_项目计划_v2.md`](Sidequest_项目计划_v2.md)：设计与实验记录
+- [`Sidequest_项目计划_v2.md`](Sidequest_项目计划_v2.md)：一页取舍记录——做过哪些决定、为什么
 
 ## 数据来源
 

@@ -3,6 +3,8 @@
 更新：2026-09-14（Australia/Sydney）。状态：**M0 通过，范围已收缩并冻结**。
 
 > 2026-09-15 收敛：M0 探针脚本（`probe_m0.py`、`probe_tfnsw.py`、`probe_search_ddgs.py`、`freeze_m0_replay.py`）、TfNSW 与 DDGS 原始快照、`evals/provider-m0.json` 以及实施边界文档 `m0-next-run.md` 已删除。本文作为结论记录保留；仍在仓库中的原始证据只有 `data/probes/20260914T041841Z/`（OSM 与天气响应，测试使用）。
+>
+> 2026-11-10：基于本文核验结果的人工场馆名单（`CuratedVenueProvider`）已从代码中删除，候选一律来自 OSM 索引或合成回放。下文提到名单和 allowlist 处为历史记录。
 
 ## 决策
 

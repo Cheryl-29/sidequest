@@ -52,12 +52,11 @@ The validator checks connection continuity, opening windows, event arrival buffe
 
 ## Taste and memory
 
-Feedback is typed. Every `Reason` belongs to exactly one of eight scopes, enforced by an import-time assertion:
+Feedback is typed. Every `Reason` belongs to exactly one of seven scopes, enforced by an import-time assertion:
 
 | Scope | Reasons | Effect |
 |---|---|---|
 | taste | want_sit / want_move / too_far / want_farther | moves one D1/D2 belief; evidence for memory |
-| local | too_obvious / too_obscure | one-shot re-sort of that kind for the next round, then cleared |
 | kind | not_this_kind | penalises a category for the session |
 | stated | never_here | a user statement the caller confirms into a hard skip |
 | constraint | no_spend / bad_time | patches the request |
@@ -83,7 +82,7 @@ The hook's "why now" comes from `moment.py`: computed, citable facts (sunset rel
 
 ## Provider boundary
 
-The planner consumes a small `PlannerTools` contract: retrieve candidates, route a leg, record trace evidence, enforce a call budget and expose a revision cache. `ReplayTools` implements it with synthetic fixtures; `LiveTools` with `TfNSWRouteProvider`. `planner.catalog()` is the single switch for the candidate source, shared by planner and agent so a locked id is always found again.
+The planner consumes a small `PlannerTools` contract: retrieve candidates, route a leg, record trace evidence, enforce a call budget and expose a revision cache. `ReplayTools` implements it with synthetic fixtures; `LiveTools` with `TfNSWRouteProvider`. `planner.catalog()` is the single switch for the candidate source, shared by planner and agent so a locked id is always found again: the OSM place index, or the synthetic fixtures in replay. `Request` rejects live routes over the fixture catalog, so real routes never run over synthetic venues.
 
 The TfNSW adapter calls one fixed endpoint, selects the fastest journey departing at or after the requested minute, rejects school-bus-only options, and maps authentication, rate-limit, timeout, schema and no-route failures to typed errors. It never treats an unavailable Opal fare as zero. `llm.py` is the only file that knows the model provider: JSON-schema structured output over `httpx`, a per-round decision budget, and typed errors mirroring the providers.
 
@@ -92,7 +91,7 @@ The TfNSW adapter calls one fixed endpoint, selects the fastest journey departin
 1. **Frozen scenarios** (`evals/scenarios.json`, 16 dev + 8 holdout) run in CI with expectations outside validator internals.
 2. **Reference planner** measures the fixed planner's search recall.
 3. **Unchecked-model baseline** (`baseline.py`, `scripts/run_baseline.py`; real model calls, not in CI): the reason the boundary above exists. The model answers each frozen scenario in one shot (stop order, stated return time, whether it vouches for the plan, which stops have unconfirmed facts) and nothing checks the answer before it is scored. Its stop order is scheduled by `assemble` at the earliest times the order allows and judged by the same validator, so `infeasible` means no timing of that order works. Three arms: no leg durations, all leg durations, and leg durations with opening hours withheld for three venues. With gpt-4o-mini (72 answers per arm) every answer proposed a plan and vouched for it, including on unsolvable scenarios (18/18); with every fact on the page 16/66 plans on solvable scenarios were infeasible; with hours withheld 6/41 affected plans flagged all the missing facts. It shares the validator and synthetic fixtures, and is a single-shot small model without a tool loop. Full table and limits: [`evaluation.md`](evaluation.md).
-4. **Simulated users** (`evals/personas.json`, 12 personas, 5 holdout): hidden structured taste, a deterministic judge, and multi-session runs where only memory carries over. Six groups (`fixed`, `no_memory`, `last_feedback`, `flat_profile`, `typed_no_context`, `typed_context`) differ only in what they may store. `RuleModel` stands in for the LLM for offline, deterministic runs; reports carry raw numerators and denominators.
+4. **Simulated users** (`evals/personas.json`, 12 personas, 5 holdout): hidden structured taste, a deterministic judge, and multi-session runs where only memory carries over. Four groups (`fixed`, `no_memory`, `flat_profile`, `typed_context`) differ only in what they may store; reports from before the trim also contain two removed groups (`last_feedback`, `typed_no_context`). `RuleModel` stands in for the LLM for offline, deterministic runs; reports carry raw numerators and denominators.
 
 ## State and privacy
 

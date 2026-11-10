@@ -11,7 +11,7 @@
 暴力参考规划器穷举所有“组合 × 顺序”，用来衡量固定规划器有没有漏掉可行解：有可行解的 22 个场景里，**规划器全部命中（22/22），有 verified 解的 21 个场景也全部拿到 verified（21/21）**，没有漏报，也没有判定分歧。
 
 ## 3. 模拟用户跨会话实验：`scripts/run_personas.py`
-12 个合成 persona，每个带有对 Agent 隐藏的口味（D1 室内/户外、D2 远/近、类别好恶、情境规则、拉黑地点），判官是确定性的。每个 persona 依次进行多次会话，会话之间只保留记忆。六组对照只改变“允许存什么”，不改产品代码。
+12 个合成 persona，每个带有对 Agent 隐藏的口味（D1 室内/户外、D2 远/近、类别好恶、情境规则、拉黑地点），判官是确定性的。每个 persona 依次进行多次会话，会话之间只保留记忆。各组对照只改变“允许存什么”，不改产品代码。当前代码保留四组（固定策略、无长期记忆、扁平画像、类型化 + 情境记忆）；下面的历史报告里还有 `last_feedback` 和 `typed_no_context` 两组，对应代码已删除，这两组无法再原样复现。
 
 开发集 persona（7 个 persona、44 个会话、完整 OSM 索引、gpt-4o-mini，固定种子下重复 3 次，报告 [r1](../reports/personas-openai-r1.json) · [r2](../reports/personas-openai-r2.json) · [r3](../reports/personas-openai-r3.json)）：
 
