@@ -10,7 +10,7 @@ ORIGINS = {
     "circular": {"name": "Circular Quay", "lat": -33.8610, "lon": 151.2105},
 }
 
-# id, name, category, description, latitude, longitude, tags, stay, cost, open, close, obviousness
+# id, name, category, description, latitude, longitude, tags, stay, cost, open, close
 ROWS = [
     (
         "gallery",
@@ -24,7 +24,6 @@ ROWS = [
         0,
         10,
         17,
-        0.9,
     ),
     (
         "garden",
@@ -38,7 +37,6 @@ ROWS = [
         0,
         7,
         18,
-        0.95,
     ),
     (
         "library",
@@ -52,7 +50,6 @@ ROWS = [
         0,
         10,
         17,
-        0.5,
     ),
     (
         "harbour",
@@ -66,7 +63,6 @@ ROWS = [
         0,
         6,
         22,
-        1.0,
     ),
     (
         "market",
@@ -80,7 +76,6 @@ ROWS = [
         None,
         10,
         16,
-        0.6,
     ),
     (
         "museum",
@@ -94,7 +89,6 @@ ROWS = [
         0,
         10,
         17,
-        0.7,
     ),
     (
         "park",
@@ -108,7 +102,6 @@ ROWS = [
         0,
         6,
         22,
-        0.3,
     ),
     (
         "screening",
@@ -122,7 +115,6 @@ ROWS = [
         18,
         13,
         16,
-        0.25,
     ),
 ]
 
@@ -134,7 +126,7 @@ def at(request: Request, hour: int, minute: int = 0) -> datetime:
 def candidates(request: Request) -> list[Candidate]:
     result = []
     for row in ROWS:
-        cid, name, category, description, lat, lon, tags, stay, cost, opening, closing, obvious = row
+        cid, name, category, description, lat, lon, tags, stay, cost, opening, closing = row
         evidence = [
             Evidence(
                 id=f"fixture:{cid}:{field}:{request.departure.date()}",
@@ -162,7 +154,6 @@ def candidates(request: Request) -> list[Candidate]:
                 tags=tags,
                 stay=stay,
                 cost=cost,
-                obviousness=obvious,
                 open_at=at(request, opening),
                 close_at=at(request, closing),
                 event=cid == "screening",

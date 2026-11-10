@@ -39,7 +39,7 @@ class Request(BaseModel):
     # budget and known conflicts decide the verdict. Plan v2.1 §6.1: the open-world MVP.
     venue_facts: Literal["verdict", "advisory"] = "verdict"
     # Where candidates come from, independent of `mode` (which picks the route source).
-    # "fixed": replay fixtures or the curated allowlist. "osm": places discovered around
+    # "fixed": the synthetic replay fixtures (replay mode only). "osm": places discovered around
     # the origin from the local OpenStreetMap index (plan v2.1 §5).
     catalog: Literal["fixed", "osm"] = "fixed"
 
@@ -65,6 +65,8 @@ class Request(BaseModel):
             raise ValueError("锁定站数超过行程站数上限")
         if any(not 10 <= v <= 300 for v in self.stay_minutes.values()):
             raise ValueError("停留时长应为 10 至 300 分钟")
+        if self.mode == "live" and self.catalog == "fixed":
+            raise ValueError("真实路线只配合 OSM 地点使用：固定候选是合成数据")
         if self.origin_id == "current" and (self.origin_lat is None or self.origin_lon is None):
             raise ValueError("使用当前位置时必须提供悉尼范围内的坐标")
         return self
@@ -91,9 +93,6 @@ class Candidate(BaseModel):
     tags: list[str]
     stay: int
     cost: float | None
-    # D3 常规度: 1 = the obvious tourist answer, 0 = you only find it if you already knew.
-    # A property of the place itself, never a distance from this user's history.
-    obviousness: float | None = Field(default=None, ge=0, le=1)
     open_at: datetime | None
     close_at: datetime | None
     event: bool = False

@@ -45,7 +45,7 @@ class Kind:
     tags: tuple[str, ...]
     stay: int  # a planning assumption, labelled as such, never a venue fact
     action: str = ""  # what to do there; narration material, never a fact about the place
-    everyday: bool = False  # an errand-sized quest; D3 says nothing about a supermarket
+    everyday: bool = False  # an errand-sized quest
     # A "just passing through" visit for places that are still worth ten minutes: thirty
     # free minutes at Bondi should reach the sand, not only the cafes behind it.
     short_stay: int | None = None
@@ -101,23 +101,6 @@ def _has(tags: dict, key: str, value: str) -> bool:
 
 def kind_of(tags: dict) -> Kind | None:
     return next((k for k in KINDS if all(_has(tags, key, v) for key, v in k.osm)), None)
-
-
-def obviousness(tags: dict) -> float:
-    """D3 proxy from the place's own tags: is it the answer a guidebook would give?
-
-    Deliberately about the place, never about any user (plan v2 §4.3). A Wikipedia tag
-    means an article exists (middle tier) and an attraction tag on top of it reaches the
-    top tier.
-    """
-    score = 0.2
-    if tags.get("wikipedia"):
-        score += 0.3
-    if tags.get("wikidata"):
-        score += 0.1
-    if tags.get("tourism") == "attraction":
-        score += 0.3
-    return round(min(1.0, score), 2)
 
 
 def km(a_lat: float, a_lon: float, b_lat: float, b_lon: float) -> float:
@@ -203,7 +186,7 @@ def shut_for_window(raw: str | None, start: datetime, end: datetime) -> bool:
 SCHEMA = """
 CREATE TABLE places (
     id TEXT PRIMARY KEY, name TEXT NOT NULL, kind TEXT NOT NULL,
-    lat REAL NOT NULL, lon REAL NOT NULL, obviousness REAL, tags TEXT NOT NULL
+    lat REAL NOT NULL, lon REAL NOT NULL, tags TEXT NOT NULL
 );
 CREATE INDEX places_lat ON places(lat);
 CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
@@ -229,7 +212,6 @@ def index_rows(elements, bbox: tuple[float, float, float, float]):
             kind.code,
             lat,
             lon,
-            None if kind.everyday else obviousness(tags),
             json.dumps({k: tags[k] for k in KEPT_TAGS if k in tags}, ensure_ascii=False),
         )
 
@@ -240,7 +222,7 @@ def build_index(elements, out: Path, meta: dict[str, str], bbox) -> int:
     tmp.unlink(missing_ok=True)
     with sqlite3.connect(tmp) as db:
         db.executescript(SCHEMA)
-        db.executemany("INSERT OR IGNORE INTO places VALUES (?,?,?,?,?,?,?)",
+        db.executemany("INSERT OR IGNORE INTO places VALUES (?,?,?,?,?,?)",
                        index_rows(elements, bbox))
         count = db.execute("SELECT COUNT(*) FROM places").fetchone()[0]
         db.executemany("INSERT INTO meta VALUES (?,?)",
@@ -365,7 +347,6 @@ def to_candidate(row: dict, index: PlaceIndex, window_minutes: float = 24 * 60) 
         tags=[*kind.tags, f"kind:{kind.code}", *(["visit:short"] if short else [])],
         stay=stay,
         cost=None,  # OSM fee tags are crowd-sourced; unknown cost is not zero cost
-        obviousness=row["obviousness"],
         open_at=None,  # never promote crowd-sourced hours into a verdict input
         close_at=None,
         evidence=[evidence],

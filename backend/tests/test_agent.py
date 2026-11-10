@@ -85,7 +85,7 @@ def test_probe_changes_which_candidate_the_agent_bets_on():
     assert "户外" in pool[outdoor.quest.anchor_id].tags
 
 
-def test_obviousness_is_not_a_probe_dimension():
+def test_a_dimension_the_model_invents_is_not_probed():
     result, _ = run(choose_probe={"dimension": "D3", "lean": "offbeat"})
     assert result.quest.probe.dimension is None
 
@@ -274,8 +274,8 @@ def test_probe_cannot_overrule_what_the_user_just_said():
 def test_settled_dimensions_are_not_offered_to_the_model():
     state = TasteState()
     assert probeable(state) == [Dimension.FORM]
-    state.apply(Feedback(quest_id="q", reason=Reason.TOO_OBVIOUS))
-    assert probeable(state) == [Dimension.FORM]  # local popularity feedback is not a belief
+    state.apply(Feedback(quest_id="q", reason=Reason.OTHER))
+    assert probeable(state) == [Dimension.FORM]  # unmapped feedback is not a belief
 
 
 def test_d2_probe_is_only_offered_for_long_windows_without_d2_evidence():
@@ -363,7 +363,7 @@ def test_a_reroll_never_hands_back_what_was_just_rejected():
     state = TasteState()
     first, _ = run(state, choose_probe={"dimension": "D1", "lean": "outdoor"})
     shown = [s.candidate.id for s in first.quest.itinerary.stops]
-    state.apply(Feedback(quest_id="q", candidate_ids=shown[:3], reason=Reason.TOO_OBVIOUS))
+    state.apply(Feedback(quest_id="q", candidate_ids=shown[:3], reason=Reason.OTHER))
     second = propose_quest(request(), state, FakeModel(), said="再来一个")
     assert second.quest is not None
     assert second.quest.anchor_id not in shown
@@ -380,7 +380,7 @@ def test_between_equally_good_fits_the_unseen_one_wins():
     assert unseen > shown
 
 
-def test_a_retired_d3_lean_is_ignored():
+def test_a_lean_outside_the_vocabulary_is_ignored():
     model = FakeModel(replies={"choose_probe": {"dimension": "D1", "lean": "offbeat"}})
     result = propose_quest(request(), TasteState(), model, said="走走")
     assert result.quest.probe.dimension is None
@@ -390,7 +390,7 @@ def test_a_place_rejected_two_rounds_ago_stays_gone_after_an_empty_round():
     """The real CLI run: reject the only two open places, get nothing, reroll again."""
     state = TasteState()
     state.apply(Feedback(quest_id="q1", candidate_ids=["harbour", "park"],
-                         reason=Reason.TOO_OBVIOUS))
+                         reason=Reason.OTHER))
     state.apply(Feedback(quest_id="-", candidate_ids=[], reason=Reason.WANT_MOVE))
     model = FakeModel()
     result = propose_quest(evening(), state, model, said="出去走走")
@@ -515,11 +515,3 @@ def test_a_short_window_leans_near_until_the_user_says_otherwise():
     assert targets(Intent(), state, Probe(), window_minutes=90)[Dimension.TRAVEL] == 1
     remembered = remembering(dimension_key(Dimension.TRAVEL, 1))
     assert targets(Intent(), remembered, Probe(), window_minutes=60)[Dimension.TRAVEL] == 1
-
-
-def test_d3_feedback_never_enters_the_global_target_vector():
-    state = TasteState()
-    state.apply(Feedback(quest_id="q", reason=Reason.TOO_OBVIOUS))
-    assert Dimension.OBVIOUSNESS not in targets(Intent(), state, Probe())
-    state.apply(Feedback(quest_id="q", reason=Reason.TOO_OBSCURE))
-    assert Dimension.OBVIOUSNESS not in targets(Intent(), state, Probe())

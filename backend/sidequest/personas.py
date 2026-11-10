@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field
 from .memory import Context, MemoryItem, Proposal, Slot
 from .models import MAX_WINDOW_MINUTES, SYDNEY, Candidate, Request
 from .places import candidate_kind
-from .taste import Dimension, Reason, aim_value, dimensions_of
+from .taste import Dimension, Reason, dimensions_of
 
 FIRST_MONDAY = date(2026, 9, 21)
 
@@ -85,7 +85,7 @@ class Persona(BaseModel):
             return Reason.NEVER_HERE
         if candidate_kind(anchor) in self.dislikes:
             return Reason.NOT_THIS_KIND
-        axes = dimensions_of(anchor.tags, km, anchor.obviousness)
+        axes = dimensions_of(anchor.tags, km)
         prefs = self.prefs(session, context.slot)
         if (want := prefs.get("D1")) is not None and axes[Dimension.FORM] not in (None, want):
             return Reason.WANT_SIT if want == 1 else Reason.WANT_MOVE
@@ -100,7 +100,7 @@ class Persona(BaseModel):
         key = item.key
         if key.kind == "dimension":
             slots = [item.context.slot] if item.context else list(Slot)
-            want = aim_value(Dimension(key.key), int(key.value))
+            want = int(key.value)
             return all(self.prefs(session, s).get(key.key) == want for s in slots)
         if key.kind == "category":
             return key.key in (self.dislikes if key.value == "dislike" else self.likes)

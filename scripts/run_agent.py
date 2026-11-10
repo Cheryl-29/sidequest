@@ -5,7 +5,7 @@ feeds a typed reason back into the TasteState, so a run with --reroll shows whet
 next suggestion actually moved in that direction.
 
   PYTHONPATH=backend .venv/bin/python scripts/run_agent.py \
-      --say "下午空出来了，不想待在家" --hours 3 --reroll too_obvious --reroll want_move
+      --say "下午空出来了，不想待在家" --hours 3 --reroll want_move --reroll too_far
 
   # real places around a chosen origin, from the local OSM index
   PYTHONPATH=backend .venv/bin/python scripts/run_agent.py \

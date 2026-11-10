@@ -5,7 +5,6 @@ import pytest
 from sidequest.models import SYDNEY, Request
 from sidequest.planner import validate
 from sidequest.providers import (
-    CuratedVenueProvider,
     NoRouteError,
     ProviderAuthError,
     TfNSWRouteProvider,
@@ -19,6 +18,7 @@ def request():
             "departure": "2026-09-14T15:00:00+10:00",
             "deadline": "2026-09-14T18:00:00+10:00",
             "mode": "live",
+            "catalog": "osm",
         }
     )
 
@@ -115,8 +115,7 @@ def test_live_cache_key_tracks_departure_minute_and_coordinates():
     assert key != live_route_key("a", "b", a, {"lat": 3.1, "lon": 4.0}, departure)
 
 
-def test_live_catalog_includes_free_walkable_parks():
-    places = CuratedVenueProvider().retrieve(request())
-    parks = {place.id: place for place in places if "公园" in place.category}
-    assert {"royal_botanic_garden", "barangaroo_reserve"} <= parks.keys()
-    assert all(place.cost == 0 for place in parks.values())
+def test_real_routes_never_run_over_the_synthetic_fixture_catalog():
+    with pytest.raises(ValueError, match="合成"):
+        Request.model_validate({"departure": "2026-09-14T15:00:00+10:00",
+                                "deadline": "2026-09-14T18:00:00+10:00", "mode": "live"})

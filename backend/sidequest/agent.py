@@ -33,8 +33,6 @@ from .taste import (
     Dimension,
     Reason,
     TasteState,
-    aim_label,
-    aim_value,
     dimensions_of,
     fit,
 )
@@ -148,10 +146,10 @@ SEARCH_SYSTEM = (
 FEEDBACK_SYSTEM = (
     "用户拒绝了一个支线任务并写了一句理由。把它归到给定的理由之一；"
     "want_sit 想坐下来/室内，want_move 想活动/户外，too_far 太远，want_farther 想去远一点，"
-    "too_obvious 太大众，too_obscure 太冷门，not_this_kind 不想要这一类地方，"
+    "not_this_kind 不想要这一类地方，"
     "been_there 去过了，no_spend 不想花钱，bad_time 时间不合适，"
     "off_route 顺路的站和主要目的地不挨着、太绕、太散。"
-    "too_far、want_farther、not_this_kind、too_obvious、too_obscure 都是在说「主要目的」那一站；"
+    "too_far、want_farther、not_this_kind 都是在说「主要目的」那一站；"
     "用户嫌的是「顺路」那几站离主要目的地远、不顺路时填 off_route，不要填 too_far。"
     "都对不上就填 none，不要硬套。\n"
     "lasting：只有当这句话听起来是长期口味（而不只是今天的状态）时，"
@@ -257,7 +255,7 @@ def targets(intent: Intent, state: TasteState, probe: Probe,
     elif window_minutes is not None and window_minutes <= NEAR_BY_DEFAULT_MINUTES:
         out[Dimension.TRAVEL] = 0  # the weakest source: any feedback or memory replaces it
     if probe.dimension is not None and not _settled(state, probe.dimension):
-        out[probe.dimension] = aim_value(probe.dimension, probe.pole)
+        out[probe.dimension] = probe.pole
     return out
 
 
@@ -308,10 +306,8 @@ def score(
     No novelty term, by design (plan v2 §1.1). propose_quest already drops candidates
     shut for the whole window; the penalty keeps this function safe on its own.
     """
-    axes = dimensions_of(
-        candidate.tags, distance(origin, candidate.model_dump()), candidate.obviousness
-    )
-    fits = [fit(dimension, axes.get(dimension), want) for dimension, want in aim.items()]
+    axes = dimensions_of(candidate.tags, distance(origin, candidate.model_dump()))
+    fits = [fit(axes.get(dimension), want) for dimension, want in aim.items()]
     hits, misses = fits.count(1), fits.count(-1)
     seen = consumed.get(candidate.id)
     penalty = {"visited": 8.0, "shown": 3.5}.get(seen, 0.0)  # > one axis hit (3.0)
@@ -339,8 +335,7 @@ def rank_itineraries(result: Result, state: TasteState) -> str | None:
     def itinerary_fit(itinerary: Itinerary) -> float:
         return max(
             score(s.candidate, aim, origin, state.consumed, window=span,
-                  adjustment=state.adjustment(s.candidate.id, candidate_kind(s.candidate),
-                                              s.candidate.obviousness)[0])
+                  adjustment=state.adjustment(s.candidate.id, candidate_kind(s.candidate))[0])
             for s in itinerary.stops
         )
 
@@ -357,13 +352,13 @@ def rank_itineraries(result: Result, state: TasteState) -> str | None:
                               evidence_ids=[i.id for i in state.recall()]))
     if result.itineraries and aim:
         top = result.itineraries[0]
-        axes = [dimensions_of(s.candidate.tags, distance(origin, s.candidate.model_dump()),
-                              s.candidate.obviousness) for s in top.stops]
+        axes = [dimensions_of(s.candidate.tags, distance(origin, s.candidate.model_dump()))
+                for s in top.stops]
         missed = [d for d, want in aim.items()
-                  if all(fit(d, a.get(d), want) < 1 for a in axes)]
+                  if all(fit(a.get(d), want) < 1 for a in axes)]
         if missed:
             # Feasibility outranks fit. Say so, rather than let it look like the reason was ignored.
-            wanted = "、".join(f"「{aim_label(d, aim[d])}」" for d in missed)
+            wanted = "、".join(f"「{LABELS[(d, aim[d])]}」" for d in missed)
             result.trace.append(Trace(
                 sequence=len(result.trace) + 1, node="memory", action="taste_miss",
                 summary=f"这段时间里赶得回来的地方都不太符合{wanted}，先给你一个时间上走得通的。",
@@ -472,7 +467,8 @@ def choose_probe(model: Model, state: TasteState, intent: Intent,
     )
     raw = data.get("dimension")
     dimension, pole = POLE_WORDS.get(data.get("lean", ""), (None, 1))
-    if raw in (None, "none") or Dimension(raw) not in allowed or dimension is None:
+    # The reply is untrusted: a dimension outside the vocabulary is no probe, not a crash.
+    if raw not in {d.value for d in allowed} or dimension is None:
         return Probe(dimension=None, mode=data.get("mode", "explore"),
                      summary=data.get("summary", ""))
     if Dimension(raw) is not dimension:
@@ -511,18 +507,17 @@ def keep_what_the_user_asked_for(chosen: list[Candidate], available: list[Candid
     """
     origin = request_origin(request)
     restored = []
-    for dimension, pole in stated(state).items():
-        want = aim_value(dimension, pole)
+    for dimension, want in stated(state).items():
 
         def fits(c, dimension=dimension, want=want):
-            axes = dimensions_of(c.tags, distance(origin, c.model_dump()), c.obviousness)
-            return fit(dimension, axes[dimension], want) == 1
+            axes = dimensions_of(c.tags, distance(origin, c.model_dump()))
+            return fit(axes[dimension], want) == 1
 
         if chosen and not any(fits(c) for c in chosen):
             extra = [c for c in available if fits(c) and c not in chosen]
             if extra:
                 chosen = [*chosen, *extra]
-                restored.append(LABELS[(dimension, pole)])
+                restored.append(LABELS[(dimension, want)])
     return chosen, "、".join(restored)
 
 
@@ -713,11 +708,6 @@ def propose_quest(
     if request.catalog == "osm" and not kept:
         kinds = search_places(model, request, intent, probe, state.notes(), said_now(state))
         chosen = [c for c in available if candidate_kind(c) in kinds]
-        # A popularity complaint is local to the rejected category. Keep that category in
-        # the model-filtered pool for this one reroll so the score hint can actually act.
-        if state.local_kind:
-            chosen.extend(c for c in available
-                          if candidate_kind(c) == state.local_kind and c not in chosen)
         # The search filter is the model's reading of this round; a named kind is the user's.
         chosen.extend(c for c in available if candidate_kind(c) in named and c not in chosen)
         chosen, restored = keep_what_the_user_asked_for(chosen, available, state, request)
@@ -739,12 +729,12 @@ def propose_quest(
     origin = request_origin(request)
     # Deterministic order: ties break on id so a fallback re-rank cannot inherit the
     # probe's ordering by accident.
-    adjust = {c.id: state.adjustment(c.id, candidate_kind(c), c.obviousness) for c in available}
+    adjust = {c.id: state.adjustment(c.id, candidate_kind(c)) for c in available}
     shaped = [
         f"{c.name} {adjust[c.id][0]:+g}" for c in available if adjust[c.id][0]
     ]
     if shaped:
-        log("memory", "adjust_scores", f"记忆与本轮局部反馈调整了 {len(shaped)} 个候选："
+        log("memory", "adjust_scores", f"记忆与本轮反馈调整了 {len(shaped)} 个候选："
             f"{'、'.join(shaped[:5])}", sorted({i for c in available for i in adjust[c.id][1]}))
     dimension_items = [i.id for i in recalled if i.key.kind == "dimension"
                        and i.key.key in aim_keys(intent, state)]
@@ -754,8 +744,8 @@ def propose_quest(
     settled = {d: v for d, v in aim.items() if _settled(state, d)}
 
     def honours(c):
-        axes = dimensions_of(c.tags, distance(origin, c.model_dump()), c.obviousness)
-        return all(fit(d, axes.get(d), want) >= 0 for d, want in settled.items())
+        axes = dimensions_of(c.tags, distance(origin, c.model_dump()))
+        return all(fit(axes.get(d), want) >= 0 for d, want in settled.items())
 
     preferred = {c.id for c in available if candidate_kind(c) in named and honours(c)}
     if named:
@@ -774,7 +764,7 @@ def propose_quest(
                                                scores, rng)
 
     pool = [kept] if kept else rank(aim, available)
-    wanted = "、".join(f"{d.value} {aim_label(d, v)}" for d, v in aim.items()) or "无"
+    wanted = "、".join(f"{d.value} {LABELS[(d, v)]}" for d, v in aim.items()) or "无"
     log("select", "rank_candidates", f"目标：{wanted}；"
         f"随机种子 {seed}；候选序 {'、'.join(c.name for c in pool[:attempts])}")
 

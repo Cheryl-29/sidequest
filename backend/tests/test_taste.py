@@ -1,13 +1,12 @@
 from datetime import datetime, timedelta
 
 import pytest
-from sidequest.memory import STALE_SESSIONS, MemoryItem, context_of
+from sidequest.memory import STALE_SESSIONS, Key, MemoryItem, context_of
 from sidequest.models import SYDNEY
 from sidequest.taste import (
     CONSTRAINT_REASONS,
     DEDUP_REASONS,
     KIND_REASONS,
-    LOCAL_REASONS,
     MEMORY_CAP,
     SCOPES,
     SESSION_REASONS,
@@ -49,7 +48,6 @@ def test_every_reason_belongs_to_exactly_one_scope():
     assert {Reason.NO_SPEND, Reason.BAD_TIME} == CONSTRAINT_REASONS
     assert {Reason.BEEN_THERE} == DEDUP_REASONS
     assert {Reason.OTHER} == SESSION_REASONS
-    assert LOCAL_REASONS == {Reason.TOO_OBVIOUS, Reason.TOO_OBSCURE}
 
 
 @pytest.mark.parametrize(
@@ -130,27 +128,12 @@ def test_not_this_kind_penalises_the_kind_for_the_session_only():
     assert TasteState(memory=state.memory, context=LUNCH).adjustment("x", "museum")[0] == 0
 
 
-def test_popularity_feedback_is_category_local_one_shot_and_not_memory():
+def test_a_dimension_item_from_a_removed_dimension_is_ignored():
+    """An older local database may still hold an item for a dimension that no longer exists."""
     state = in_lunch()
-    outcome = state.apply(Feedback(quest_id="q", candidate_ids=["gallery"],
-                                   kind="gallery", anchor_obviousness=0.8,
-                                   reason=Reason.TOO_OBVIOUS))
-    assert outcome.local and outcome.dimension is None and state.session == {}
-    assert state.adjustment("cold", "gallery", 0.2)[0] > state.adjustment(
-        "known", "gallery", 0.9)[0]
-    assert state.adjustment("museum", "museum", 0.1)[0] == 0
-    assert all(not episode.signals for episode in state.memory.episodes)
-    assert state.proposals() == []
-    state.clear_local_reroll()
-    assert state.adjustment("cold", "gallery", 0.2)[0] == 0
-
-
-def test_legacy_d3_memory_is_ignored():
-    state = in_lunch()
-    state.memory.items.append(MemoryItem(key=dimension_key(Dimension.OBVIOUSNESS, 0),
-                                         source="agent_proposed", episode_ids=["old-d3"]))
-    assert state.recall() == []
-    assert state.effective(Dimension.OBVIOUSNESS) is None
+    state.memory.items.append(MemoryItem(key=Key(kind="dimension", key="D3", value="0"),
+                                         source="agent_proposed", episode_ids=["old"]))
+    assert state.recall() == [] and state.proposals() == []
 
 
 def test_never_here_is_a_statement_that_still_needs_confirm():
@@ -222,7 +205,7 @@ def test_state_round_trips_through_json_for_storage():
 def test_rejections_accumulate_and_an_empty_reroll_does_not_wipe_them():
     """A round with no quest sends no candidate ids; that must not forget earlier rejections."""
     state = TasteState()
-    state.apply(fb(Reason.TOO_OBVIOUS, candidates=["harbour", "park"]))
+    state.apply(fb(Reason.OTHER, candidates=["harbour", "park"]))
     state.apply(fb(Reason.WANT_MOVE, candidates=[]))
     state.apply(fb(Reason.WANT_SIT, candidates=["park", "gallery"]))
     assert state.rejected == ["harbour", "park", "gallery"]
@@ -297,19 +280,14 @@ def test_a_note_proposal_waits_for_confirm_and_is_not_offered_twice():
     assert again.source == "agent_proposed"
 
 
-def test_d3_is_ordinal_with_a_middle_tier_that_is_neither_pole():
-    from sidequest.taste import D3_TIERS, aim_value, dimensions_of, fit, obvious_tier, pole_of
+def test_fit_is_a_hit_a_miss_or_silence():
+    from sidequest.taste import fit
 
-    assert [obvious_tier(v) for v in (0.2, D3_TIERS[0], 0.5, D3_TIERS[1], 0.9, None)] == [
-        0, 1, 1, 2, 2, None]
-    assert dimensions_of(["户外"], 0.0, 0.5)[Dimension.OBVIOUSNESS] == 1
-    assert (aim_value(Dimension.OBVIOUSNESS, 1), aim_value(Dimension.OBVIOUSNESS, 0)) == (2, 0)
-    assert pole_of(Dimension.OBVIOUSNESS, 1) is None  # a middle-tier accept is no evidence
-    assert (fit(Dimension.OBVIOUSNESS, 1, 2), fit(Dimension.OBVIOUSNESS, 0, 2)) == (0, -1)
-    assert fit(Dimension.FORM, 0, 1) == -1
+    assert (fit(1, 1), fit(0, 1), fit(None, 1)) == (1, -1, 0)
 
 
-def test_accepting_a_place_never_creates_d3_evidence():
+def test_an_accept_only_supports_dimensions_the_place_has_a_value_on():
     state = in_lunch()
-    episode = state.accept(["x"], None, {Dimension.OBVIOUSNESS: 2, Dimension.FORM: 1})
+    episode = state.accept(["x"], None, {Dimension.TRAVEL: None, Dimension.FORM: 1})
     assert {s.key.key for s in episode.signals} == {"D1"}
+

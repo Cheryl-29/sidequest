@@ -11,7 +11,6 @@ from sidequest.places import (
     candidate_kind,
     dedupe,
     discover,
-    obviousness,
     radius_for,
     shut_for_window,
     weekly_hours,
@@ -109,12 +108,6 @@ def test_opening_hours_parser_only_rules_on_what_it_understands():
     assert weekly_hours("Fr-Mo 10:00-12:00")[0] == [(600, 720)]  # wraps the week
 
 
-def test_obviousness_is_a_property_of_the_place():
-    assert obviousness({"wikipedia": "en:X", "wikidata": "Q1"}) > 0.5
-    assert obviousness({"wikidata": "Q1"}) < 0.5
-    assert obviousness({"tourism": "attraction", "wikipedia": "en:X"}) <= 1.0
-
-
 def test_osm_places_plan_under_the_time_budget_verdict(index):
     target = next(c for c in discover(request()) if c.name == "Near Museum")
     result, _ = plan(request(locked_ids=[target.id], max_stops=1))
@@ -161,7 +154,6 @@ def test_errand_kinds_are_indexed_without_a_d3_opinion(tmp_path):
     found = {r["name"]: r for r in PlaceIndex(path).near(*TOWN_HALL, 1)}
     assert found["Tea Lab"]["kind"] == "bubble_tea"  # refined kind wins over plain cafe
     assert found["Flat White"]["kind"] == "cafe"
-    assert all(r["obviousness"] is None for r in found.values())
 
 
 def test_thirty_minutes_never_reach_a_museum_but_do_reach_the_corner_shop(tmp_path, monkeypatch):

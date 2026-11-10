@@ -1,5 +1,5 @@
 {
- "note": "Synthetic personas for plan v2.3 §8.3. Not user data. Hidden from the agent: the harness only passes typed feedback, accepts and proposal answers. D3 was retired as a global preference; personas use D1, D2, category and context-specific tastes.",
+ "note": "Synthetic personas. Not user data. Hidden from the agent: the harness only passes typed feedback, accepts and proposal answers. Personas use D1, D2, category and context-specific tastes.",
  "personas": [
   {
    "id": "p01-d1-outdoor",

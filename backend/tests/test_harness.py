@@ -38,13 +38,12 @@ def persona(**kw):
     return Persona.model_validate({"id": "t", "layer": "test", "patterns": [CBD, GLEBE], **kw})
 
 
-def place(name="X", tags=("室内",), obviousness=None, kind="gallery"):
+def place(name="X", tags=("室内",), kind="gallery"):
     from sidequest.fixtures import candidates
 
     base = candidates(Request.model_validate({"departure": "2026-09-14T10:00:00+10:00",
                                               "deadline": "2026-09-14T14:00:00+10:00"}))[0]
-    return base.model_copy(update={"name": name, "tags": [*tags, f"kind:{kind}"],
-                                   "obviousness": obviousness})
+    return base.model_copy(update={"name": name, "tags": [*tags, f"kind:{kind}"]})
 
 
 def test_the_persona_set_matches_the_plan():
@@ -55,20 +54,18 @@ def test_the_persona_set_matches_the_plan():
     patterns = {k: Pattern.model_validate(v) for k, v in data["patterns"].items()}
     loaded = [Persona.model_validate({**r, "patterns": [patterns[n] for n in r["patterns"]]})
               for r in rows]
-    assert {p.id for p in loaded if p.blocked_by({"D1", "D3"})} == {
+    assert {p.id for p in loaded if p.blocked_by({"D1"})} == {
         "p02-d2-near", "p03-d2-far", "p04-d1-outdoor-x-d2-near", "p05-d1-x-d2"}
     assert not {p.id for p in loaded if p.blocked_by({"D1", "D2"})}
     assert all(p.synthetic for p in loaded)
 
 
-def test_judge_has_a_fixed_order_of_concerns_and_ignores_retired_d3():
+def test_judge_has_a_fixed_order_of_concerns():
     p = persona(never=["Hated"], dislikes=["museum"], dims={"D1": 0})
     assert p.judge(0, LUNCH, place("Hated", kind="museum")) is Reason.NEVER_HERE
     assert p.judge(0, LUNCH, place(kind="museum")) is Reason.NOT_THIS_KIND
-    assert p.judge(0, LUNCH, place(tags=("室内",), obviousness=0.1)) is Reason.WANT_MOVE
-    assert p.judge(0, LUNCH, place(tags=("户外",), obviousness=0.1)) is None
-    assert p.judge(0, LUNCH, place(tags=("户外",), obviousness=0.9)) is None
-    assert p.judge(0, LUNCH, place(tags=("户外",), obviousness=None)) is None
+    assert p.judge(0, LUNCH, place(tags=("室内",))) is Reason.WANT_MOVE
+    assert p.judge(0, LUNCH, place(tags=("户外",))) is None
 
 
 def test_context_rules_and_drift_decide_what_is_wanted():
@@ -149,7 +146,8 @@ def test_the_reference_contains_everything_the_planner_returns():
 
 def test_the_reference_refuses_live_mode():
     request = Request.model_validate({"departure": "2026-09-14T10:00:00+10:00",
-                                      "deadline": "2026-09-14T14:00:00+10:00", "mode": "live"})
+                                      "deadline": "2026-09-14T14:00:00+10:00", "mode": "live",
+                                      "catalog": "osm"})
     with pytest.raises(ValueError):
         enumerate_feasible(request)
 

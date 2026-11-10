@@ -29,10 +29,6 @@ from .models import SYDNEY
 from .places import KIND_BY_CODE
 
 FAR_KM = 1.5  # D2 split: mean distance from the fixed origins
-# D3 is retained as a research-only place annotation: 0 冷门 | 1 有点名气 | 2 大众答案.
-# Cut points on the 0-1 obviousness score. A real open-world pool has only a few percent of
-# guidebook answers, so a binary split could never separate; the middle tier can.
-D3_TIERS = (0.35, 0.65)
 ACCEPT_WEIGHT = 0.5  # an accept is weak evidence: the user may just have wanted to go out
 
 # Score adjustments. Memory together never outweighs one dimension hit (3.0, agent.score):
@@ -48,7 +44,6 @@ class Dimension(StrEnum):
 
     FORM = "D1"  # 0 = 户外走动, 1 = 室内静态
     TRAVEL = "D2"  # 0 = 少折腾, 1 = 愿意走远
-    OBVIOUSNESS = "D3"  # research-only; never a global user preference
 
 
 LEARNED_DIMENSIONS = (Dimension.FORM, Dimension.TRAVEL)
@@ -59,8 +54,6 @@ class Reason(StrEnum):
     WANT_MOVE = "want_move"
     TOO_FAR = "too_far"
     WANT_FARTHER = "want_farther"
-    TOO_OBVIOUS = "too_obvious"
-    TOO_OBSCURE = "too_obscure"
     NOT_THIS_KIND = "not_this_kind"
     NEVER_HERE = "never_here"
     NO_SPEND = "no_spend"
@@ -77,7 +70,6 @@ TASTE_REASONS: dict[Reason, tuple[Dimension, int]] = {
     Reason.TOO_FAR: (Dimension.TRAVEL, 0),
     Reason.WANT_FARTHER: (Dimension.TRAVEL, 1),
 }
-LOCAL_REASONS = frozenset({Reason.TOO_OBVIOUS, Reason.TOO_OBSCURE})
 KIND_REASONS = frozenset({Reason.NOT_THIS_KIND})  # category taste, not a dimension
 STATED_REASONS = frozenset({Reason.NEVER_HERE})  # the user's own long-term statement
 CONSTRAINT_REASONS = frozenset({Reason.NO_SPEND, Reason.BAD_TIME})
@@ -87,7 +79,7 @@ DEDUP_REASONS = frozenset({Reason.BEEN_THERE})
 ROUTE_REASONS = frozenset({Reason.OFF_ROUTE})
 SESSION_REASONS = frozenset({Reason.OTHER})  # soft context for this session, evidence for nothing
 
-SCOPES = (frozenset(TASTE_REASONS), LOCAL_REASONS, KIND_REASONS, STATED_REASONS, CONSTRAINT_REASONS,
+SCOPES = (frozenset(TASTE_REASONS), KIND_REASONS, STATED_REASONS, CONSTRAINT_REASONS,
           DEDUP_REASONS, ROUTE_REASONS, SESSION_REASONS)
 # A new Reason must be classified into exactly one scope before it can ship.
 assert frozenset().union(*SCOPES) == set(Reason)
@@ -98,44 +90,19 @@ LABELS = {
     (Dimension.FORM, 0): "更想要户外、能走动的地方",
     (Dimension.TRAVEL, 1): "愿意为一个地方多走一段路",
     (Dimension.TRAVEL, 0): "不想在路上花太多时间",
-    (Dimension.OBVIOUSNESS, 1): "更想要有名气、稳妥的地方",
-    (Dimension.OBVIOUSNESS, 0): "更想要不那么大众的地方",
 }
 
 
-def obvious_tier(obviousness: float | None) -> int | None:
-    if obviousness is None:
-        return None
-    return 0 if obviousness < D3_TIERS[0] else (1 if obviousness < D3_TIERS[1] else 2)
-
-
-def aim_value(dimension: Dimension, pole: int) -> int:
-    """A feedback pole as a target value. For D3 the poles are directions, so they aim at
-    the ends; the middle tier is reached only through mixed evidence (see agent.targets)."""
-    return 2 * pole if dimension is Dimension.OBVIOUSNESS else pole
-
-
-def pole_of(dimension: Dimension, value: int | None) -> int | None:
-    """Where a candidate's value counts as evidence for a pole. The middle D3 tier is none."""
-    if value is None:
-        return None
-    return {0: 0, 2: 1}.get(value) if dimension is Dimension.OBVIOUSNESS else value
-
-
-def fit(dimension: Dimension, value: int | None, want: int) -> int:
-    """+1 hit, -1 miss, 0 says nothing. One D3 tier away is neither: it is not what was
-    asked for, but it is not the opposite either."""
+def fit(value: int | None, want: int) -> int:
+    """+1 hit, -1 miss, 0 when the candidate says nothing about the dimension."""
     if value is None:
         return 0
-    if dimension is Dimension.OBVIOUSNESS:
-        return 1 if value == want else (-1 if abs(value - want) == 2 else 0)
     return 1 if value == want else -1
 
 
-def aim_label(dimension: Dimension, want: int) -> str:
-    if dimension is Dimension.OBVIOUSNESS and want == 1:
-        return "有点名气、但不是标准答案的地方"
-    return LABELS[(dimension, pole_of(dimension, want))]
+def known_dimension(key: Key) -> bool:
+    """False for a dimension item an older local database kept after its dimension was removed."""
+    return key.kind != "dimension" or key.key in set(Dimension)
 
 
 def dimension_key(dimension: Dimension, pole: int) -> Key:
@@ -183,8 +150,7 @@ def accept_signals(kind: str | None, axes: dict[Dimension, int | None]) -> list[
     """Weak support for where the accepted quest sat. Not a contradiction of the other
     pole: accepting an outdoor walk says little against a taste for galleries."""
     out = [Signal(key=dimension_key(d, pole), weight=ACCEPT_WEIGHT, supports=True)
-           for d, value in axes.items() if d in LEARNED_DIMENSIONS
-           and (pole := pole_of(d, value)) is not None]
+           for d, pole in axes.items() if d in LEARNED_DIMENSIONS and pole is not None]
     if kind:
         out += [Signal(key=category_key(kind, like=True), weight=ACCEPT_WEIGHT, supports=True),
                 Signal(key=category_key(kind, like=False), weight=ACCEPT_WEIGHT, supports=False)]
@@ -236,7 +202,6 @@ class Feedback(BaseModel):
     candidate_ids: list[str] = Field(default_factory=list, max_length=3)
     anchor_id: str | None = None  # the stop the agent bet on; "never here" refers to it
     kind: str | None = None  # the anchor's category, for "not this kind"
-    anchor_obviousness: float | None = Field(default=None, ge=0, le=1)
     reason: Reason
     note: str = Field(default="", max_length=300)
     created_at: datetime = Field(default_factory=lambda: datetime.now(SYDNEY))
@@ -252,7 +217,6 @@ class Outcome(BaseModel):
     clarify: Literal["time"] | None = None
     keep: str | None = None  # the anchor the next round must bet on again
     consumed: list[str] = Field(default_factory=list)
-    local: bool = False
     # A statement the chip itself confirms ("以后别推这个"). The caller passes it to
     # confirm(); apply() still never writes memory.
     stated: Proposal | None = None
@@ -277,11 +241,6 @@ class TasteState(BaseModel):
     # and it has to accumulate: overwriting it per reroll let a round with no quest (and so
     # no candidate ids) wipe the memory and hand back a place rejected two turns earlier.
     rejected: list[str] = Field(default_factory=list)
-    # One-shot, category-local reroll hint. It is consumed by the next planning round and
-    # never becomes an episode signal, belief, proposal, or long-term memory.
-    local_obviousness: Literal["less", "more"] | None = None
-    local_kind: str | None = None
-    local_reference: float | None = Field(default=None, ge=0, le=1)
 
     def record_shown(self, candidate_ids: list[str]) -> None:
         """Dedup hygiene, not a taste signal: having seen a place is not a verdict on it."""
@@ -312,13 +271,6 @@ class TasteState(BaseModel):
             self.session.setdefault(dimension, Belief()).observe(pole, feedback.id)
             outcome.dimension = dimension
             # No request_patch: a qualitative complaint never becomes a numeric limit.
-            return outcome
-
-        if reason in LOCAL_REASONS:
-            self.local_obviousness = "less" if reason is Reason.TOO_OBVIOUS else "more"
-            self.local_kind = feedback.kind
-            self.local_reference = feedback.anchor_obviousness
-            outcome.local = True
             return outcome
 
         if reason in KIND_REASONS:
@@ -365,9 +317,7 @@ class TasteState(BaseModel):
         return self._episode("accept", None, candidate_ids, accept_signals(kind, axes))
 
     def recall(self) -> list[MemoryItem]:
-        # Ignore any D3 items left in an older local database after D3 was retired.
-        return [item for item in self.memory.recall(self.context)
-                if not (item.key.kind == "dimension" and item.key.key == Dimension.OBVIOUSNESS)]
+        return [item for item in self.memory.recall(self.context) if known_dimension(item.key)]
 
     def effective(self, dimension: Dimension) -> Belief | None:
         """Session feedback, then remembered items for this context (plan v2.2 §3.2)."""
@@ -389,17 +339,9 @@ class TasteState(BaseModel):
         """Soft prompt context only. Never a score, never a filter."""
         return [i.key.key for i in self.recall() if i.key.kind == "note"]
 
-    def adjustment(self, candidate_id: str, kind: str | None,
-                   obviousness: float | None = None) -> tuple[float, list[str]]:
+    def adjustment(self, candidate_id: str, kind: str | None) -> tuple[float, list[str]]:
         """Score change for one candidate, and the memory item ids that caused it."""
         session = -SESSION_KIND_PENALTY if kind and self.session_kinds.get(kind) else 0.0
-        local = 0.0
-        if self.local_obviousness and kind == self.local_kind and obviousness is not None:
-            reference = self.local_reference if self.local_reference is not None else 0.5
-            delta = ((reference - obviousness) if self.local_obviousness == "less"
-                     else (obviousness - reference))
-            # Prefer the same kind and the requested direction, without making it a hard gate.
-            local = 2.0 + max(-1.0, min(1.0, delta * 2))
         bonus, used = 0.0, []
         for item in self.recall():
             weight = 0.0
@@ -411,12 +353,7 @@ class TasteState(BaseModel):
             if weight:
                 bonus += weight / 2 if self.memory.stale(item) else weight
                 used.append(item.id)
-        return session + local + max(-MEMORY_CAP, min(MEMORY_CAP, bonus)), used
-
-    def clear_local_reroll(self) -> None:
-        self.local_obviousness = None
-        self.local_kind = None
-        self.local_reference = None
+        return session + max(-MEMORY_CAP, min(MEMORY_CAP, bonus)), used
 
     def propose_note(self, text: str) -> Proposal | None:
         """Offer to remember a sentence the user said. Only confirm() makes it memory."""
@@ -431,9 +368,7 @@ class TasteState(BaseModel):
         return proposal
 
     def proposals(self) -> list[Proposal]:
-        out = [proposal for proposal in self.memory.proposals()
-               if not (proposal.key.kind == "dimension"
-                       and proposal.key.key == Dimension.OBVIOUSNESS)]
+        out = [p for p in self.memory.proposals() if known_dimension(p.key)]
         for proposal in out:
             where = None if proposal.action == "narrow" else proposal.context
             text = describe(proposal.key, where)
@@ -454,9 +389,7 @@ class TasteState(BaseModel):
         self.memory.decline(proposal)
 
 
-def dimensions_of(
-    tags: set[str] | list[str], mean_km: float, obviousness: float | None
-) -> dict[Dimension, int | None]:
+def dimensions_of(tags: set[str] | list[str], mean_km: float) -> dict[Dimension, int | None]:
     """Where a candidate sits on each dimension. The single definition of the poles.
 
     `scripts/check_dimensions.py` and the agent both call this: if the gate and the
@@ -467,5 +400,4 @@ def dimensions_of(
     return {
         Dimension.FORM: 1 if "室内" in tags else (0 if "户外" in tags else None),
         Dimension.TRAVEL: int(mean_km > FAR_KM),
-        Dimension.OBVIOUSNESS: obvious_tier(obviousness),
     }
