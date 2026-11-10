@@ -156,7 +156,7 @@ function App() {
         const said = value.result.trace.find(t => t.action === 'degrade') ?? value.result.trace.find(t => t.action === 'taste_miss');
         if (said) setNotice(said.summary);
       }
-      else setError(value.status === 'cancelled' ? '这次已取消。' : '没能生成支线，请重试。');
+      else setError(value.status === 'cancelled' ? '这次已取消。' : '这次没找到去处，请再试一次。');
     };
     setProgress('');
     // Agent steps arrive while the model is still deciding; show the latest one.
@@ -166,7 +166,7 @@ function App() {
       events.close();
       api<Run>(`/runs/${created.id}`).then(value => {
         if (['queued','running'].includes(value.status)) {
-          if (ticket === generation.current) {setBusy(false);setError('进度连接中断，可以再领一次。');}
+          if (ticket === generation.current) {setBusy(false);setError('进度连接中断，请再试一次。');}
         } else complete(value);
       }).catch(e => {if (ticket === generation.current) {setBusy(false);setError(e.message);}});
     };
@@ -182,7 +182,7 @@ function App() {
 
   async function generate() {
     if (!session) return;
-    if (!fitsToday) {setError('这段时间跨过了午夜。支线需要当天回来，缩短一点试试。');return;}
+    if (!fitsToday) {setError('这段时间跨过了午夜，需要当天回来，缩短一点试试。');return;}
     if (savePreference && preference.trim()) {
       try {await api('/taste/notes', {text:preference.trim().slice(0,60)});await refreshTaste();setSavePreference(false);}
       catch(e) {setError((e as Error).message);return;}
@@ -286,21 +286,24 @@ function App() {
     <main>
       <section className={`intake ${result || busy ? 'compact' : ''}`} aria-label="规划一次出门">
         <p className="kicker">悉尼 · 短时出门</p>
-        <h1>有一点空闲，<br/>决定去哪走走。</h1>
-        <p className="lede">告诉我想做什么、有多少时间。一起选去处、查往返，列出出发前还需确认的信息。</p>
+        <h1>有点空闲，去哪儿？</h1>
+        <p className="lede">说说想做什么、有多少时间，帮你挑个附近的去处，算好来回。</p>
 
         <div className="intake-card">
-          <textarea ref={inputRef} rows={2} aria-label="用一句话说说现在" placeholder="午休想出去透透气，不想走太远…" maxLength={300} value={preference}
+          <label className="field-label" htmlFor="outing-preference">想做什么</label>
+          <textarea id="outing-preference" ref={inputRef} rows={2} aria-label="用一句话说说现在" placeholder="午休想出去透透气，不想走太远…" maxLength={300} value={preference}
             onChange={e => setPreference(e.target.value)} onKeyDown={e => {if (e.key === 'Enter' && !e.shiftKey) {e.preventDefault();generate();}}}/>
           {!preference && <div className="examples">{examples.map(t => <button key={t} onClick={() => {setPreference(t);inputRef.current?.focus();}}>{t}</button>)}</div>}
 
           <div className="picks">
             <div className="pick-group" role="group" aria-label="什么时候出发">
+              <span className="pick-label">出发</span>
               {([['now','现在'],['tonight','今晚'],['tomorrow','明天']] as [When,string][]).map(([k,l]) =>
                 <button key={k} className={when===k?'on':''} aria-pressed={when===k} onClick={() => pickWhen(k)}>{l}</button>)}
               {when==='custom' && <button className="on" aria-pressed onClick={() => setAdjustOpen(true)}>{depart}</button>}
             </div>
             <div className="pick-group" role="group" aria-label="有多少时间">
+              <span className="pick-label">空闲时间</span>
               {durations.map(([m,l]) => <button key={m} className={minutes===m?'on':''} aria-pressed={minutes===m} onClick={() => setMinutes(m)}>{l}</button>)}
             </div>
           </div>
@@ -311,7 +314,7 @@ function App() {
               <ChevronDown size={13} className={adjustOpen ? 'rotate' : ''}/>
             </button>
             <button className="go" disabled={busy || !session || !fitsToday} onClick={generate}>
-              {busy ? <LoaderCircle className="spin" size={16}/> : null}{busy ? '正在找' : '帮我选个去处'}{!busy && <ArrowRight size={16}/>}
+              {busy ? <LoaderCircle className="spin" size={16}/> : null}{busy ? '正在找…' : '帮我选个去处'}{!busy && <ArrowRight size={16}/>}
             </button>
           </div>
 
@@ -345,20 +348,20 @@ function App() {
         </div>}
 
         {result && !plan && !busy && <div className="empty">
-          <h2>这次搜索未找到符合时间限制的方案</h2>
+          <h2>这段时间里，没找到来得及往返的去处</h2>
           <p>{result.message}</p>
           <div><button className="ghost" onClick={rerollTime}>换个时间</button><button className="text-button" onClick={() => setTraceOpen(true)}>看看哪些被排除了 <ArrowRight size={13}/></button></div>
         </div>}
 
         {plan && req && <article className={`quest ${busy ? 'dim' : ''}`}>
           <header className="quest-head">
-            <span className="quest-no">支线 {String(selected + 1).padStart(2,'0')}</span>
+            <span className="quest-no">方案 {String(selected + 1).padStart(2,'0')}</span>
             <span className={`stamp ${plan.status}`}>{plan.status==='verified' ? <><Check size={12}/>{advisories.length ? '时间可行' : '已核实'}</> : <>? 有待核实</>}</span>
           </header>
 
           <p className="carved">
-            {slot ? <>从<em>{slot}</em>里偷出来的 {duration(questMinutes)}<button className="inferred" title="这是按时间猜的，点一下去掉" onClick={() => setInferenceDismissed(true)}>推断 <X size={10}/></button></>
-              : <>主线之外的 {duration(questMinutes)}</>}
+            {slot ? <><em>{slot}</em> · 空闲 {duration(questMinutes)}<button className="inferred" title="这是按时间猜的，点一下去掉" onClick={() => setInferenceDismissed(true)}>推断 <X size={10}/></button></>
+              : <>空闲 {duration(questMinutes)}</>}
           </p>
           <h2 className="quest-title">{plan.title}</h2>
           <p className="brief">
@@ -376,8 +379,8 @@ function App() {
               </li>)}</ol>
             </section>
             <section>
-              <h3>为什么可能适合你</h3>
-              <p>{req.preference.trim() || result?.agent ? plan.reason : '你还没说想要什么，所以这次说不出它为什么适合你——它只是在这段时间里刚好走得通。'}</p>
+              <h3>为什么推荐</h3>
+              <p>{req.preference.trim() || result?.agent ? plan.reason : '你还没说想做什么，这次只按出发点和空闲时间来选。写一句偏好，会选得更合适。'}</p>
             </section>
             <section className="facts">
               <div><span>路上</span><b>步行 {plan.walking_minutes} 分钟{plan.legs.some(l => l.mode === 'transit') ? ' + 公共交通' : ''}</b></div>
@@ -445,7 +448,7 @@ function App() {
               <button disabled={busy} onClick={()=>revise({deadline:new Date(new Date(req.deadline).getTime()-30*60000).toISOString()})}>早半小时回来</button>
             </div>
 
-            <button className="evidence-toggle" aria-expanded={evidenceOpen} onClick={()=>setEvidenceOpen(!evidenceOpen)}>凭什么说走得通 <ChevronDown size={14} className={evidenceOpen ? 'rotate' : ''}/></button>
+            <button className="evidence-toggle" aria-expanded={evidenceOpen} onClick={()=>setEvidenceOpen(!evidenceOpen)}>查看路线与时间核对 <ChevronDown size={14} className={evidenceOpen ? 'rotate' : ''}/></button>
             {evidenceOpen && <div className="evidence">
               {plan.checks.map((c,i) => <div key={i} className={`check ${c.status}`}><span>{c.status==='pass'?'✓':c.status==='unknown'?'?':'×'}</span><p>{c.detail}</p></div>)}
               <p className="source">{live?'地点来源：OpenStreetMap 快照；路线来源：TfNSW。':'地点来源：OpenStreetMap 快照；路线来源：本地合成回放。'}</p>
@@ -455,6 +458,7 @@ function App() {
         </article>}
       </section>}
     </main>
+    <footer className="site-footer">Sidequest，日常里的小支线。</footer>
 
     {(traceOpen||memoryOpen)&&<div className="drawer-backdrop" onClick={()=>{setTraceOpen(false);setMemoryOpen(false);}}><section className="drawer" role="dialog" aria-modal="true" aria-label={traceOpen?'开发视图':'我的偏好'} onClick={e=>e.stopPropagation()}>
       <div className="drawer-heading"><h2>{traceOpen?'开发视图':'我的偏好'}</h2><button autoFocus className="icon-button" aria-label="关闭面板" onClick={()=>{setTraceOpen(false);setMemoryOpen(false);}}><X size={18}/></button></div>
