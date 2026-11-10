@@ -199,7 +199,6 @@ reports/                评测产物
 - [`docs/architecture.md`](docs/architecture.md)：请求生命周期、模型与执行器的边界、理由与记忆规则、证据与缓存
 - [`docs/evaluation.md`](docs/evaluation.md)：三层评测的完整结果与局限
 - [`docs/data-feasibility.md`](docs/data-feasibility.md)：真实数据探针与许可
-- [`Sidequest_项目计划_v2.md`](Sidequest_项目计划_v2.md)：一页取舍记录——做过哪些决定、为什么
 
 ## 数据来源
 
